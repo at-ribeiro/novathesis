@@ -15,7 +15,17 @@
 
 
 % ITQB-NOVA specific customization
-\ntmemoirsetup{b5paper}
+\ntmemoirsetup{b5paper} % Does not work
+% \setstocksize{9.8in}{6.9in}
+% \settrimmedsize{\stockheight}{\stockwidth}{*}
+% \setlrmarginsandblock{3.5cm}{2.5cm}{*}
+% \setulmarginsandblock{2.5cm}{3.0cm}{*}
+% % \setlrmargins{0in}{*}{*}
+% % \setulmargins{0.8in}{*}{*}
+% \paperwidth=\stockwidth
+% \paperheight=\stockheight
+% \checkandfixthelayout
+
 \openany
 \ntsetup{print/secondcover=true}
 
@@ -55,10 +65,16 @@
 % \thesiscover(msc,1-1,image):={nova-itqb-cover}
 % \thesiscover(msc,N-2,image):={nova-itqb-cover-back}
 
+\providecolor{itqbgray207}{RGB}{207,207,207}
+\providecolor{itqbgray189}{RGB}{189,189,189}
+\providecolor{itqbgray127}{RGB}{127,127,127}
+\providecolor{itqbgray89}{RGB}{89,89,89}
+\providecolor{itqbgray38}{RGB}{38,38,38}
+\providecolor{itqbgray25}{RGB}{25,25,25}
+\providecolor{itqbgreen}{RGB}{39,177,153}
+
 \spine(bg,color)={\theitqbcolor(\option{/novathesis/nova/itqb/cover/color},spine)}
 % \thesiscover(spine,image)={spine}
-
-
 
 % Spine info
 \spine(logo)={\theschool(logo,neg)}
@@ -72,9 +88,11 @@
 
 % \spine(author)={\thedocauthor(name,short)}
 % \spine(title)={\textbf{\thedoctitle(\@LANG@COVER,main)}}
-\spine(date):={\textcolor{itqbgray207}{\theoeiras(),} %
-               \thentdocdate(submission,month,text), \thentdocdate(submission,year)}
-% \spine(date,1):={\theoeiras(), \color{cyan}\thentdocdate(month), \thentdocdate(year)}
+
+\spine(date)={\textcolor{itqbgray207}{\theoeiras()},
+              \csuse{month\romannumeral\thentdocdate(submission,month) name}, \thentdocdate(submission,year)}
+% \spine(date2):={\color{itqbgray207}{\theoeiras(),} %
+%                \thentdocdate(submission,month,text), \thentdocdate(submission,year)}
 
 % \spine(text,angle)={0}
 \spine(box,text,color)={white}
@@ -115,14 +133,6 @@
 \margin(cover,left):={2cm}
 \margin(cover,right):={2cm}
 
-
-\providecolor{itqbgray207}{RGB}{207,207,207}
-\providecolor{itqbgray189}{RGB}{189,189,189}
-\providecolor{itqbgray127}{RGB}{127,127,127}
-\providecolor{itqbgray89}{RGB}{89,89,89}
-\providecolor{itqbgray38}{RGB}{38,38,38}
-\providecolor{itqbgray25}{RGB}{25,25,25}
-\providecolor{itqbgreen}{RGB}{39,177,153}
 
 \newdata{itqbcolor}
 \itqbcolor(gray,front,bar):={itqbgray89}
@@ -189,30 +199,24 @@
 
 
 \ntaddtocover[tikz]{1-1}{%
-  \datamatch{\@MRGN@top}{margin}({cover,\option{/novathesis/doctype},1-1,top},%
-                                       {cover,\option{/@nt/document/docclass},1-1,top},%
-                                       {cover,1-1,top},
-                                       {cover,\option{/novathesis/doctype},top},%
-                                       {cover,\option{/@nt/document/docclass},top},%
-                                       {cover,top})%
-  % \datamatch{\@MRGN@bottom}{margin}({cover,\option{/novathesis/doctype},#1,bottom},%
-  %                                    {cover,\option{/@nt/document/docclass},#1,bottom},%
-  %                                    {cover,\option{/novathesis/doctype},bottom},%
-  %                                     {cover,#1,bottom},
-  %                                    {cover,\option{/@nt/document/docclass},bottom},%
-  %                                    {cover,bottom})%
-  \datamatch{\@MRGN@left}{margin}({cover,\option{/novathesis/doctype},1-1,left},%
-                                       {cover,\option{/@nt/document/docclass},1-1,left},%
-                                       {cover,1-1,left},
-                                       {cover,\option{/novathesis/doctype},left},%
-                                       {cover,\option{/@nt/document/docclass},left},%
-                                       {cover,left})%
-  \datamatch{\@MRGN@right}{margin}({cover,\option{/novathesis/doctype},1-1,right},%
-                                       {cover,\option{/@nt/document/docclass},1-1,right},%
-                                       {cover,1-1,right},
-                                       {cover,\option{/novathesis/doctype},right},%
-                                       {cover,\option{/@nt/document/docclass},right},%
-                                       {cover,right})%
+  % \datamatch{\@MRGN@top}{margin}({cover,\option{/novathesis/doctype},1-1,top},%
+  %                                      {cover,\option{/@nt/document/docclass},1-1,top},%
+  %                                      {cover,1-1,top},
+  %                                      {cover,\option{/novathesis/doctype},top},%
+  %                                      {cover,\option{/@nt/document/docclass},top},%
+  %                                      {cover,top})%
+  % \datamatch{\@MRGN@left}{margin}({cover,\option{/novathesis/doctype},1-1,left},%
+  %                                      {cover,\option{/@nt/document/docclass},1-1,left},%
+  %                                      {cover,1-1,left},
+  %                                      {cover,\option{/novathesis/doctype},left},%
+  %                                      {cover,\option{/@nt/document/docclass},left},%
+  %                                      {cover,left})%
+  % \datamatch{\@MRGN@right}{margin}({cover,\option{/novathesis/doctype},1-1,right},%
+  %                                      {cover,\option{/@nt/document/docclass},1-1,right},%
+  %                                      {cover,1-1,right},
+  %                                      {cover,\option{/novathesis/doctype},right},%
+  %                                      {cover,\option{/@nt/document/docclass},right},%
+  %                                      {cover,right})%
     % Text in rectangle
   \setbox0=\hbox{\scalebox{2.15}{\bfseries\thentdocdate(submission,year)}}
   \begin{scope}[shift=(current page.north west), xshift=\@MRGN@left]

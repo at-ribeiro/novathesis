@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% spine.tex
 %% NOVA thesis document template
 %%
@@ -47,6 +47,7 @@
 \spine(margin,bottom):=?{1mm}
 \spine(margin,left):=?{0.5cm}
 \spine(margin,right):=?{0.5cm}
+\spine(tikzbg):=?{}
 
 % Defaults for spine boxes
 \spine(box,margin):=?{0.5mm}
@@ -160,7 +161,7 @@
 }
 
 \newcommand{\ifnotnone}[2]{%
-  \IfStrEq{none}{#1}{}{#2}%
+  \IfStrEq{#1}{none}{}{#2}%
 }
 
 
@@ -324,14 +325,16 @@
   \thispagestyle{empty}%
   \NTRunHook{spine/pre}%
   % \PAUSETHIS
-  \ifoptionequal{/novathesis/spine/layout}{trim}{\@tempdima=0pt}{\@tempdima=\dimexpr(\stockheight-\@spinewidth)/2\relax}%
+ \ifoptionequal{/novathesis/spine/layout}{trim}
+               {\@tempdima=0pt}
+               {\@tempdima=\dimexpr(\stockheight-\@spinewidth)/2\relax}%
   \begin{tikzpicture}[remember picture, overlay,yscale=-1,yshift=-10.75pt+\@tempdima]%
     % print spine bg color IF DEFINED
     \datamatchtf{\arg}{spine}(%
                       {\@DOCTYPE,bg,color},%
                       {\@DOCCLASS,bg,color},%
                       {bg,color}%
-    ){\ifnotnone{\arg}{\fill [color=\arg] (0,0) rectangle (\paperwidth,\paperheight);}}{%
+    ){\ifnotnone{\arg}{\pagecolor{\arg}}}{%
       \ClassError{novathesis}{Undefined spine “bg,color”}{}%
     }%
     % print frame IF DEFINED
@@ -469,7 +472,7 @@
     % TEXT
     \rotatebox[origin=c]{\@angle}{%
     \scalebox{\@fbratio}{%
-      \datamatchtf{\arg}{spine}({box,#1,text,color},{box,text,color},{text,color}){\color{\arg}}{}%
+      \datamatchtf{\arg}{spine}({box,#1,text,gz},{box,text,color},{text,color}){\color{\arg}}{}%
       \ifdatadefined{spine}(#1,\@UNIV/\@SCHL){%
         \tabular{@{}c@{}}\thespine(#1,\@UNIV/\@SCHL)\endtabular%
       }{%

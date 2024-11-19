@@ -8,7 +8,7 @@
 %% To view a copy of this license, visit
 %% https://www.latex-project.org/lppl/lppl-1-3c/
 %%
-%% Version 2024-09-09 [7.1.29]
+%% Version 2024-11-03 [7.2.5]
 %% Departamento de Informática (www.di.fct.unl.pt)
 %% Faculdade de Ciências e Tecnologia (www.fct.unl.pt)
 %% Universidade NOVA de Lisboa (www.unl.pt)
@@ -54,7 +54,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\ProvidesClass{novathesis}[2024-09-09 novathesis template]
+\ProvidesClass{novathesis}[2024-11-03 novathesis template]
 \NeedsTeXFormat{LaTeX2e}[2020-02-02]
 
 
@@ -213,7 +213,9 @@
   % abstract/theorder/.new list   = {unset},
   abstractorder/.new cmd        = {\appto\@nt@saveabstractorder{{#1},}},%
   % SCHOOL
-  school/.new cmd               = {\StrCut{#1}{/}\@UNIV\@SCHL\StrCut{\@SCHL}{/}\@SCHL\@DEGREEACR%
+  schoolgiven/.new value        = {},
+  school/.new cmd               = {\optionsalso{/novathesis/schoolgiven=#1}%
+                                   \StrCut{#1}{/}\@UNIV\@SCHL\StrCut{\@SCHL}{/}\@SCHL\@DEGREEACR%
                                    \@validate@ltx@processor{\@UNIV}{\@SCHL}{\@DEGREEACR}},
   school                        = nova/fct,
   % STYLES
@@ -257,6 +259,11 @@
   % DEBUG
   debug/.new list               = {},         % cover, index
 % SCHOOL specific customization
+% NOVA/FCT
+  nova/fct/company/logo/.new value              = {},
+  nova/fct/company/name/.new value              = {},
+% NOVA/IMS
+  nova/ims/sdg/.new list                       = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17},
 % NOVA/ITQB
   nova/itqb/cover/color/.new choice            = {gray, green},
 % UMINHO
@@ -455,6 +462,13 @@
   \fullexpandarg
 }
 
+\def\ntresetperson#1(#2,#3){%
+  % #1 = class
+  \option@setnil{/@nt/#1/#2/name}%
+  \option@setnil{/@nt/#1/#2/full}%
+  \option@setnil{/@nt/#1/#2/gender}%
+}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% MANAGE FILE LISTS
@@ -522,6 +536,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand*{\initmemory}[2][\embrace{\thenotdefined(\@LANG@COVER)}]{%
   \optionlistdo{/@nt/lang/short}{\csuse{#2}(##1):={#1}}}
+
 
 % For PDF bookmakrs
 \newdata{bkmstring}
@@ -903,6 +918,7 @@
 %--------------------------------
 % TIKZ
 \RequirePackage{tikz}
+\usetikzlibrary{calc}
 
 %%%%% Fine tuning of typesetting
 \ifxeorlua{%
@@ -934,13 +950,14 @@
 % --------------------------------------------------------
 % Degree
 \def\ntmajorfield{\@ifstar{\@ntmajorfieldifundef}{\@ntmajorfield}}
+  % #1 = lang
+  % #2 = value
 \def\@ntmajorfieldifundef(#1)#2{\ifdatadefined{majorfield}(#1){}{\@ntmajorfield(#1){#2}}}
 \def\@ntmajorfield(#1)#2{\majorfield(#1):={#2}}
 
 \def\ntdegreename{\@ifstar{\@ntdegreenameifundef}{\@ntdegreename}}
 \def\@ntdegreenameifundef(#1)#2{\ifdatadefined{degreename}(#1){}{\@ntdegreename(#1){#2}}}
 \def\@ntdegreename(#1)#2{%
-  % #1 = ignored
   % #1 = lang
   % #2 = value
   \datamatch{\match}{degreenameprefix}(%
@@ -961,9 +978,9 @@
 \def\@ntminorfield(#1)#2{\minorfield(#1):={#2}}
 
 \def\ntspecialization{\@ifstar{\@ntspecializationifundef}{\@ntspecialization}}
-\def\@ntspecializationifundef(#1)#2{\ifdatadefined{specialization}(#1){}{\@ntspecialization(#1){#2}}}
+\def\@ntspecializationifundef(#1)#2{\ifdatadefined{minorfield}(#1){}{\@ntspecialization(#1){#2}}}
 \def\@ntspecialization(#1)#2{%
-  \datamatch{\match}{specializationstring}(%
+  \datamatch{\specmatch}{specializationstring}(%
             {\@DOCTYPE,\@DEGREEACR,\@LANG@COVER},%
             {\@DOCCLASS,\@DEGREEACR,\@LANG@COVER}%
             {\@DEGREEACR,\@LANG@COVER},%
@@ -971,8 +988,8 @@
             {\@DOCCLASS,\@LANG@COVER},%
             {\@LANG@COVER}%
   )%
-  \ifblank{\match}{\specialization(#1):={#2}}{\specialization(#1):={\match\ #2}}%
-  \minorfield*(#1):={#2}%
+  \ifblank{\match}{\specialization(#1)={#2}}{\specialization(#1)={\specmatch\ #2}}%
+  \minorfield(#1)={#2}%
 }
 
 % --------------------------------------------------------
@@ -1006,43 +1023,33 @@
 %============================================================
 % Date and month
 \newdata{ntdocdate}
-\ntdocdate(submission,year):={year}
-\ntdocdate(submission,month):={month}
-\ntdocdate(submission,day):={day}
-\ntdocdate(exam,year):={year}
-\ntdocdate(exam,month):={month}
-\ntdocdate(exam,day):={day}
 
 \def\ntdate{%
   \@ifnextchar({\@ntdate@i}{\@ntdate@i(submission)}%
 }
 
+% \usepackage{pgfcalendar} % For converting month names
+
+\newcommand{\monthtotext}[1][\month]{\csuse{month\romannumeral#1 name}}
+
 \def\@ntdate@i(#1)#2{%
   \StrCut{#2}{-}\@NTDY\@NTDM%
   \StrCut{\@NTDM}{-}\@NTDM\@NTDD%
   % \typeout{NTD(#1) Y=[\@NTDY] M=[\@NTDM] D=[\@NTDD]}\NTDATE%
+  \ntdocdate(#1):={#2}%
   \ntdocdate(#1,year):={\@NTDY}%
   \ntdocdate(#1,month):={\@NTDM}%
   \ntdocdate(#1,day):={\@NTDD}%
   \@for\myi:={year,month,day}\do{%
-    \IfStrEq{\thentdocdate(#1,\myi)}{\myi}{}{%
-      \IfInteger{\thentdocdate(#1,\myi)}{}{\ClassError{The \myi\space(\thentdocdate(#1,\myi)) in \string\ntdocdate(#1){#2} is not a number!}{}{}}%
-    }%
+    \IfInteger{\thentdocdate(#1,\myi)}{}
+              {\ClassError{The \myi in \string\ntdocdate(#1){#2} is not a number!}{}{}}%
   }%
+  % \ntdocdate(#1,month,text):={\pgfcalendarmonthname{\thentdocdate(#1,month)}}%
+  \ntdocdate(#1,month,text):={\monthtotext[\@NTDM]}%
 }
-
-% \def\ntdate#1{\@ntdate@i#1--\@relax}
-% \def\@ntdate@i#1-#2\@relax{\@ntdate@ii#1-#2-\@relax}
-% \def\@ntdate@i#1-#2-#3\@relax{%
-%   % year           -> [year] [] []
-%   % year-month     -> [year] [month] [-]
-%   % year-month-day -> [year] [month] [day--]
-%   % \typeout{NTDOCDATE [#1] [#2] [#3]}\NTDOCDATE
-%   \ntdocdate(year):={#1}%
-%   \ntdocdate(month):={#2}%
-%   \ifstrequal{#3}{-}{\ntdocdate(day):={}}%
-%                     {\StrGobbleRight{#3}{2}[\@nt@date@day]\ntdocdate(day):={\@nt@date@day}}%
-% }
+\ntdocdate(default):={2000-09-01}
+\ntdate(submission){\thentdocdate(default)}
+\ntdate(exam){\thentdocdate(default)}
 
 
 %============================================================
@@ -1207,9 +1214,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand*{\ntresetcovers}{%
   \@for\arg:={1-1,1-2,2-1,2-2,N-1,N-2}\do{%
-    \option@setnil{/@nt/cover/\@UNIV/\@SCHL/\arg}%
+    \ntresetonecover{\arg}%
   }%
 }
+
+\newcommand*{\ntresetonecover}[1]{%
+    \option@setnil{/@nt/cover/\@UNIV/\@SCHL/#1}%
+}
+
 
 \newcommand*{\ntaddtocover}[3][]{%
   % #1 = cover atrtibutes
@@ -1225,8 +1237,57 @@
   % #1 = cover atrtibutes
   % #2 = the block code
   % #3 = covers where the code block should be applied
-  \ntfor\arg:={#3}\do{\options{/@nt/cover/\@UNIV/\@SCHL/\arg/.newpush={{#1}\@nil{#2}}}}%
+  \options{/@nt/cover/\@UNIV/\@SCHL/#3/.newpush={{#1}\@nil{#2}}}%
 }
+
+%==========================================
+\NewDocumentCommand{\ntAddToCoverTikz}{d<>O{}r()O{}mm}{%
+  % #1=Command
+  % #2=Options
+  % #3=Position
+  % #4=Rest of command
+  % #5=CIDLIST
+  % #6=Code
+  \ntfor\cvids:={#5}\do{\ntAddToOneCoverTikz{#1}{#2}{#3}{#4}{\cvids}{#6}}%
+}
+
+\NewDocumentCommand{\ntAddToOneCoverTikz}{mmmmmm}{%
+  % #1=Command
+  % #2=Options
+  % #3=Position
+  % #4=Rest of command
+  % #5=CID
+  % #6=Code
+  \options{/@nt/coverTikz/\@UNIV/\@SCHL/#5/.newpush={{#1}\@nil{#2}\@nil{#3}\@nil{#4}\@nil{#6}}}%
+}
+
+\NewDocumentCommand{\printCoverTikz}{m}{%
+  % #1 = cover ID (major-minor)
+  % \typeout{@NTCOVERTEXT 1=[#1]}\@NTCOVERTEXT%
+  \ifoptiondefined{/@nt/coverTikz/\@UNIV/\@SCHL/#1}{%
+    \NTRunHook{coverTikz/#1/text/pre}%
+    \begin{tikzpicture}[remember picture, overlay, yscale=-1, every node/.style={inner sep=0pt}]%
+      \optionlistdo{/@nt/coverTikz/\@UNIV/\@SCHL/#1}{%
+        \printCoverElementTikz#1\@nil##1%
+      }%
+    \end{tikzpicture}%
+    \NTRunHook{coverTikz/#1/text/post}%
+  }{}%
+}
+
+\def\printCoverElementTikz#1\@nil#2\@nil#3\@nil#4\@nil#5\@nil#6{%
+  % #1=CID
+  % #2=Command
+  % #3=Options
+  % #4=Position
+  % #5=Rest of command
+  % #6=Code
+  % \node[inner sep=0,#2] at (#1) {Pos=[#1] Opt=[#2] CID=[#3] COD=[#4]};
+  % \typeout{ CID=[#1] CMD=\string#2[#3] at (#4) --#5--}\TIKZCOVER
+  \IfNoValueTF {#2} {\node[#3] at (#4) #5 {#6}} {#2[#3] (#4) #5};
+}
+%==========================================
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1234,7 +1295,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ntfor\match:={\@UNIV,\@UNIV/\@SCHL}\do{%
     \IfFileExists{NOVAthesisFiles/Schools/\match/Images/DO_NOT_REMOVE_THIS_FILE.txt}{%
-            \prependtographicspath{{NOVAthesisFiles/Schools/\match/Images/}}}{}}
+            \prependtographicspath{{NOVAthesisFiles/Schools/\match/Images/},}}{}%
+}
 
 
 %============================================================
@@ -1310,18 +1372,6 @@
 
 % Patch month from number to string in the proper language
 \ntselectlang{\@LANG@COVER}%
-\usepackage{pgfcalendar} % LATEX
-
-\@for\myi:={submission,exam}\do{%
-  \IfInteger{\thentdocdate(\myi,month)}{%
-    \ntdocdate(\myi,month,text):={\pgfcalendarmonthname{\thentdocdate(\myi,month)}}%
-  }{%
-    \ntdocdate(\myi,month,text):={\thentdocdate(\myi,month)}%
-  }
-}
-% \IfInteger{\option{/novathesis/examdate/month}}{%
-%   \options{/novathesis/examdate/month=\pgfcalendarmonthname{\option{/novathesis/examdate/month}}}%
-% }{}
 
 %============================================================
 %  THESIS/DISSERTATION FILES
@@ -1540,6 +1590,7 @@
   \endgroup%
   \setcounter{page}{1}%
   \iftoggle{/novathesis/countsecondcover}{\stepcounter{page}}{}%
+  \pagecolor{white}%
 }
 
 \newcommand{\ntprintcoverpair}[1]{%
@@ -1577,29 +1628,68 @@
   \begingroup%
     \NTRunHook{cover/pre}%
     \NTRunHook{cover/#1/pre}%
-    \datamatchtf{\match}{thesiscover}(%
-                {\@DOCTYPE,\@DEGREEACR,#1,textcolor}%
-               ,{\@DOCCLASS,\@DEGREEACR,#1,textcolor}%
-               ,{\@DEGREEACR,#1,textcolor}%
-               ,{\@DEGREEACR,textcolor}%
-               ,{\@DOCTYPE,#1,textcolor}%
-               ,{\@DOCCLASS,#1,textcolor}%
-               ,{#1,textcolor}%
-               ,{textcolor}%
-    ){\color{\match}}{}%
     \pdfbookmark[1]{\thebkmstring(#1)}{\thebkmstring(#1)}%
-    \@ntmakeboxwithcover{#1}{\@fullcover@box}%
+    \thispagestyle{empty}%
+    \setCoverBgColor{#1}%
+    \setCoverBgImage{#1}%
+    \prrintCoverText{#1}%
+    % \@ntmakeboxwithcover{#1}{\@fullcover@box}%
+    \printCoverTikz{#1}%
     \NTRunHook{cover/#1/post}%
     \NTRunHook{cover/post}%
   \endgroup%
   \ifoptionequal{/novathesis/media}{paper}{\newpage ~\thispagestyle{empty}\newpage}{\clearforchapter}
 }
 
-\newcommand{\@covertikzlist}{}
-\newcommand{\@ntmakeboxwithcover}[2]{%
-  % #1 = cover ID (major-minor)
-  % #2 = box name
-  % \typeout{NTMAKEBOXWITHCOVER 1=[#1]}\NTMAKEBOXWITHCOVER%
+\newcommand{\setCoverBgColor}[1]{
+  \null%
+  \NTRunHook{cover/#1/bgcolor/pre}%
+  \datamatchtf{\match}{thesiscover}(%
+    {\@DOCTYPE,\@DEGREEACR,#1,bgcolor}%
+   ,{\@DOCCLASS,\@DEGREEACR,#1,bgcolor}%
+   ,{\@DEGREEACR,#1,bgcolor}%
+   ,{\@DEGREEACR,bgcolor}%
+   ,{\@DOCTYPE,#1,bgcolor}%
+   ,{\@DOCCLASS,#1,bgcolor}%
+   ,{#1,bgcolor}%
+   ,{bgcolor}%
+  ){\pagecolor{\match}}{\pagecolor{white}}%
+  \NTRunHook{cover/#1/bgcolor/post}%
+}
+
+\newcommand{\setCoverBgImage}[1]{
+  \null%
+  \NTRunHook{cover/#1/image/pre}%
+  \datamatchtf{\match}{thesiscover}(%
+    {\@DOCTYPE,\@DEGREEACR,#1,image}%
+   ,{\@DOCCLASS,\@DEGREEACR,#1,image}%
+   ,{\@DEGREEACR,#1,image}%
+   ,{\@DEGREEACR,image}%
+   ,{\@DOCTYPE,#1,image}%
+   ,{\@DOCCLASS,#1,image}%
+   ,{#1,image}%
+   ,{image}%
+  ){%
+    \begin{tikzpicture}[remember picture, overlay]%
+      \node[anchor=center] at (current page.center) 
+              {\includegraphics[width=\paperwidth,height=\paperheight]{\match}};
+    \end{tikzpicture}%
+  }{}%
+  \NTRunHook{cover/#1/image/post}%
+}
+
+\newcommand{\prrintCoverText}[1]{
+  \null%
+  \datamatchtf{\match}{thesiscover}(%
+              {\@DOCTYPE,\@DEGREEACR,#1,textcolor}%
+             ,{\@DOCCLASS,\@DEGREEACR,#1,textcolor}%
+             ,{\@DEGREEACR,#1,textcolor}%
+             ,{\@DEGREEACR,textcolor}%
+             ,{\@DOCTYPE,#1,textcolor}%
+             ,{\@DOCCLASS,#1,textcolor}%
+             ,{#1,textcolor}%
+             ,{textcolor}%
+  ){\color{\match}}{}%
   \@for\myi:={top,bottom,left,right}\do{%
     \expandafter\datamatch\csname @MRGN@\myi\endcsname{margin}(%
       {cover,\@DOCTYPE,\@DEGREEACR,#1,\myi},%
@@ -1615,86 +1705,25 @@
       {cover,\@DOCCLASS,\myi},%
       {cover,\myi})%
   }%
-  \@ntmakecoverbgcolor{#1}{\@cover@bgcolor@box}%
-  \@ntmakecoverimage{#1}{\@cover@image@box}%
-  \@ntmakecovertext{#1}{\@cover@text@box}%
-  \thispagestyle{empty}%
-  \begin{tikzpicture}[remember picture, overlay]
-    \node[inner sep=0, anchor=north]  at (current page.north)
-            {\usebox{\@cover@bgcolor@box}};
-    \node[inner sep=0, anchor=north]  at (current page.north)
-            {\usebox{\@cover@image@box}};
-    \@ifmtarg{\@covertikzlist}{\VOID}{\@covertikzlist}
-    \node[inner sep=0, anchor=north west,
-          xshift=\@MRGN@left,
-          yshift=-\@MRGN@top] at (current page.north west)
-      {\usebox{\@cover@text@box}};
-  \end{tikzpicture}%
+  \newdimen{\covertextheight}%
+  \newdimen{\covertextwidth}%
+  \covertextheight=\dimexpr\paperheight-\@MRGN@top-\@MRGN@bottom\relax%
+  \covertextwidth=\dimexpr\paperwidth-\@MRGN@left-\@MRGN@right\relax%
   \ifoptioncontains{/novathesis/debug}{cover}{%
     \NTRunHook{cover/#1/grid/pre}%
     \debuggrid%
     \NTRunHook{cover/#1/grid/post}%
   }{}%
-}
-
-\newcommand*{\@ntmakecoverbgcolor}[2]{%
-  % #1 = cover ID (major-minor)
-  % #2 = box name
-  \defifundef{#2}{\newsavebox}%
-  \datamatchtf{\match}{thesiscover}(%
-    {\@DOCTYPE,\@DEGREEACR,#1,bgcolor}%
-   ,{\@DOCCLASS,\@DEGREEACR,#1,bgcolor}%
-   ,{\@DEGREEACR,#1,bgcolor}%
-   ,{\@DEGREEACR,bgcolor}%
-   ,{\@DOCTYPE,#1,bgcolor}%
-   ,{\@DOCCLASS,#1,bgcolor}%
-   ,{#1,bgcolor}%
-   ,{bgcolor}%
-  ){\savebox{#2}{\@ntcoverbgcolor@i{#1}{\match}}}{}%
-}
-
-\newcommand*{\@ntcoverbgcolor@i}[2]{%
-  % #1 = cover ID (major-minor)
-  % #2 = color
-  \begingroup%
-  \color{#2}%
-  \NTRunHook{cover/#1/bgcolor/pre}%
-  \rule{\paperwidth}{\paperheight}%
-  \NTRunHook{cover/#1/gcolor/post}%
-  \endgroup%
-}
-
-\newcommand*{\@ntmakecoverimage}[2]{%
-  % #1 = cover ID (major-minor)
-  % #2 = box name
-  \NTRunHook{cover/#1/image/pre}%
-  \defifundef{#2}{\newsavebox}%
-  \datamatchtf{\match}{thesiscover}(%
-    {\@DOCTYPE,\@DEGREEACR,#1,image}%
-   ,{\@DOCCLASS,\@DEGREEACR,#1,image}%
-   ,{\@DEGREEACR,#1,image}%
-   ,{\@DEGREEACR,image}%
-   ,{\@DOCTYPE,#1,image}%
-   ,{\@DOCCLASS,#1,image}%
-   ,{#1,image}%
-   ,{image}%
-  ){\savebox{#2}{\includegraphics[width=\paperwidth,height=\paperheight]{\match}}}{}%
-  % \ifdatadefined{thesiscover}(phd,1-1,bgcolor){}{}%
-  \NTRunHook{cover/#1/image/post}%
-}
-
-\newcommand{\@ntmakecovertext}[2]{%
-  % #1 = cover ID (major-minor)
-  % #2 = box name
-  \defifundef{#2}{\newsavebox}%
-  \ifoptiondefined{/@nt/cover/\@UNIV/\@SCHL/#1}{%
-    \begin{lrbox}{#2}%
-      \begin{minipage}[l][\dimexpr\paperheight-\@MRGN@top-\@MRGN@bottom]%
-                      {\dimexpr\paperwidth-\@MRGN@left-\@MRGN@right}%
+  \begin{tikzpicture}[remember picture, overlay]%
+    \node[anchor=north west,inner sep=0,xshift=\@MRGN@left, yshift=-\@MRGN@top] 
+          at (current page.north west) {%
+      \begin{minipage}[t][\covertextheight]%
+                      [t]{\covertextwidth}%
         \@ntcovertext{#1}%
       \end{minipage}%
-    \end{lrbox}%
-  }{}%
+    };
+    \expandafter\@ifmtarg\expandafter{\csname @covertikzlist#1\endcsname}{}{\csuse{@covertikzlist@#1}}%
+  \end{tikzpicture}%
 }
 
 \newcommand{\@ntcovertext}[1]{%
@@ -1712,35 +1741,34 @@
   \ifblank{#3}{}{%
     \options{/@ntcoveropts, defaults, #2, alignmap=\option{/@ntcoveropts/halign}}%
     % \typeout{@ntcoverelement@iii 1=[#1] 2=[#2] tikz=\option{/@ntcoveropts/tikz}}\@NTCOVERELEMENT@III
-    \iftoggle{/@ntcoveropts/tikz}{%
-      % \typeout{TIKZ ADD [/@nt/cover/\@UNIV/\@SCHL/#1/tikz]}\TIKZ%
-      \gappto{\@covertikzlist}{#3}%
-      % \optionlistdo{{\option{/@nt/cover/\@UNIV/\@SCHL/#1/tikz}}}{\typeout{##1}\VVVVVVV}
-    }{%
-      \defifundef{\ifmatchstatus}{\newif}%
-      \defifundef{\ifmatchdegree}{\newif}%
-      \matchstatustrue%
-      \matchdegreetrue%
-      \if&\option{/@ntcoveropts/status}&\relax%
+    \defifundef{\ifmatchstatus}{\newif}%
+    \defifundef{\ifmatchdegree}{\newif}%
+    \matchstatustrue%
+    \matchdegreetrue%
+    \if&\option{/@ntcoveropts/status}&\relax%
+    \else%
+      \if\instring{,\@DOCSTATUS,}{,\option{/@ntcoveropts/status},}%
       \else%
-        \if\instring{,\@DOCSTATUS,}{,\option{/@ntcoveropts/status},}%
-        \else%
-          \matchstatusfalse%
-        \fi%
+        \matchstatusfalse%
       \fi%
-      \if&\option{/@ntcoveropts/degree}&\relax%
+    \fi%
+    \if&\option{/@ntcoveropts/degree}&\relax%
+    \else%
+      \if\instring{/\@DOCTYPE/}{/\option{/@ntcoveropts/degree}/}%
       \else%
-        \if\instring{/\@DOCTYPE/}{/\option{/@ntcoveropts/degree}/}%
-        \else%
-          \matchdegreefalse%
-        \fi%
+        \matchdegreefalse%
       \fi%
-      \ifmatchstatus%
-        \ifmatchdegree%
+    \fi%
+    \ifmatchstatus%
+      \ifmatchdegree%
+        \iftoggle{/@ntcoveropts/tikz}{%
+          % \typeout{TIKZ ADD [@covertikzlist@#1]}\TIKZ%
+          \expandafter\gappto\expandafter{\csname @covertikzlist@#1\endcsname}{#3}%
+        }{%
           \@ntcoverelement@ii{#1}{#3}%
-        \fi%
+        }%
       \fi%
-    }%
+    \fi%
   }%
 }
 
@@ -1826,6 +1854,7 @@
     \ntforbreak%
   }%
 }
+
 \newcommand{\@ntcoverelement@ii}[2]{%
   % #1 = cover ID (major-minor)
   % #2 = code
@@ -1914,12 +1943,12 @@
         \NTRunHook{statement/pre}%
         \iffileadded{statement}{}{%ELSE
           \ntfor\match:={%
-            \@SCHL/statement-\@DEGREEACR-\@LANG@MAIN,%
-            \@SCHL/statement-\@DEGREEACR,%
-            \@SCHL/statement-\@LANG@MAIN,%
-            \@SCHL/statement,%
-            statement-\@LANG@MAIN,%
-            statement%
+            \@SCHL/\@UNIV-\@SCHL-\@DEGREEACR-\@LANG@MAIN-statement,%
+            \@SCHL/\@UNIV-\@SCHL-\@DEGREEACR-statement,%
+            \@SCHL/\@UNIV-\@SCHL-\@LANG@MAIN-statement,%
+            \@SCHL/\@UNIV-\@SCHL-statement,%
+            \@UNIV-\@LANG@MAIN-statement,%
+            \@UNIV-statement,%
           }\do{%
             \IfFileExists{NOVAthesisFiles/Schools/\@UNIV/\match.tex}{%
               \ntaddfile{statement}{NOVAthesisFiles/Schools/\@UNIV/\match.tex}%
@@ -1991,7 +2020,7 @@
           {1}{\@ntprintpersonsasonecolumn{#1}{#2}{#5}{#6}}%
           {2}{\@ntprintpersonsastwocolumns{#1}{#5}{#6}}%
         }[\ClassError{novathesis}{Ivalid argument [#4] to \string\ntprintpersons{#1}{#2}{#4}{#5}{#6}}{}]%
-      \end{varwidth}
+      \end{varwidth}%
     \end{minipage}%
   }{}%
 }
@@ -2112,19 +2141,23 @@
 \newcommand{\@nt@printgrouptitle@text}[2]{%
   % #1 = {adviser | committee}
   % #2 = {a,c} | {c,r,a,m,g}
-\ifoptiondefined{/@nt/#1/#2/full}{%
+  \ifoptiondefined{/@nt/#1/#2/full}{%
+  \ifnum\value{\option{/@nt/#1/#2/full/@size}}>0\relax%
+  % \typeout{/@nt/#1/#2/full=\arabic{\option{/@nt/#1/#2/full/@size}}}\AAAAA
     \@nt@reducegender{/@nt/#1/#2/gender}{\@nt@advgender}%
     \@nt@reducenumber{/@nt/#1/#2/full}{\@nt@advnumber}%
     \bgroup%
       \datadefault{#1stringfont}(#2)%
       \datadefault{#1string}(#2,\@nt@advnumber,\@nt@advgender,\@LANG@COVER)%
     \egroup%
+  \fi%
   }{}%
 }
 
 \newcommand{\@nt@printgrouptitle}[2]{%
   % #1 = {adviser | committee}
   % #2 = {a,c} | {c,r,a,m,g}
+  \ifnum\value{\option{/@nt/#1/#2/full/@size}}>0\relax%
   \@nt@reducegender{/@nt/#1/#2/gender}{\@nt@advgender}%
   \@nt@reducenumber{/@nt/#1/#2/full}{\@nt@advnumber}%
   \datadefault{#1stringpre}(#2)%
@@ -2133,6 +2166,7 @@
     \datadefault{#1string}(#2,\@nt@advnumber,\@nt@advgender,\@LANG@COVER)%
   \egroup%
   \datadefault{#1stringpost}(#2)%
+  \fi%
 }
 
 \newcommand{\@nt@ntprintpersongroup}[4][full]{%
@@ -2141,6 +2175,7 @@
   % #3 = {adviser | committee}
   % #4 = {a,c} | {c,r,a,m,g}
   \ifoptiondefined{/@nt/#3/#4/full}{%
+  \ifnum\value{\option{/@nt/#3/#4/full/@size}}>0\relax%
     % \typeout{NTPRINTPERSONGROUP 1=[#1] 2=[#2] 3=[#3] 4=[#4]}\NTPRINTPERSONGROUP
     \@nt@printgrouptitle{#3}{#4}%
     \begin{varwidth}[t]{\linewidth-\maxlen}%
@@ -2152,6 +2187,7 @@
       }%
     \end{varwidth}%
     \thepersongrouppost()%
+  \fi%
   }{}%
 }
 
@@ -2306,6 +2342,8 @@
 \newcounter{pdfnewlytlevel}
 \RequirePackage{atbegshi}
 \newenvironment{newpdflayout}[3][]{%
+  % #1 = page height
+  % #2 = page width
   % \typeout{textheight=\the\textheight}
   % \typeout{textwidth=\the\textwidth}
   % \AAAA
