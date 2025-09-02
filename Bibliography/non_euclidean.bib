@@ -62,6 +62,13 @@
  year	= "2022"
 }
 
+@unknown{Rebelo2024b,
+author = {Rebelo, Ana Rita and Nóbrega, Rui},
+year = {2024},
+month = {12},
+pages = {},
+title = {Non-Euclidean Navigation: Enabling Virtual Environment Walking in Small Physical Spaces}
+}
 
 @misc{Suma2012,
    abstract = {Walking is only possible within immersive virtual environments that fit inside the boundaries of the user's physical workspace. To reduce the severity of the restrictions imposed by limited physical area, we introduce "impossible spaces," a new design mechanic for virtual environments that wish to maximize the size of the virtual environment that can be explored with natural locomotion. Such environments make use of self-overlapping architectural layouts, effectively compressing comparatively large interior environments into smaller physical areas. We conducted two formal user studies to explore the perception and experience of impossible spaces. In the first experiment, we showed that reasonably small virtual rooms may overlap by as much as 56% before users begin to detect that they are in an impossible space, and that the larger virtual rooms that expanded to maximally fill our available 9.14m x 9.14m workspace may overlap by up to 31%. Our results also demonstrate that users perceive distances to objects in adjacent overlapping rooms as if the overall space was uncompressed, even at overlap levels that were overtly noticeable. In our second experiment, we combined several well-known redirection techniques to string together a chain of impossible spaces in an expansive outdoor scene. We then conducted an exploratory analysis of users' verbal feedback during exploration, which indicated that impossible spaces provide an even more powerful illusion when users are naive to the manipulation.},
@@ -208,7 +215,1667 @@ series = {UIST '18}
 }
 
 
+IEEEexample.bib 
+V1.12 (2007/01/11)
+Copyright (c) 2002-2007 by Michael Shell
+See: http://www.michaelshell.org/
+for current contact information.
 
+This is an example BibTeX database for the official IEEEtran.bst
+BibTeX style file.
+
+Some entries call strings that are defined in the IEEEabrv.bib file.
+Therefore, IEEEabrv.bib should be loaded prior to this file. 
+Usage: 
+
+\bibliographystyle{./IEEEtran}
+\bibliography{./IEEEabrv,./IEEEexample}
+
+
+Support sites:
+http://www.michaelshell.org/tex/ieeetran/
+http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
+and/or
+http://www.ieee.org/
+
+*************************************************************************
+Legal Notice:
+This code is offered as-is without any warranty either expressed or
+implied; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE! 
+User assumes all risk.
+In no event shall IEEE or any contributor to this code be liable for
+any damages or losses, including, but not limited to, incidental,
+consequential, or any other damages, resulting from the use or misuse
+of any information contained here.
+
+All comments are the opinions of their respective authors and are not
+necessarily endorsed by the IEEE.
+
+This work is distributed under the LaTeX Project Public License (LPPL)
+( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+distributed and modified. A copy of the LPPL, version 1.3, is included
+in the base LaTeX documentation of all distributions of LaTeX released
+2003/12/01 or later.
+Retain all contribution notices and credits.
+** Modified files should be clearly indicated as such, including  **
+** renaming them and changing author support contact information. **
+
+File list of work: IEEEabrv.bib, IEEEfull.bib, IEEEexample.bib,
+                   IEEEtran.bst, IEEEtranS.bst, IEEEtranSA.bst,
+                   IEEEtranN.bst, IEEEtranSN.bst, IEEEtran_bst_HOWTO.pdf
+*************************************************************************
+
+
+Note that, because the example references were taken from actual IEEE
+publications, these examples do not always contain the full amount
+of information that may be desirable (for use with other BibTeX styles).
+In particular, full names (not abbreviated with initials) should be
+entered whenever possible as some (non-IEEE) bibliography styles use
+full names. IEEEtran.bst will automatically abbreviate when it encounters
+full names.
+
+An example of a IEEEtran control entry which can change some IEEEtran.bst
+settings. An entry like this must be cited via \bstctlcite{} command
+before the first real \cite{}. The same entry key cannot be called twice
+(just like multiple \cite{} of the same entry key place only one entry
+in the bibliography.)
+The available control fields are:
+
+CTLuse_article_number
+"no" turns off the display of the number for articles.
+"yes" enables
+
+CTLuse_paper
+"no" turns off the display of the paper and type fields in inproceedings.
+"yes" enables
+
+CTLuse_forced_etal 
+"no" turns off the forced use of "et al."
+"yes" enables
+
+CTLmax_names_forced_etal
+The maximum number of names that can be present beyond which an "et al."
+usage is forced. Be sure that CTLnames_show_etal (below)
+is not greater than this value!
+
+CTLnames_show_etal
+The number of names that will be shown with a forced "et al.".
+Must be less than or equal to CTLmax_names_forced_etal
+
+CTLuse_alt_spacing 
+"no" turns off the alternate interword spacing for entries with URLs.
+"yes" enables
+
+CTLalt_stretch_factor
+If alternate interword spacing for entries with URLs is enabled, this is
+the interword spacing stretch factor that will be used. For example, the
+default "4" here means that the interword spacing in entries with URLs can
+stretch to four times normal. Does not have to be an integer.
+
+CTLdash_repeated_names
+"no" turns off the "dashification" of repeated (i.e., identical to those
+of the previous entry) names. IEEE normally does this.
+"yes" enables
+
+CTLname_format_string
+The name format control string as explained in the BibTeX style hacking
+guide.
+IEEE style "{f.~}{vv~}{ll}{, jj}" is the default,
+
+CTLname_latex_cmd
+A LaTeX command that each name will be fed to (e.g., "\textsc").
+Leave empty if no special font is desired for the names.
+The default is empty.
+
+CTLname_url_prefix
+The prefix text used before URLs.
+The default is "[Online]. Available:" A space will be inserted after this
+text. If this space is not wanted, just use \relax at the end of the
+prefix text.
+
+
+Those fields that are not to be changed can be left out.
+@IEEEtranBSTCTL{IEEEexample:BSTcontrol,
+  CTLuse_article_number     = "yes",
+  CTLuse_paper              = "yes",
+  CTLuse_forced_etal        = "no",
+  CTLmax_names_forced_etal  = "10",
+  CTLnames_show_etal        = "1",
+  CTLuse_alt_spacing        = "yes",
+  CTLalt_stretch_factor     = "4",
+  CTLdash_repeated_names    = "yes",
+  CTLname_format_string     = "{f.~}{vv~}{ll}{, jj}",
+  CTLname_latex_cmd         = "",
+  CTLname_url_prefix        = "[Online]. Available:"
+}
+
+
+@inproceedings{Rebelo2024,
+author = {Rebelo, Ana Rita and Ferreira, Pedro A. and N\'{o}brega, Rui},
+title = {Adaptive Virtual Environments in Small Physical Spaces: Navigation Design for Customized User Experiences in Virtual Reality},
+year = {2024},
+isbn = {9798400703317},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3613905.3650942},
+doi = {10.1145/3613905.3650942},
+booktitle = {Extended Abstracts of the CHI Conference on Human Factors in Computing Systems},
+articleno = {33},
+numpages = {7},
+keywords = {Impossible spaces, Navigation, Non-Euclidean spaces, Procedural generation, Virtual reality},
+location = {Honolulu, HI, USA},
+series = {CHI EA '24}
+}
+
+@inproceedings{Chen2017,
+author = {Chen, Haiwei and Fuchs, Henry},
+title = {Supporting free walking in a large virtual environment: imperceptible redirected walking with an immersive distractor},
+year = {2017},
+isbn = {9781450352284},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3095140.3095162},
+doi = {10.1145/3095140.3095162},
+abstract = {Redirected walking, a technique in which the user's orientation in the physical space is constantly and imperceptibly changed from their orientation in the virtual world, has been shown to be an effective technique when only a limited physical space is available. Unfortunately, previous efforts have restricted redirected walking applications to operate under the constant supervision of researchers to prevent the users from leaving the tracked area. In addition, Virtual Environments (VE) used in these applications were often limited to narrow hallways, mazes or predefined waypoints, while the performance of redirected walking in a large, open VE is not well explored. In this paper, we introduce the idea and implementation for an imperceptible redirected walking system that supports the illusion of free walking in a large, open virtual environment with minimal amount of physical interventions, by integrating the distractor into the user's main immersive activity in the VE. We demonstrate this new approach with two user studies of an immersive interactive game. Our study indicates that for the majority of the subjects, the illusion is maintained of unconstrained walking in a very large area (a full-size basketball court, 50 feet \texttimes{} 95 feet), even while they were limited to a physical area of a mere 6\% of the size of the basketball court (16 feet \texttimes{} 16 feet tracked area). Our result demonstrates that the illusion of free walking is created, since a majority of them was not interrupted by the researchers and did not realize they were redirected, and the 34 subjects took vastly different routes to reach the distant goal (See Figure 2). We believe that this technique demonstrates a more immersive way of designing redirected walking application and shows possibility of bringing redirected walking applications out of the monitored lab environments. Our result may provide insights for the designers of immersive experiences to create other redirected walking applications for consumer VR systems with room-size tracking.},
+booktitle = {Proceedings of the Computer Graphics International Conference},
+articleno = {22},
+numpages = {6},
+keywords = {experimentation, immersive distractor, redirected walking, virtual environments},
+location = {Yokohama, Japan},
+series = {CGI '17}
+}
+
+@inproceedings{Grechkin2016,
+author = {Grechkin, Timofey and Thomas, Jerald and Azmandian, Mahdi and Bolas, Mark and Suma, Evan},
+title = {Revisiting detection thresholds for redirected walking: combining translation and curvature gains},
+year = {2016},
+isbn = {9781450343831},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2931002.2931018},
+doi = {10.1145/2931002.2931018},
+abstract = {Redirected walking enables the exploration of large virtual environments while requiring only a finite amount of physical space. Unfortunately, in living room sized tracked areas the effectiveness of common redirection algorithms such as Steer-to-Center is very limited. A potential solution is to increase redirection effectiveness by applying two types of perceptual manipulations (curvature and translation gains) simultaneously. This paper investigates how such combination may affect detection thresholds for curvature gain. To this end we analyze the estimation methodology and discuss selection process for a suitable estimation method. We then compare curvature detection thresholds obtained under different levels of translation gain using two different estimation methods: method of constant stimuli and Green's maximum likelihood procedure. The data from both experiments shows no evidence that curvature gain detection thresholds were affected by the presence of translation gain (with test levels spanning previously estimated interval of undetectable translation gain levels). This suggests that in practice currently used levels of translation and curvature gains can be safely applied simultaneously. Furthermore, we present some evidence that curvature detection thresholds may be lower that previously reported. Our estimates indicate that users can be redirected on a circular arc with radius of either 11.6m or 6.4m depending on the estimation method vs. the previously reported value of 22m. These results highlight that the detection threshold estimates vary significantly with the estimation method and suggest the need for further studies to define efficient and reliable estimation methodology.},
+booktitle = {Proceedings of the ACM Symposium on Applied Perception},
+pages = {113–120},
+numpages = {8},
+keywords = {virtual reality, perception, locomotion},
+location = {Anaheim, California},
+series = {SAP '16}
+}
+
+@article{Sun2018,
+author = {Sun, Qi and Patney, Anjul and Wei, Li-Yi and Shapira, Omer and Lu, Jingwan and Asente, Paul and Zhu, Suwen and Mcguire, Morgan and Luebke, David and Kaufman, Arie},
+title = {Towards virtual reality infinite walking: dynamic saccadic redirection},
+year = {2018},
+issue_date = {August 2018},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {37},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3197517.3201294},
+doi = {10.1145/3197517.3201294},
+abstract = {Redirected walking techniques can enhance the immersion and visual-vestibular comfort of virtual reality (VR) navigation, but are often limited by the size, shape, and content of the physical environments.We propose a redirected walking technique that can apply to small physical environments with static or dynamic obstacles. Via a head- and eye-tracking VR headset, our method detects saccadic suppression and redirects the users during the resulting temporary blindness. Our dynamic path planning runs in real-time on a GPU, and thus can avoid static and dynamic obstacles, including walls, furniture, and other VR users sharing the same physical space. To further enhance saccadic redirection, we propose subtle gaze direction methods tailored for VR perception.We demonstrate that saccades can significantly increase the rotation gains during redirection without introducing visual distortions or simulator sickness. This allows our method to apply to large open virtual spaces and small physical environments for room-scale VR. We evaluate our system via numerical simulations and real user studies.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {67},
+numpages = {13},
+keywords = {human perception, redirected walking, saccade, virtual reality}
+}
+
+@INPROCEEDINGS{Suma2012,
+  author={Suma, Evan A. and Bruder, Gerd and Steinicke, Frank and Krum, David M. and Bolas, Mark},
+  booktitle={2012 IEEE Virtual Reality Workshops (VRW)}, 
+  title={A taxonomy for deploying redirection techniques in immersive virtual environments}, 
+  year={2012},
+  volume={},
+  number={},
+  pages={43-46},
+  keywords={Virtual environments;Legged locomotion;Taxonomy;Thyristors;Optical character recognition software;Blindness;Virtual environments;redirection;taxonomy},
+  doi={10.1109/VR.2012.6180877}
+}
+
+@article{NilssonApr2018,
+author = {Nilsson, Niels Christian and Serafin, Stefania and Steinicke, Frank and Nordahl, Rolf},
+title = {Natural Walking in Virtual Reality: A Review},
+year = {2018},
+issue_date = {April 2018},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {16},
+number = {2},
+url = {https://doi.org/10.1145/3180658},
+doi = {10.1145/3180658},
+abstract = {Recent technological developments have finally brought virtual reality (VR) out of the laboratory and into the hands of developers and consumers. However, a number of challenges remain. Virtual travel is one of the most common and universal tasks performed inside virtual environments, yet enabling users to navigate virtual environments is not a trivial challenge—especially if the user is walking. In this article, we initially provide an overview of the numerous virtual travel techniques that have been proposed prior to the commercialization of VR. Then we turn to the mode of travel that is the most difficult to facilitate, that is, walking. The challenge of providing users with natural walking experiences in VR can be divided into two separate, albeit related, challenges: (1) enabling unconstrained walking in virtual worlds that are larger than the tracked physical space and (2) providing users with appropriate multisensory stimuli in response to their interaction with the virtual environment. In regard to the first challenge, we present walking techniques falling into three general categories: repositioning systems, locomotion based on proxy gestures, and redirected walking. With respect to multimodal stimuli, we focus on how to provide three types of information: external sensory information (visual, auditory, and cutaneous), internal sensory information (vestibular and kinesthetic/proprioceptive), and efferent information. Finally, we discuss how the different categories of walking techniques compare and discuss the challenges still facing the research community.},
+journal = {Comput. Entertain.},
+month = apr,
+articleno = {8},
+numpages = {22},
+keywords = {Virtual reality, naturalness, virtual travel, walking}
+}
+
+@ARTICLE{NilssonJan2018,
+  author={Nilsson, Niels Christian and Peck, Tabitha and Bruder, Gerd and Hodgson, Eri and Serafin, Stefania and Whitton, Mary and Steinicke, Frank and Rosenberg, Evan Suma},
+  journal={IEEE Computer Graphics and Applications}, 
+  title={15 Years of Research on Redirected Walking in Immersive Virtual Environments}, 
+  year={2018},
+  volume={38},
+  number={2},
+  pages={44-56},
+  keywords={Legged locomotion;Computer architecture;Object recognition;Virtual environments;Space exploration;Virtual reality;Augmented reality;virtual reality;redirected walking;virtual travel;spatial interfaces;computer graphics},
+  doi={10.1109/MCG.2018.111125628}}
+
+@inproceedings{Carvalheiro2016,
+author = {Carvalheiro, Cristiano and N\'{o}brega, Rui and da Silva, Hugo and Rodrigues, Rui},
+title = {User Redirection and Direct Haptics in Virtual Environments},
+year = {2016},
+isbn = {9781450336031},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2964284.2964293},
+doi = {10.1145/2964284.2964293},
+abstract = {This paper proposes a haptic interaction system for Virtual Reality (VR) based on a combination of tracking devices for hands and objects and a real-to-virtual mapping system for user redirection. In our solution the user receives haptic stimuli by manipulating real objects mapped to virtual ob- jects. This solution departs from systems that rely on haptic devices (e.g., haptic gloves) as interfaces for the user to inter- act with objects in the Virtual Environment (VE). As such, the proposed solution makes use of direct haptics (touching) and redirection techniques to guide the user through the vir- tual environment. Using the mapping framework, when the user touches a virtual object in the VE, he will simultane- ously be physically touching the equivalent real object. A relevant feature of the framework is the possibility to de- fine a warped mapping between the real and virtual worlds, such that the relation between the user and the virtual space can be different from the one between the user and the real space. This is particularly useful when the application re- quires the emulation of large virtual spaces but the physical space available is more confined. To achieve this, both the user's hands and the objects are tracked. In the presented prototype we use a head-mounted depth sensor (i.e., Leap Motion) and a depth-sensing camera (i.e., Kinect). To assess the feasibility of this solution, a functional prototype and a room setup with core functionality were implemented. The test sessions with users evaluated the mapping accuracy, the user execution time and the awareness of the user regarding the warped space when performing tasks with redirection. The results gathered indicate that the solution can be used to provide direct haptic feedback in VR applications and for warping space perception within certain limits.},
+booktitle = {Proceedings of the 24th ACM International Conference on Multimedia},
+pages = {1146–1155},
+numpages = {10},
+keywords = {direct haptics, haptic interaction, virtual reality},
+location = {Amsterdam, The Netherlands},
+series = {MM '16}
+}
+
+@inproceedings{Luca2021,
+author = {Di Luca, Massimiliano and Seifi, Hasti and Egan, Simon and Gonzalez-Franco, Mar},
+title = {Locomotion Vault: the Extra Mile in Analyzing VR Locomotion Techniques},
+year = {2021},
+isbn = {9781450380966},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3411764.3445319},
+doi = {10.1145/3411764.3445319},
+abstract = {Numerous techniques have been proposed for locomotion in virtual reality (VR). Several taxonomies consider a large number of attributes (e.g., hardware, accessibility) to characterize these techniques. However, finding the appropriate locomotion technique (LT) and identifying gaps for future designs in the high-dimensional space of attributes can be quite challenging. To aid analysis and innovation, we devised Locomotion Vault (https://locomotionvault.github.io/), a database and visualization of over 100 LTs from academia and industry. We propose similarity between LTs as a metric to aid navigation and visualization. We show that similarity based on attribute values correlates with expert similarity assessments (a method that does not scale). Our analysis also highlights an inherent trade-off between simulation sickness and accessibility across LTs. As such, Locomotion Vault shows to be a tool that unifies information on LTs and enables their standardization and large-scale comparison to help understand the space of possibilities in VR locomotion.},
+booktitle = {Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems},
+articleno = {128},
+numpages = {10},
+keywords = {visualization, traveling, navigation, movement, locomotion technique, locomotion method, database, VR},
+location = {Yokohama, Japan},
+series = {CHI '21}
+}
+
+@inproceedings{Langbehn2018,
+author = {Langbehn, Eike and Lubos, Paul and Steinicke, Frank},
+title = {Evaluation of Locomotion Techniques for Room-Scale VR: Joystick, Teleportation, and Redirected Walking},
+year = {2018},
+isbn = {9781450353816},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3234253.3234291},
+doi = {10.1145/3234253.3234291},
+abstract = {Due to its multimodal nature virtual reality technology imposes new challenges, for example, when it comes to navigating through a virtual environment. Joystick-based controls and teleportation techniques support only limited self-motion experiences, however, other techniques such as redirected walking provide promising solutions to enable near-natural walking, while overcoming limits of the physical space. In this article, we report an experiment that analyzed the effects of the three different locomotion techniques, i. e., (i) joystick-based, (ii) teleportation, and (iii) redirected walking, on the user's cognitive map building of an indoor virtual environment, as well as effectiveness, motion sickness, presence, and user preferences. Our results suggest that redirected walking performs best regarding the user's ability to unconsciously acquire spatial knowledge about the virtual environment. Redirected walking and teleportation were subjectively preferred over joystick by the participants. Furthermore, we found a significant effect of an increased motion sickness for joystick-based navigation. Hence, redirected walking as well as teleportation are locomotion techniques with different benefits and drawbacks, and should be preferred.},
+booktitle = {Proceedings of the Virtual Reality International Conference - Laval Virtual},
+articleno = {4},
+numpages = {9},
+keywords = {teleportation, spatial knowledge, redirected walking, navigation, locomotion, cognitive map building, Virtual reality},
+location = {Laval, France},
+series = {VRIC '18}
+}
+
+
+@inproceedings{DiLuca2021,
+author = {Di Luca, Massimiliano and Seifi, Hasti and Egan, Simon and Gonzalez-Franco, Mar},
+title = {Locomotion Vault: The Extra Mile in Analyzing VR Locomotion Techniques},
+year = {2021},
+isbn = {9781450380966},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3411764.3445319},
+doi = {10.1145/3411764.3445319},
+booktitle = {Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems},
+articleno = {128},
+numpages = {10},
+keywords = {navigation, locomotion method, database, movement, visualization, locomotion technique, VR, traveling},
+location = {Yokohama, Japan},
+series = {CHI '21}
+}
+
+@ARTICLE{Suma2012,
+  author={Suma, Evan A. and Lipps, Zachary and Finkelstein, Samantha and Krum, David M. and Bolas, Mark},
+  journal={IEEE Transactions on Visualization and Computer Graphics}, 
+  title={Impossible Spaces: Maximizing Natural Walking in Virtual Environments with Self-Overlapping Architecture}, 
+  year={2012},
+  volume={18},
+  number={4},
+  pages={555-564},
+  doi={10.1109/TVCG.2012.47}}
+
+
+
+
+@INPROCEEDINGS{Vasylevska2013,
+  author={Vasylevska, Khrystyna and Kaufmann, Hannes and Bolas, Mark and Suma, Evan A.},
+  booktitle={2013 IEEE Symposium on 3D User Interfaces (3DUI)}, 
+  title={Flexible spaces: Dynamic layout generation for infinite walking in virtual environments}, 
+  year={2013},
+  volume={},
+  number={},
+  pages={39-42},
+  doi={10.1109/3DUI.2013.6550194}}
+
+@inproceedings{Lochner2021,
+author = {Lochner, Daniel Christopher and Gain, James Edward},
+title = {VR Natural Walking in Impossible Spaces},
+year = {2021},
+isbn = {9781450391313},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3487983.3488305},
+doi = {10.1145/3487983.3488305},
+booktitle = {Proceedings of the 14th ACM SIGGRAPH Conference on Motion, Interaction and Games},
+articleno = {3},
+numpages = {9},
+keywords = {Virtual Reality, locomotion, redirected walking, simulator sickness},
+location = {Virtual Event, Switzerland},
+series = {MIG '21}
+}
+
+@INPROCEEDINGS{Fisher2017,
+  author={Fisher, Joshua A. and Garg, Amit and Singh, Karan Pratap and Wang, Wesley},
+  booktitle={2017 IEEE Virtual Reality (VR)}, 
+  title={Designing intentional impossible spaces in virtual reality narratives: A case study}, 
+  year={2017},
+  volume={},
+  number={},
+  pages={379-380},
+  doi={10.1109/VR.2017.7892335}}
+
+
+@inproceedings{Auda2022,
+author = {Auda, Jonas and Gruenefeld, Uwe and Schneegass, Stefan},
+title = {If The Map Fits! Exploring Minimaps as Distractors from Non-Euclidean Spaces in Virtual Reality},
+year = {2022},
+isbn = {9781450391566},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3491101.3519621},
+doi = {10.1145/3491101.3519621},
+booktitle = {Extended Abstracts of the 2022 CHI Conference on Human Factors in Computing Systems},
+articleno = {297},
+numpages = {6},
+keywords = {Overlap, Distraction, Minimap, Virtual Reality, Illusions, Non-Euclidean, Locomotion},
+location = {New Orleans, LA, USA},
+series = {CHI EA '22}
+}
+
+
+@INPROCEEDINGS{Vasylevska2017,
+  author={Vasylevska, Khrystyna and Kaufmann, Hannes},
+  booktitle={2017 IEEE Symposium on 3D User Interfaces (3DUI)}, 
+  title={Towards efficient spatial compression in self-overlapping virtual environments}, 
+  year={2017},
+  volume={},
+  number={},
+  pages={12-21},
+  doi={10.1109/3DUI.2017.7893312}}
+
+
+@INPROCEEDINGS{Suma2011,
+  author={Suma, Evan A. and Clark, Seth and Krum, David and Finkelstein, Samantha and Bolas, Mark and Warte, Zachary},
+  booktitle={2011 IEEE Virtual Reality Conference}, 
+  title={Leveraging change blindness for redirection in virtual environments}, 
+  year={2011},
+  volume={},
+  number={},
+  pages={159-166},
+  doi={10.1109/VR.2011.5759455}}
+
+
+@article{Silva2023,
+title = {GoThrough: A tool to render and interact with arbitrary planar transformative portals},
+journal = {Entertainment Computing},
+volume = {44},
+pages = {100529},
+year = {2023},
+issn = {1875-9521},
+doi = {https://doi.org/10.1016/j.entcom.2022.100529},
+url = {https://www.sciencedirect.com/science/article/pii/S1875952122000520},
+author = {Luca Silva and Lucas Silva Figueiredo and Arlindo Gomes and Veronica Teichrieb},
+keywords = {Transformative portals, Scene composition, Development tools, Spatial distortions, Escher-like worlds},
+abstract = {Portals are commonly used in video games (e.g., Portal and the classic Asteroids). In this work, we introduce GoThrough, a tool that enables users with little to no previous knowledge to add transformative portals to 3D scenes in the Unity game engine. GoThrough implements both the visual and physical aspects of portals, leaving room for other extensions by the user. We introduce an approach for portals to work robustly in terms of geometry and rendering and explore common pitfalls (and how to handle them). Lastly, we put in evidence several portal-based mechanics and implement use cases to demonstrate them. The tool is shown to work in various example scenarios and has been evaluated quantitatively for performance, performing in real-time in various scenarios. We conducted user tests to analyse GoThrough qualitatively and an experiment of experts to understand how the tool hinders or empowers their expressiveness. With a SUS score of 87.5, we concluded that GoThrough is intuitive enough to be used by non-experts, making the process of creating impossible 3D worlds much less cumbersome. At last, experts were able to conceive unanticipated mechanics and revealed that the tool allowed prototypes that would not be developed in a feasible time otherwise.}
+}
+
+
+@ARTICLE{Vasylevska2017_b, 
+  author={Vasylevska, Khrystyna and Kaufmann, Hannes},
+  journal={IEEE Computer Graphics and Applications}, 
+  title={Compressing VR: Fitting Large Virtual Environments within Limited Physical Space}, 
+  year={2017},
+  volume={37},
+  number={5},
+  pages={85-91},
+  doi={10.1109/MCG.2017.3621226}}
+
+
+@article{Sun2016,
+author = {Sun, Qi and Wei, Li-Yi and Kaufman, Arie},
+title = {Mapping Virtual and Physical Reality},
+year = {2016},
+issue_date = {July 2016},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {35},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/2897824.2925883},
+doi = {10.1145/2897824.2925883},
+journal = {ACM Trans. Graph.},
+month = {jul},
+articleno = {64},
+numpages = {12},
+keywords = {geometry morphing, head-mounted display, camera projection, virtual reality, warped space, human perception, real-time rendering, redirected walking, planar map}
+}
+
+
+@INPROCEEDINGS{Rohil2022,
+  author={Rohil, Mukesh Kumar and Manohar Bachhav, Pratik},
+  booktitle={2022 3rd International Conference for Emerging Technology (INCET)}, 
+  title={Navigating Larger Spaces in 3D Virtual Environments}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={1-4},
+  doi={10.1109/INCET54531.2022.9824993}}
+
+
+@inproceedings{Rebelo2022,
+author = {Rebelo, Ana Rita and N\'{o}brega, Rui and Birra, Fernando},
+title = {Tangible VR Lab: Studying User Interactionin Space and Time Morphing Scenarios},
+year = {2022},
+isbn = {9781450397193},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3531073.3531182},
+doi = {10.1145/3531073.3531182},
+booktitle = {Proceedings of the 2022 International Conference on Advanced Visual Interfaces},
+articleno = {30},
+numpages = {5},
+keywords = {User Study, Virtual Reality, Tangible User Interfaces, HCI, Time Perception, Space Perception.},
+location = {Frascati, Rome, Italy},
+series = {AVI 2022}
+}
+
+
+
+
+@misc{Hart2017,
+      title={Non-euclidean virtual reality II: explorations of $\mathbb{H}^2\times\mathbb{E}$}, 
+      author={Vi Hart and Andrea Hawksley and Elisabetta A. Matsumoto and Henry Segerman},
+      year={2017},
+      eprint={1702.04862},
+      archivePrefix={arXiv},
+      primaryClass={math.HO}
+}
+
+@article{Kopczynski2017,
+  title={HyperRogue: Playing with hyperbolic geometry},
+  author={Kopczynski, Eryk and Celinska, Dorota and Ctrn{\'a}ct, Marek},
+  journal={Proceedings of bridges},
+  pages={9--16},
+  year={2017}
+}
+
+
+
+@INPROCEEDINGS{Bruder2009,
+  author={Bruder, Gerd and Steinicke, Frank and Hinrichs, Klaus H.},
+  booktitle={2009 IEEE Symposium on 3D User Interfaces}, 
+  title={Arch-Explore: A natural user interface for immersive architectural walkthroughs}, 
+  year={2009},
+  volume={},
+  number={},
+  pages={75-82},
+  keywords={User interfaces;Legged locomotion;Virtual reality;Computer graphics;Indoor environments;Laboratories;Hardware;Virtual environment;Haptic interfaces;Feedback;3D user interfaces;virtual environments;locomotion;architectural walkthroughs;redirected walking;passive haptic feedback},
+  doi={10.1109/3DUI.2009.4811208}}
+
+
+@inproceedings{Misztal2020,
+author = {Misztal, Sebastian and Carbonell, Guillermo and Ganther, Nils and Schild, Jonas},
+title = {Portals With a Twist: Cable Twist-Free Natural Walking in Room-Scaled Virtual Reality},
+year = {2020},
+isbn = {9781450376198},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3385956.3422109},
+doi = {10.1145/3385956.3422109},
+abstract = {To provide naturally walking in small virtual reality (VR) tracking spaces while preventing cables of head-mounted displays (HMDs) getting twisted, we developed Portals With A Twist (PorTwist), a redirected walking method using a portal metaphor. We compared PorTwist with a teleportation method in a 2m \texttimes{} 2.7m tracking space in a within-design user study (N = 34). PorTwist resulted in significantly longer natural walking distances and could prevent HMD cables from getting twisted while providing comparable levels of perceived presence and simulator sickness as teleportation. We further identified potential to improve usability in the future.},
+booktitle = {Proceedings of the 26th ACM Symposium on Virtual Reality Software and Technology},
+articleno = {68},
+numpages = {3},
+keywords = {navigation, redirected walking, room-scaled virtual reality},
+location = {Virtual Event, Canada},
+series = {VRST '20}
+}
+
+@inproceedings{Pisani2019,
+author = {Pisani, Vincent Adelizzi and Hurd, Ocean and Hawthorne, Nico and Kurniawan, Sri},
+title = {Navigation by Walking In Hyperbolic Space Using Virtual Reality},
+year = {2019},
+isbn = {9781450368711},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3341215.3356287},
+doi = {10.1145/3341215.3356287},
+booktitle = {Extended Abstracts of the Annual Symposium on Computer-Human Interaction in Play Companion Extended Abstracts},
+pages = {611–618},
+numpages = {8},
+keywords = {walking, game design, hyperbolic space, virtual reality, euclidean space, human navigation, locomotion},
+location = {Barcelona, Spain},
+series = {CHI PLAY '19 Extended Abstracts}
+}
+
+@article{witmer1998measuring,
+  title={Measuring presence in virtual environments: A presence questionnaire},
+  author={Witmer, Bob G and Singer, Michael J},
+  journal={Presence: Teleoperators \& Virtual Environments},
+  volume={7},
+  number={3},
+  pages={225--240},
+  year={1998},
+  publisher={MIT Press}
+}
+
+@article{kennedy1993simulator,
+  title={Simulator sickness questionnaire: An enhanced method for quantifying simulator sickness},
+  author={Kennedy, Robert S and Lane, Norman E and Berbaum, Kevin S and Lilienthal, Michael G},
+  journal={The International Journal of Aviation Psychology},
+  volume={3},
+  number={3},
+  pages={203--220},
+  year={1993},
+  publisher={Taylor & Francis}
+}
+@article{Unseendiplomacy_2018, author = {Unseendiplomacy}, url={https://unseendiplomacy2.com/2018/12/the-state-of-vr-survey-how-does-your-vr-room-compare/}, journal={Unseendiplomacy}, year={2018}} 
+
+@inproceedings{Langbehn2018,
+author = {Langbehn, Eike and Lubos, Paul and Steinicke, Frank},
+title = {Evaluation of Locomotion Techniques for Room-Scale VR: Joystick, Teleportation, and Redirected Walking},
+year = {2018},
+isbn = {9781450353816},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3234253.3234291},
+doi = {10.1145/3234253.3234291},
+abstract = {Due to its multimodal nature virtual reality technology imposes new challenges, for example, when it comes to navigating through a virtual environment. Joystick-based controls and teleportation techniques support only limited self-motion experiences, however, other techniques such as redirected walking provide promising solutions to enable near-natural walking, while overcoming limits of the physical space. In this article, we report an experiment that analyzed the effects of the three different locomotion techniques, i. e., (i) joystick-based, (ii) teleportation, and (iii) redirected walking, on the user's cognitive map building of an indoor virtual environment, as well as effectiveness, motion sickness, presence, and user preferences. Our results suggest that redirected walking performs best regarding the user's ability to unconsciously acquire spatial knowledge about the virtual environment. Redirected walking and teleportation were subjectively preferred over joystick by the participants. Furthermore, we found a significant effect of an increased motion sickness for joystick-based navigation. Hence, redirected walking as well as teleportation are locomotion techniques with different benefits and drawbacks, and should be preferred.},
+booktitle = {Proceedings of the Virtual Reality International Conference - Laval Virtual},
+articleno = {4},
+numpages = {9},
+keywords = {cognitive map building, locomotion, navigation, redirected walking, spatial knowledge, teleportation, Virtual reality},
+location = {Laval, France},
+series = {VRIC '18}
+}
+
+@ARTICLE{Nilsson2018,
+
+  author={Nilsson, Niels Christian and Peck, Tabitha and Bruder, Gerd and Hodgson, Eri and Serafin, Stefania and Whitton, Mary and Steinicke, Frank and Rosenberg, Evan Suma},
+
+  journal={IEEE Computer Graphics and Applications}, 
+
+  title={15 Years of Research on Redirected Walking in Immersive Virtual Environments}, 
+
+  year={2018},
+
+  volume={38},
+
+  number={2},
+
+  pages={44-56},
+
+  doi={10.1109/MCG.2018.111125628}}
+
+@article{Sun2018,
+author = {Sun, Qi and Patney, Anjul and Wei, Li-Yi and Shapira, Omer and Lu, Jingwan and Asente, Paul and Zhu, Suwen and Mcguire, Morgan and Luebke, David and Kaufman, Arie},
+title = {Towards Virtual Reality Infinite Walking: Dynamic Saccadic Redirection},
+year = {2018},
+issue_date = {August 2018},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {37},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3197517.3201294},
+doi = {10.1145/3197517.3201294},
+abstract = {Redirected walking techniques can enhance the immersion and visual-vestibular comfort of virtual reality (VR) navigation, but are often limited by the size, shape, and content of the physical environments.We propose a redirected walking technique that can apply to small physical environments with static or dynamic obstacles. Via a head- and eye-tracking VR headset, our method detects saccadic suppression and redirects the users during the resulting temporary blindness. Our dynamic path planning runs in real-time on a GPU, and thus can avoid static and dynamic obstacles, including walls, furniture, and other VR users sharing the same physical space. To further enhance saccadic redirection, we propose subtle gaze direction methods tailored for VR perception.We demonstrate that saccades can significantly increase the rotation gains during redirection without introducing visual distortions or simulator sickness. This allows our method to apply to large open virtual spaces and small physical environments for room-scale VR. We evaluate our system via numerical simulations and real user studies.},
+journal = {ACM Trans. Graph.},
+month = {jul},
+articleno = {67},
+numpages = {13},
+keywords = {redirected walking, human perception, saccade, virtual reality}
+}
+
+@article{Jennet2008,
+title = {Measuring and defining the experience of immersion in games},
+journal = {International Journal of Human-Computer Studies},
+volume = {66},
+number = {9},
+pages = {641-661},
+year = {2008},
+issn = {1071-5819},
+doi = {https://doi.org/10.1016/j.ijhcs.2008.04.004},
+url = {https://www.sciencedirect.com/science/article/pii/S1071581908000499},
+author = {Charlene Jennett and Anna L. Cox and Paul Cairns and Samira Dhoparee and Andrew Epps and Tim Tijs and Alison Walton},
+keywords = {Immersion, Games, Eye tracking, Pace, Affect},
+abstract = {Despite the word's common usage by gamers and reviewers alike, it is still not clear what immersion means. This paper explores immersion further by investigating whether immersion can be defined quantitatively, describing three experiments in total. The first experiment investigated participants’ abilities to switch from an immersive to a non-immersive task. The second experiment investigated whether there were changes in participants’ eye movements during an immersive task. The third experiment investigated the effect of an externally imposed pace of interaction on immersion and affective measures (state anxiety, positive affect, negative affect). Overall the findings suggest that immersion can be measured subjectively (through questionnaires) as well as objectively (task completion time, eye movements). Furthermore, immersion is not only viewed as a positive experience: negative emotions and uneasiness (i.e. anxiety) also run high.}
+}
+
+@ARTICLE{Melo2023,
+  author={Melo, Miguel and Gonçalves, Guilherme and Vasconcelos-Raposo, José and Bessa, Maximino},
+  journal={IEEE Access}, 
+  title={How Much Presence is Enough? Qualitative Scales for Interpreting the Igroup Presence Questionnaire Score}, 
+  year={2023},
+  volume={11},
+  number={},
+  pages={24675-24685},
+  keywords={Measurement;Virtual environments;Training;Physiology;Psychology;Instruments;Coherence;Virtual reality;evaluation metrics;presence},
+  doi={10.1109/ACCESS.2023.3254892}}
+
+@article{Kim2018,
+title = {Virtual reality sickness questionnaire (VRSQ): Motion sickness measurement index in a virtual reality environment},
+journal = {Applied Ergonomics},
+volume = {69},
+pages = {66-73},
+year = {2018},
+issn = {0003-6870},
+doi = {https://doi.org/10.1016/j.apergo.2017.12.016},
+url = {https://www.sciencedirect.com/science/article/pii/S000368701730282X},
+author = {Hyun K. Kim and Jaehyun Park and Yeongcheol Choi and Mungyeong Choe},
+keywords = {Virtual reality, Motion sickness, Simulator sickness questionnaire},
+abstract = {This study aims to develop a motion sickness measurement index in a virtual reality (VR) environment. The VR market is in an early stage of market formation and technological development, and thus, research on the side effects of VR devices such as simulator motion sickness is lacking. In this study, we used the simulator sickness questionnaire (SSQ), which has been traditionally used for simulator motion sickness measurement. To measure the motion sickness in a VR environment, 24 users performed target selection tasks using a VR device. The SSQ was administered immediately after each task, and the order of work was determined using the Latin square design. The existing SSQ was revised to develop a VR sickness questionnaire, which is used as the measurement index in a VR environment. In addition, the target selection method and button size were found to be significant factors that affect motion sickness in a VR environment. The results of this study are expected to be used for measuring and designing simulator sickness using VR devices in future studies.}
+}
+
+
+@inproceedings{Carvalheiro2016,
+author = {Carvalheiro, Cristiano and N\'{o}brega, Rui and da Silva, Hugo and Rodrigues, Rui},
+title = {User Redirection and Direct Haptics in Virtual Environments},
+year = {2016},
+isbn = {9781450336031},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2964284.2964293},
+doi = {10.1145/2964284.2964293},
+abstract = {This paper proposes a haptic interaction system for Virtual Reality (VR) based on a combination of tracking devices for hands and objects and a real-to-virtual mapping system for user redirection. In our solution the user receives haptic stimuli by manipulating real objects mapped to virtual ob- jects. This solution departs from systems that rely on haptic devices (e.g., haptic gloves) as interfaces for the user to inter- act with objects in the Virtual Environment (VE). As such, the proposed solution makes use of direct haptics (touching) and redirection techniques to guide the user through the vir- tual environment. Using the mapping framework, when the user touches a virtual object in the VE, he will simultane- ously be physically touching the equivalent real object. A relevant feature of the framework is the possibility to de- fine a warped mapping between the real and virtual worlds, such that the relation between the user and the virtual space can be different from the one between the user and the real space. This is particularly useful when the application re- quires the emulation of large virtual spaces but the physical space available is more confined. To achieve this, both the user's hands and the objects are tracked. In the presented prototype we use a head-mounted depth sensor (i.e., Leap Motion) and a depth-sensing camera (i.e., Kinect). To assess the feasibility of this solution, a functional prototype and a room setup with core functionality were implemented. The test sessions with users evaluated the mapping accuracy, the user execution time and the awareness of the user regarding the warped space when performing tasks with redirection. The results gathered indicate that the solution can be used to provide direct haptic feedback in VR applications and for warping space perception within certain limits.},
+booktitle = {Proceedings of the 24th ACM International Conference on Multimedia},
+pages = {1146–1155},
+numpages = {10},
+keywords = {virtual reality, haptic interaction, direct haptics},
+location = {Amsterdam, The Netherlands},
+series = {MM '16}
+}
+
+@inproceedings{Rebelo2024,
+author = {Rebelo, Ana Rita and Ferreira, Pedro A. and N\'{o}brega, Rui},
+title = {Adaptive Virtual Environments in Small Physical Spaces: Navigation Design for Customized User Experiences in Virtual Reality},
+year = {2024},
+isbn = {9798400703317},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3613905.3650942},
+doi = {10.1145/3613905.3650942},
+abstract = {In Virtual Reality (VR), navigating within small physical spaces often relies on handheld controller methods such as teleportation and joystick movements. While effective, these methods diverge from natural movement. This paper introduces the development of a VR tool designed to enhance immersion by customizing virtual environments for small physical spaces. By employing non-Euclidean and impossible spaces strategies, our solution enables overlapping virtual environments to fit the user’s physical constraints, allowing exploration of the space through walking. This tool can benefit different areas of application, such as virtual visits to museums, training simulations and emergency scenarios. As a use case in this paper, we address virtual apartment tours. This study demonstrates the potential for more user-centric and accessible VR solutions, contributing to delivering more meaningful experiences in daily and professional settings. To assess the viability and potential applications of our approach, we conducted semi-structured interviews with 10 Human-Computer Interaction (HCI) researchers. These interviews yielded insights into practical applications, identified usability challenges, and suggested strategies to enhance user experience.},
+booktitle = {Extended Abstracts of the CHI Conference on Human Factors in Computing Systems},
+articleno = {33},
+numpages = {7},
+keywords = {Impossible spaces, Navigation, Non-Euclidean spaces, Procedural generation, Virtual reality},
+location = {Honolulu, HI, USA},
+series = {CHI EA '24}
+}
+
+@inproceedings{Krueger2024,
+author = {Krueger, Linda and Markham, Charles and Bierig, Ralf},
+title = {Investigation of Redirection Algorithms in Small Tracking Spaces},
+year = {2024},
+isbn = {9798400705359},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3641825.3687749},
+doi = {10.1145/3641825.3687749},
+abstract = {In virtual reality, redirected walking lets users walk in larger virtual spaces than the physical tracking space set aside for their movements. This benefits immersion and spatial navigation compared to virtual locomotion techniques such as teleportation or joystick control. Different algorithms have tried to optimise redirected walking. These algorithms have been tested in simulation in large spaces and with small user studies. However, few studies have looked at the user experience of these algorithms in small tracking spaces. We conducted a user study to compare the performance of different redirected walking algorithms in a small tracking space of 3.5m x 3.5m. Three algorithms were chosen based on their approaches to redirection – Reset Only, Steer to Centre and Alignment Based Redirection Control. 36 people participated in the study. It was found users preferred Reset Only in the tracking space. Reset Only redirects users less and is easier to implement than Steer to Centre or Alignment Based Redirection Control. Additionally, Reset Only had similar performance to Steer to Centre and better task performance than Alignment Based Redirection Control despite resetting users more often. Based on these findings, we provide guidelines for developers working in small tracking spaces.},
+booktitle = {Proceedings of the 30th ACM Symposium on Virtual Reality Software and Technology},
+articleno = {14},
+numpages = {9},
+keywords = {locomotion, redirected walking, user experience, user study, virtual reality},
+location = {Trier, Germany},
+series = {VRST '24}
+}
+
+@article{Razzaque2001,
+author = {Jonathan, Eurographics and Roberts, C. and Presentation, Short and Razzaque, Sharif and Kohn, Zachariah and Whitton, Mary},
+year = {2001},
+month = {08},
+pages = {},
+title = {Redirected Walking},
+journal = {Proceedings of Eurographics}
+}
+
+@inproceedings{Lutfallah2023,
+author = {Lutfallah, Mathieu and Hirt, Christian and Gorobets, Valentina and Gregor, Manuel and Kunz, Andreas},
+title = {Redirected Walking in Overlapping Rooms},
+year = {2023},
+isbn = {9798400701528},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3588028.3603672},
+doi = {10.1145/3588028.3603672},
+abstract = {Walking in larger virtual environments than the physical one can lead to collisions with physical boundaries. Multiple locomotion techniques like Redirected Walking (RDW) and Overlapping Architecture (OA) aim to overcome this limitation. Combining these two has yet to be investigated in large physical spaces with resets. In this work, a hybrid locomotion method was implemented that combines RDW and OA. A user study was conducted where participants collected items in a virtual environment with multiple rooms. The study showed that the distance walked between resets was increased substantially, thus showing the solid advantages of combining OA and RDW.},
+booktitle = {ACM SIGGRAPH 2023 Posters},
+articleno = {21},
+numpages = {2},
+keywords = {overlapping architecture, redirected walking, walking},
+location = {Los Angeles, CA, USA},
+series = {SIGGRAPH '23}
+}
+
+@ARTICLE{Steinicke2010b,
+  author={Steinicke, Frank and Bruder, Gerd and Jerald, Jason and Frenz, Harald and Lappe, Markus},
+  journal={IEEE Transactions on Visualization and Computer Graphics}, 
+  title={Estimation of Detection Thresholds for Redirected Walking Techniques}, 
+  year={2010},
+  volume={16},
+  number={1},
+  pages={17-27},
+  keywords={Legged locomotion;Virtual environment;Cameras;Navigation;Large-scale systems;Displays;Tracking;Psychology;Humans;Testing;Virtual reality;virtual locomotion;redirected walking.},
+  doi={10.1109/TVCG.2009.62}}
+
+@inproceedings{Azmandian2015,
+author = {Azmandian, Mahdi and Grechkin, Timofey and Bolas, Mark and Suma, Evan},
+title = {Physical Space Requirements for Redirected Walking: How Size and Shape Affect Performance},
+year = {2015},
+isbn = {9783905674842},
+publisher = {Eurographics Association},
+address = {Goslar, DEU},
+abstract = {Redirected walking provides a compelling solution to explore large virtual environments in a natural way. However, research literature provides few guidelines regarding trade-offs involved in selecting size and layout for physical tracked space. We designed a rigorously controlled benchmarking framework and conducted two simulated user experiments to systematically investigate how the total area and dimensions of the tracked space affect performance of steer-to-center and steer-to-orbit algorithms. The results indicate that minimum viable size of physical tracked space for these redirected walking algorithms is approximately 6m x 6m with performance continuously improving in larger tracked spaces. At the same time, no "optimal" tracked space size can guarantee the absence of contacts with the boundary. We also found that square tracked spaces enabled best overall performance with steer-to-center algorithm also performing well in moderately elongated rectangular spaces. Finally, we demonstrate that introducing translation gains can provide a useful boost in performance, particularly when physical space is constrained. We conclude with the discussion of potential applications of our benchmarking toolkit to other problems related to performance of redirected walking platforms.},
+booktitle = {Proceedings of the 25th International Conference on Artificial Reality and Telexistence and 20th Eurographics Symposium on Virtual Environments},
+pages = {93–100},
+numpages = {8},
+location = {Kyoto, Japan},
+series = {ICAT - EGVE '15}
+}
+
+@inproceedings{Chen2017,
+author = {Chen, Haiwei and Fuchs, Henry},
+title = {Supporting Free Walking in a Large Virtual Environment: Imperceptible Redirected Walking with an Immersive Distractor},
+year = {2017},
+isbn = {9781450352284},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3095140.3095162},
+doi = {10.1145/3095140.3095162},
+abstract = {Redirected walking, a technique in which the user's orientation in the physical space is constantly and imperceptibly changed from their orientation in the virtual world, has been shown to be an effective technique when only a limited physical space is available. Unfortunately, previous efforts have restricted redirected walking applications to operate under the constant supervision of researchers to prevent the users from leaving the tracked area. In addition, Virtual Environments (VE) used in these applications were often limited to narrow hallways, mazes or predefined waypoints, while the performance of redirected walking in a large, open VE is not well explored. In this paper, we introduce the idea and implementation for an imperceptible redirected walking system that supports the illusion of free walking in a large, open virtual environment with minimal amount of physical interventions, by integrating the distractor into the user's main immersive activity in the VE. We demonstrate this new approach with two user studies of an immersive interactive game. Our study indicates that for the majority of the subjects, the illusion is maintained of unconstrained walking in a very large area (a full-size basketball court, 50 feet \texttimes{} 95 feet), even while they were limited to a physical area of a mere 6\% of the size of the basketball court (16 feet \texttimes{} 16 feet tracked area). Our result demonstrates that the illusion of free walking is created, since a majority of them was not interrupted by the researchers and did not realize they were redirected, and the 34 subjects took vastly different routes to reach the distant goal (See Figure 2). We believe that this technique demonstrates a more immersive way of designing redirected walking application and shows possibility of bringing redirected walking applications out of the monitored lab environments. Our result may provide insights for the designers of immersive experiences to create other redirected walking applications for consumer VR systems with room-size tracking.},
+booktitle = {Proceedings of the Computer Graphics International Conference},
+articleno = {22},
+numpages = {6},
+keywords = {immersive distractor, redirected walking, experimentation, virtual environments},
+location = {Yokohama, Japan},
+series = {CGI '17}
+}
+
+
+@inproceedings{Grechkin2016,
+author = {Grechkin, Timofey and Thomas, Jerald and Azmandian, Mahdi and Bolas, Mark and Suma, Evan},
+title = {Revisiting Detection Thresholds for Redirected Walking: Combining Translation and Curvature Gains},
+year = {2016},
+isbn = {9781450343831},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2931002.2931018},
+doi = {10.1145/2931002.2931018},
+abstract = {Redirected walking enables the exploration of large virtual environments while requiring only a finite amount of physical space. Unfortunately, in living room sized tracked areas the effectiveness of common redirection algorithms such as Steer-to-Center is very limited. A potential solution is to increase redirection effectiveness by applying two types of perceptual manipulations (curvature and translation gains) simultaneously. This paper investigates how such combination may affect detection thresholds for curvature gain. To this end we analyze the estimation methodology and discuss selection process for a suitable estimation method. We then compare curvature detection thresholds obtained under different levels of translation gain using two different estimation methods: method of constant stimuli and Green's maximum likelihood procedure. The data from both experiments shows no evidence that curvature gain detection thresholds were affected by the presence of translation gain (with test levels spanning previously estimated interval of undetectable translation gain levels). This suggests that in practice currently used levels of translation and curvature gains can be safely applied simultaneously. Furthermore, we present some evidence that curvature detection thresholds may be lower that previously reported. Our estimates indicate that users can be redirected on a circular arc with radius of either 11.6m or 6.4m depending on the estimation method vs. the previously reported value of 22m. These results highlight that the detection threshold estimates vary significantly with the estimation method and suggest the need for further studies to define efficient and reliable estimation methodology.},
+booktitle = {Proceedings of the ACM Symposium on Applied Perception},
+pages = {113–120},
+numpages = {8},
+keywords = {virtual reality, locomotion, perception},
+location = {Anaheim, California},
+series = {SAP '16}
+}
+
+  
+@ARTICLE{Xu2023,
+
+  author={Xu, Sen-Zhe and Liu, Jia-Hong and Wang, Miao and Zhang, Fang-Lue and Zhang, Song-Hai},
+
+  journal={IEEE Transactions on Visualization and Computer Graphics}, 
+
+  title={Multi-User Redirected Walking in Separate Physical Spaces for Online VR Scenarios}, 
+
+  year={2023},
+
+  volume={},
+
+  number={},
+
+  pages={1-11},
+
+  doi={10.1109/TVCG.2023.3251648}}
+
+@inproceedings{Rietzler2020,
+author = {Rietzler, Michael and Deubzer, Martin and Dreja, Thomas and Rukzio, Enrico},
+title = {Telewalk: Towards Free and Endless Walking in Room-Scale Virtual Reality},
+year = {2020},
+isbn = {9781450367080},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3313831.3376821},
+doi = {10.1145/3313831.3376821},
+abstract = {Natural navigation in VR is challenging due to spatial limitations. While Teleportation enables navigation within very small physical spaces and without causing motion sickness symptoms, it may reduce the feeling of presence and spacial awareness. Redirected walking (RDW), in contrast, allows users to naturally walk while staying inside a finite, but still very large, physical space. We present Telewalk, a novel locomotion approach that combines curvature and translation gains known from RDW research in a perceivable way. This combination enables Telewalk to be applied even within a physical space of 3m x 3m. Utilizing the head rotation as input device enables directional changes without any physical turns to keep the user always on an optimal circular path inside the real world while freely walking inside the virtual one. In a user study we found that even though motion sickness susceptible participants reported respective symptoms, Telewalk did result in stronger feelings of presence and immersion and was seen as more natural then Teleportation.},
+booktitle = {Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems},
+pages = {1–9},
+numpages = {9},
+keywords = {Telewalk, redirected walking, virtual reality},
+series = {CHI '20}
+}
+
+@inproceedings{Liu2018,
+  author    = {Liu, James and Parekh, Hirav and Al-Zayer, Majed and Folmer, Eelke},
+  title     = {Increasing Walking in VR using Redirected Teleportation},
+  year      = {2018},
+  isbn      = {9781450359481},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/3242587.3242601},
+  doi       = {10.1145/3242587.3242601},
+  booktitle = {Proceedings of the 31st Annual ACM Symposium on User Interface Software and Technology},
+  pages     = {521–529},
+  numpages  = {9},
+  keywords  = {virtual reality, teleportation, positional tracking, locomotion},
+  series    = {UIST '18}
+}
+
+@article{Ruddle2009,
+author = {Ruddle, Roy A. and Lessels, Simon},
+title = {The benefits of using a walking interface to navigate virtual environments},
+year = {2009},
+issue_date = {April 2009},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {16},
+number = {1},
+issn = {1073-0516},
+url = {https://doi.org/10.1145/1502800.1502805},
+doi = {10.1145/1502800.1502805},
+abstract = {Navigation is the most common interactive task performed in three-dimensional virtual environments (VEs), but it is also a task that users often find difficult. We investigated how body-based information about the translational and rotational components of movement helped participants to perform a navigational search task (finding targets hidden inside boxes in a room-sized space). When participants physically walked around the VE while viewing it on a head-mounted display (HMD), they then performed 90\% of trials perfectly, comparable to participants who had performed an equivalent task in the real world during a previous study. By contrast, participants performed less than 50\% of trials perfectly if they used a tethered HMD (move by physically turning but pressing a button to translate) or a desktop display (no body-based information). This is the most complex navigational task in which a real-world level of performance has been achieved in a VE. Behavioral data indicates that both translational and rotational body-based information are required to accurately update one's position during navigation, and participants who walked tended to avoid obstacles, even though collision detection was not implemented and feedback not provided. A walking interface would bring immediate benefits to a number of VE applications.},
+journal = {ACM Trans. Comput.-Hum. Interact.},
+month = apr,
+articleno = {5},
+numpages = {18},
+keywords = {Virtual reality, locomotion, navigation, visual fidelity}
+}
+
+@article{Usoh2000,
+author = {Usoh, Martin and Catena, Ernest and Arman, Sima and Slater, Mel},
+title = {Using Presence Questionnaires in Reality},
+year = {2000},
+issue_date = {October 2000},
+publisher = {MIT Press},
+address = {Cambridge, MA, USA},
+volume = {9},
+number = {5},
+issn = {1054-7460},
+url = {https://doi.org/10.1162/105474600566989},
+doi = {10.1162/105474600566989},
+abstract = {A between-group experiment was carried out to assess whether two different presence questionnaires can distinguish between real and virtual experiences. One group of ten subjects searched for a box in a real office environment. A second group of ten subjects carried out the same task in a virtual environment that simulated the same office. Immediately after their experience, subjects were given two different presence questionnaires in randomized order: the Witmer and Singer Presence (WS), and the questionnaire developed by Slater, Usoh, and Steed (SUS). The paper argues that questionnaires should be able to pass a “reality test” whereby under current conditions the presence scores should be higher for real experiences than for virtual ones. Nevertheless, only the SUS had a marginally higher mean score for the real compared to the virtual, and there was no significant difference at all between the WS mean scores. It is concluded that, although such questionnaires may be useful when all subjects experience the same type of environment, their utility is doubtful for the comparison of experiences across environments, such as immersive virtual compared to real, or desktop compared to immersive virtual.},
+journal = {Presence: Teleoper. Virtual Environ.},
+month = oct,
+pages = {497–503},
+numpages = {7}
+}
+
+@inproceedings{Usoh1999,
+author = {Usoh, Martin and Arthur, Kevin and Whitton, Mary C. and Bastos, Rui and Steed, Anthony and Slater, Mel and Brooks, Frederick P.},
+title = {Walking > walking-in-place > flying, in virtual environments},
+year = {1999},
+isbn = {0201485605},
+publisher = {ACM Press/Addison-Wesley Publishing Co.},
+address = {USA},
+url = {https://doi.org/10.1145/311535.311589},
+doi = {10.1145/311535.311589},
+booktitle = {Proceedings of the 26th Annual Conference on Computer Graphics and Interactive Techniques},
+pages = {359–364},
+numpages = {6},
+keywords = {visual cliff, virtual walking, virtual reality, presence, neural networks, locomotion, human factors},
+series = {SIGGRAPH '99}
+}
+
+@inproceedings{Zielasko2024,
+author = {Zielasko, Daniel and Bruder, Gerd and Domes, Gregor and Skarbez, Richard and Whitton, Mary C. and Steed, Anthony},
+title = {Walking > Walking-in-Place > Flying/Steering > Teleportation? Designing Locomotion Research for Replication and Extension},
+year = {2024},
+isbn = {9798400705359},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3641825.3689500},
+doi = {10.1145/3641825.3689500},
+abstract = {In this abstract, we discuss the demand for replication and extension efforts related to two seminal studies focused on virtual reality (VR) locomotion interfaces, initially centered around a VR implementation of the Visual Cliff, often referred to as Virtual Pit. The original experiments by Slater et al. (1995) and Usoh et al. (1999) compared different locomotion methods, including Real Walking, Walking-in-Place, and Flying/Steering, with a focus on presence and ease of use. We discuss the importance of these studies for the field, motivate replication efforts focused on these studies, discuss potential confounding factors, and present considerations for a concerted effort to reproduce the findings with state-of-the-art VR systems and measures, extensions to locomotion methods like Teleportation, and means to support future replications and extensions.},
+booktitle = {Proceedings of the 30th ACM Symposium on Virtual Reality Software and Technology},
+articleno = {100},
+numpages = {2},
+keywords = {Virtual reality, locomotion, presence, replication, steering, teleportation, user study, walking},
+location = {Trier, Germany},
+series = {VRST '24}
+}
+
+@INPROCEEDINGS{Interrante2007,
+  author={Interrante, Victoria and Ries, Brian and Anderson, Lee},
+  booktitle={2007 IEEE Symposium on 3D User Interfaces}, 
+  title={Seven League Boots: A New Metaphor for Augmented Locomotion through Moderately Large Scale Immersive Virtual Environments}, 
+  year={2007},
+  volume={},
+  number={},
+  pages={},
+  keywords={Large-scale systems;Virtual environment;Legged locomotion;Navigation;Avatars;Space exploration;Displays;Computer graphics;Computer science;Computer architecture},
+  doi={10.1109/3DUI.2007.340791}
+}
+
+
+@ARTICLE{Rebelo2025,
+  author={Rebelo, Ana Rita and Ferreira, Pedro A. and Nóbrega, Rui},
+  journal={IEEE Transactions on Visualization and Computer Graphics}, 
+  title={Techniques for Multiple Room Connection in Virtual Reality: Walking Within Small Physical Spaces}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-10},
+  keywords={Legged locomotion;Portals;Navigation;Meters;Training;Layout;Aerospace electronics;Virtual environments;Translation;Virtual museums;Virtual reality;impossible spaces;locomotion;navigation},
+  doi={10.1109/TVCG.2025.3549895}}
+
+
+@inproceedings{Langbehn2018,
+   abstract = {Due to its multimodal nature virtual reality technology imposes new challenges, for example, when it comes to navigating through a virtual environment. Joystick-based controls and teleportation techniques support only limited self-motion experiences, however, other techniques such as redirected walking provide promising solutions to enable near-natural walking, while overcoming limits of the physical space. In this article, we report an experiment that analyzed the effects of the three different locomotion techniques, i. e., (i) joystick-based, (ii) teleportation, and (iii) redirected walking, on the user’s cognitive map building of an indoor virtual environment, as well as effectiveness, motion sickness, presence, and user preferences. Our results suggest that redirected walking performs best regarding the user’s ability to unconsciously acquire spatial knowledge about the virtual environment. Redirected walking and teleportation were subjectively preferred over joystick by the participants. Furthermore, we found a significant effect of an increased motion sickness for joystick-based navigation. Hence, redirected walking as well as teleportation are locomotion techniques with different benefits and drawbacks, and should be preferred.},
+   author = {Eike Langbehn and Paul Lubos and Frank Steinicke},
+   doi = {10.1145/3234253.3234291},
+   isbn = {9781450353816},
+   booktitle = {ACM International Conference Proceeding Series},
+   keywords = {Cognitive map building,Locomotion,Navigation,Redirected walking,Spatial knowledge,Teleportation,Virtual reality},
+   month = {4},
+   publisher = {Association for Computing Machinery},
+   title = {Evaluation of locomotion techniques for room-scale VR: Joystick, teleportation, and redirected walking},
+   year = {2018},
+}
+
+@ARTICLE{8255772,
+  author={Nilsson, Niels Christian and Peck, Tabitha and Bruder, Gerd and Hodgson, Eri and Serafin, Stefania and Whitton, Mary and Steinicke, Frank and Rosenberg, Evan Suma},
+  journal={IEEE Computer Graphics and Applications}, 
+  title={15 Years of Research on Redirected Walking in Immersive Virtual Environments}, 
+  year={2018},
+  volume={38},
+  number={2},
+  pages={44-56},
+  keywords={Legged locomotion;Computer architecture;Object recognition;Virtual environments;Space exploration;Virtual reality;Augmented reality;virtual reality;redirected walking;virtual travel;spatial interfaces;computer graphics},
+  doi={10.1109/MCG.2018.111125628}}
+
+  @misc{Boletsis2017,
+   abstract = {The latest technical and interaction advancements that took place in the Virtual Reality (VR) field have marked a new era, not only for VR, but also for VR locomotion. Although the latest advancements in VR locomotion have raised the interest of both researchers and users in analyzing and experiencing current VR locomotion techniques, the field of research on VR locomotion, in its new era, is still uncharted. In this work, VR locomotion is explored through a systematic literature review investigating empirical studies of VR locomotion techniques from 2014–2017. The review analyzes the VR locomotion techniques that have been studied, their interaction-related characteristics and the research topics that were addressed in these studies. Thirty-six articles were identified as relevant to the literature review, and the analysis of the articles resulted in 73 instances of 11 VR locomotion techniques, such as real-walking, walking-in-place, point and teleport, joystick-based locomotion, and more. Results showed that since the VR revival, the focus of VR locomotion research has been on VR technology and various technological aspects, overshadowing the investigation of user experience. From an interaction perspective, the majority of the utilized and studied VR locomotion techniques were found to be based on physical interaction, exploiting physical motion cues for navigation in VR environments. A significant contribution of the literature review lies in the proposed typology for VR locomotion, introducing four distinct VR locomotion types: motion-based, room scale-based, controller-based and teleportation-based locomotion.},
+   author = {Costas Boletsis},
+   doi = {10.3390/mti1040024},
+   issn = {24144088},
+   issue = {4},
+   journal = {Multimodal Technologies and Interaction},
+   keywords = {Human-computer interaction,Literature review,Locomotion,Typology,Virtual reality},
+   month = {12},
+   publisher = {MDPI AG},
+   title = {The new era of virtual reality locomotion: A systematic literature review of techniques and a proposed typology},
+   volume = {1},
+   year = {2017},
+}
+
+
+@article{Boletsis2019,
+   abstract = {The latest technical and interaction advancements within the virtual reality (VR) field have marked a new era, not only for VR, but also for VR locomotion. In this era, well-established, prevalent VR locomotion techniques are mostly used as points of comparison for benchmarking of new VR locomotion designs. At the same time, there is the need for more exploratory, comparative studies of contemporary VR locomotion techniques, so that their distinguished interaction aspects can be documented and guide the design process of new techniques. This article presents a comparative, empirical evaluation study of contemporary and prevalent VR locomotion techniques, examining the user experience (UX) they offer. First, the prevalent VR locomotion techniques are identified based on literature, i.e., walking-in-place, controller/joystick, and teleportation. Twenty-six adults are enrolled in the study and perform a game-like task using the techniques. The study follows a mixed methods approach, utilising the System Usability Scale survey, the Game Experience Questionnaire, and a semistructured interview to assess user experiences. Results indicate that the walking-in-place technique offers the highest immersion but also presents high levels of psychophysical discomfort. Controller/joystick VR locomotion is perceived as easy-to-use due to the users' familiarity with controllers, whereas teleportation is considered to be effective due to its fast navigation, although its visual 'jumps' do break the users' sense of immersion. Based on the interviews, the users focused on the following interaction dimensions to describe their VR locomotion experiences: (i) immersion and flow, (ii) ease-of-use and mastering, (iii) competence and sense of effectiveness, and (iv) psychophysical discomfort. The study implications for VR locomotion are discussed, along with the study limitations and the future direction for research.},
+   author = {Costas Boletsis and Jarl Erik Cedergren},
+   doi = {10.1155/2019/7420781},
+   issn = {16875907},
+   journal = {Advances in Human-Computer Interaction},
+   publisher = {Hindawi Limited},
+   title = {VR Locomotion in the New Era of Virtual Reality: An Empirical Comparison of Prevalent Techniques},
+   volume = {2019},
+   year = {2019}
+}
+
+@article{Boletsis2022,
+   abstract = {Researchers have proposed a wide range of categorization schemes in order to characterize the space of VR locomotion techniques. In a previous work, a typology of VR locomotion techniques was proposed, introducing motion-based, roomscale-based, controller-based, and teleportation-based types of VR locomotion. The fact that (i) the proposed typology is used widely and makes a significant research impact in the field and (ii) the VR locomotion field is a considerably active research field, creates the need for this typology to be up-to-date and valid. Therefore, the present study builds on this previous work, and the typology’s consistency is investigated through a systematic literature review. Altogether, 42 articles were included in this literature review, eliciting 80 instances of 10 VR locomotion techniques. The results indicated that current typology cannot cover teleportation-based techniques enabled by motion (e.g., gestures and gazes). Therefore, the typology was updated, and a new type was added: “motion-based teleporting.”},
+   author = {Costas Boletsis and Dimitra Chasanidou},
+   doi = {10.3390/mti6090072},
+   issn = {24144088},
+   issue = {9},
+   journal = {Multimodal Technologies and Interaction},
+   keywords = {VR locomotion,human-computer interaction,literature review,typology,virtual reality},
+   month = {9},
+   publisher = {MDPI},
+   title = {A Typology of Virtual Reality Locomotion Techniques},
+   volume = {6},
+   year = {2022}
+}
+
+@article{Nasiri2023,
+   abstract = {Little research has studied how people use Virtual Reality (VR) changes as they experience VR. This article reports the results of an experiment investigating how users' behavior with two locomotion methods changed over 4 weeks: teleportation and joystick-based locomotion. Twenty novice VR users (with no more than 1 hour prior experience with any form of walking in VR) were recruited. They loaned an Oculus Quest for 4 weeks on their own time, including an activity we provided them with. Results showed that the time required to complete the navigation task decreased faster for joystick-based locomotion. Spatial memory improved with time, particularly when using teleportation (which starts disadvantaged to joystick-based locomotion). In addition, overall cybersickness decreased slightly over time; however, two dimensions of cybersickness (nausea and disorientation) increased notably over time using joystick-based navigation.},
+   author = {Moloud Nasiri and John Porter and Kristopher Kohm and Andrew Robb},
+   doi = {10.1145/3613902},
+   issn = {15443965},
+   issue = {4},
+   journal = {ACM Transactions on Applied Perception},
+   keywords = {Virtual reality,locomotion,long-term use},
+   month = {10},
+   publisher = {Association for Computing Machinery},
+   title = {Changes in Navigation over Time: A Comparison of Teleportation and Joystick-Based Locomotion},
+   volume = {20},
+   year = {2023},
+}
+
+@inproceedings{Cao2020,
+   abstract = {Path redirection for virtual reality (VR) navigation allows the user to explore a large virtual environment (VE) while the VR application is hosted in a limited physical space. Static mapping redirection methods deform the virtual scene to fit the physical space. The challenge is to deform the virtual scene in a reasonable way, making the distortions friendly to the user’s visual perception. In this paper we propose a feature-guided path redirection method that finds and takes into account the visual features of 3D virtual scenes. In a first offline step, a collection of view-independent and view-dependent visual features of the VE are extracted and stored in a visual feature map. Then, in a second offline step, the navigation path is deformed to fit in the confines of the available physical space through a mass-spring system optimization, according to distortion sensitive factors derived from the visual feature map. Finally, a novel detail preserving rendering algorithm is employed to preserve the original visual detail as the user navigates the VE on the redirected path. We tested our method on several scenes, where our method showed a reduced VE 3D mesh distortion, when compared to the path redirection methods without feature guidance.},
+   author = {Antong Cao and Lili Wang and Yi Liu and Voicu Popescu},
+   doi = {10.1109/vr46266.2020.00032},
+   month = {6},
+   pages = {137-145},
+   publisher = {Institute of Electrical and Electronics Engineers (IEEE)},
+   title = {Feature Guided Path Redirection for VR Navigation},
+   year = {2020},
+}
+
+@inproceedings{Coomer2018,
+   abstract = {In this work we present two novel methods of exploring a large immersive virtual environment (IVE) viewed through a head-mounted display (HMD) using the tracked controllers that come standard with commodity–level HMD systems. With the first method, “Point–Tugging,” users reach and pull the controller trigger at a point in front of them and move in the direction of the point they “tug” with the controller. With the second method, “Arm-Cycling,” users move their arms while pulling the trigger on the hand-held controllers to translate in the yaw direction that their head is facing. We perform a search task experiment to directly compare four locomotion techniques: Joystick, Arm–Cycling, Point–Tugging, and Teleporting. In the joystick condition, a joystick is used to translate the user in the yaw direction of gaze with physical rotations matching virtual rotations. In the teleporting condition, the controllers create an arched beam that allows the user to select a point on the ground and instantly teleport to this location. We find that Arm-Cycling has advantages over the other methods and could be suitable for wide–spread use.},
+   author = {Noah Coomer and William Clinton and Sadler Bullard and Betsy Williams-Sanders},
+   doi = {10.1145/3225153.3225175},
+   isbn = {9781450358941},
+   booktitle = {Proceedings - SAP 2018: ACM Symposium on Applied Perception},
+   keywords = {Locomotion,Spatial awareness,Teleporting,Virtual environment},
+   month = {8},
+   publisher = {Association for Computing Machinery, Inc},
+   title = {Evaluating the effects of four VR locomotion methods: Joystick, arm–cycling, point–tugging, and teleporting},
+   year = {2018},
+}
+
+@inproceedings{Rietzler2020,
+   abstract = {Natural navigation in VR is challenging due to spatial limitations. While Teleportation enables navigation within very small physical spaces and without causing motion sickness symptoms, it may reduce the feeling of presence and spacial awareness. Redirected walking (RDW), in contrast, allows users to naturally walk while staying inside a finite, but still very large, physical space. We present Telewalk, a novel locomotion approach that combines curvature and translation gains known from RDW research in a perceivable way. This combination enables Telewalk to be applied even within a physical space of 3m x 3m. Utilizing the head rotation as input device enables directional changes without any physical turns to keep the user always on an optimal circular path inside the real world while freely walking inside the virtual one. In a user study we found that even though motion sickness susceptible participants reported respective symptoms, Telewalk did result in stronger feelings of presence and immersion and was seen as more natural then Teleportation.},
+   author = {Michael Rietzler and Martin Deubzer and Thomas Dreja and Enrico Rukzio},
+   doi = {10.1145/3313831.3376821},
+   isbn = {9781450367080},
+   booktitle = {Conference on Human Factors in Computing Systems - Proceedings},
+   keywords = {Telewalk,redirected walking,virtual reality},
+   month = {4},
+   publisher = {Association for Computing Machinery},
+   title = {Telewalk: Towards Free and Endless Walking in Room-Scale Virtual Reality},
+   year = {2020},
+}
+
+@INPROCEEDINGS{5444816,
+  author={Peck, Tabitha C. and Fuchs, Henry and Whitton, Mary C.},
+  booktitle={2010 IEEE Virtual Reality Conference (VR)}, 
+  title={Improved Redirection with Distractors: A large-scale-real-walking locomotion interface and its effect on navigation in virtual environments}, 
+  year={2010},
+  volume={},
+  number={},
+  pages={35-38},
+  keywords={Navigation;Virtual environment;Visualization;Virtual reality;Displays;Mobile computing;Image reconstruction;Solid modeling;Internet;Feedback;I.3.6 [Computer Graphics]: Methodology and Techniques-Interaction techniques;I.3.7 [Computer Graphics]: Three-Dimensional Graphics and Realism-Virtual Reality;H.5.1 [Information Interfaces and Presentation]: Multimedia Information Systems-Artificial-augmented, and virtual realities},
+  doi={10.1109/VR.2010.5444816}}
+
+@inproceedings{Bozgeyikli2016,
+   abstract = {With the increasing popularity of virtual reality (VR) and new devices getting available with relatively lower costs, more and more video games have been developed recently. Most of these games use first person interaction techniques since it is more natural for Head Mounted Displays (HMDs). One of the most widely used interaction technique in VR video games is locomotion that is used to move user's viewpoint in virtual environments. Locomotion is an important component of video games since it can have a strong influence on user experience. In this study, a new locomotion technique we called "Point & Teleport" is described and compared with two commonly used VR locomotion techniques of walk-in-place and joystick. In this technique, users simply point where they want to be in virtual world and they are teleported to that position. As a major advantage, it is not expected to introduce motion sickness since it does not involve any visible translational motion. In this study, two VR experiments were designed and performed to analyze the Point & Teleport technique. In the first experiment, Point & Teleport was compared with walkin-place and joystick locomotion techniques. In the second experiment, a direction component was added to the Point & Teleport technique so that the users could specify their desired orientation as well. 16 users took part in both experiments. Results indicated that Point & Teleport is a fun and user friendly locomotion method whereas the additional direction component degraded the user experience.},
+   author = {Evren Bozgeyikli and Andrew Raij and Srinivas Katkoori and Rajiv Dubey},
+   doi = {10.1145/2967934.2968105},
+   isbn = {9781450344562},
+   booktitle = {CHI PLAY 2016 - Proceedings of the 2016 Annual Symposium on Computer-Human Interaction in Play},
+   keywords = {Locomotion,Teleportation,Virtual reality},
+   month = {10},
+   pages = {205-216},
+   publisher = {Association for Computing Machinery, Inc},
+   title = {Point \& Teleport locomotion technique for virtual reality},
+   year = {2016},
+}
+
+@inbook{Eastgate2014,
+   abstract = {In the early 1990s, little systematic attention was paid to the way in which virtual environments (VEs) were or should be designed. This was for a number of reasons. First, many early VEs were proof-of-concept demonstrations (with fairly crude object representations), produced at great speed often by trial and error to sell the idea of VEs to potential user organizations. Little time or thought was given to de˜ning the development process. Second, several early VEs and development processes were commercially or militarily con˜dential and therefore publication was not an option. Third, VE games were often based on other computer games, and in any case, their developers had no scienti˜c reason to publish anything on their design and development process and may have had good commercial reasons not to; no published accounts therefore exist. The fourth category of early VEs was simple usability test prototypes, to allow ergonomists and psychologists to experiment with various aspects of the virtual experience and with factors of VE usability. Again, there would be little need for, or thought given to, the VE design process.},
+   author = {Richard M. Eastgate and John R. Wilson and Mirabelle D’Cruz},
+   doi = {10.1201/b17360-24},
+   isbn = {9781466511859},
+   journal = {Handbook of Virtual Environments: Design, Implementation, and Applications, Second Edition},
+   month = {1},
+   pages = {353-390},
+   publisher = {CRC Press},
+   title = {Structured Development of Virtual Environments},
+   year = {2014},
+}
+
+@inproceedings{Anthes2016,
+author = {Anthes, Christoph and García Hernandez, Rubén and Wiedemann, Markus and Kranzlmüller, Dieter},
+year = {2016},
+month = {03},
+pages = {},
+title = {State of the Art of Virtual Reality Technologies},
+doi = {10.1109/AERO.2016.7500674}
+}
+
+@misc{Mazuryk1999,
+   abstract = {Virtual Reality (VR), sometimes called Virtual Environments (VE) has drawn much attention in the last few years. Extensive media coverage causes this interest to grow rapidly. Very few people, however, really know what VR is, what its basic principles and its open problems are. In this paper a historical overview of virtual reality is presented, basic terminology and classes of VR systems are listed, followed by applications of this technology in science, work, and entertainment areas. An insightful study of typical VR systems is done. All components of V R application and interrelations between them are thoroughly examined: input devices, output devices and software. Additionally human factors and their implication on the design issues of VE are discussed. Finally, the future of VR is considered in two aspects: technological and social. New research directions, technological frontiers and potential applications are pointed out. The possible positive and negative influence of VR on life of average people is speculated.},
+   author = {Tomasz Mazuryk and Michael Gervautz},
+   title = {Virtual Reality History, Applications, Technology and Future},
+   url = {http://www.cg.tuwien.ac.at/},
+}
+
+@misc{Nilsson2018,
+   abstract = {Recent technological developments have finally brought virtual reality (VR) out of the laboratory and into the hands of developers and consumers. However, a number of challenges remain. Virtual travel is one of the most common and universal tasks performed inside virtual environments, yet enabling users to navigate virtual environments is not a trivial challenge—especially if the user is walking. In this article, we initially provide an overview of the numerous virtual travel techniques that have been proposed prior to the commercialization of VR. Then we turn to the mode of travel that is the most difficult to facilitate, that is, walking. The challenge of providing users with natural walking experiences in VR can be divided into two separate, albeit related, challenges: (1) enabling unconstrained walking in virtual worlds that are larger than the tracked physical space and (2) providing users with appropriate multisensory stimuli in response to their interaction with the virtual environment. In regard to the first challenge, we present walking techniques falling into three general categories: repositioning systems, locomotion based on proxy gestures, and redirected walking. With respect to multimodal stimuli, we focus on how to provide three types of information: external sensory information (visual, auditory, and cutaneous), internal sensory information (vestibular and kinesthetic/proprioceptive), and efferent information. Finally, we discuss how the different categories of walking techniques compare and discuss the challenges still facing the research community.},
+   author = {Niels Christian Nilsson and Stefania Serafin and Frank Steinicke and Rolf Nordahl},
+   doi = {10.1145/3180658},
+   issn = {15443981},
+   issue = {2},
+   journal = {Computers in Entertainment},
+   keywords = {Naturalness,Virtual reality,Virtual travel,Walking},
+   publisher = {Association for Computing Machinery},
+   title = {Natural walking in virtual reality: A review},
+   volume = {16},
+   year = {2018},
+}
+
+@inproceedings{Syamil2024,
+   abstract = {Omni-Directional Treadmills (ODT) and Redirected Walking (RDW) seem suitable for eliciting presence through a full-body walking experience, however both present unique mechanisms that can affect users' presence, comfort, and overall preference. To measure this effect, we conducted a counterbalanced within-subjects user study with 20 participants. Participants wore a wireless VR headset and experienced a tour of a virtual art museum, once using RDW and another time using a passive, slip-based ODT. Both solutions elicit similar amounts of presence, however RDW is perceived as more natural and is the preferred choice of the participants.},
+   author = {Raiffa Syamil and Mahdi Azmandian and Sergio Casas and Pedro Morillo and Carolina Cruz-Neira},
+   doi = {10.1109/VRW62533.2024.00302},
+   isbn = {9798350374490},
+   booktitle = {Proceedings - 2024 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops, VRW 2024},
+   keywords = {Human computer interaction (HCI),Human-centered computing,Interaction paradigms,Virtual Reality},
+   pages = {1011-1012},
+   publisher = {Institute of Electrical and Electronics Engineers Inc.},
+   title = {Redirected Walking vs. Omni-Directional Treadmills: An Evaluation of Presence},
+   year = {2024},
+}
+
+@inproceedings{Gemert2024,
+   abstract = {Walking-based locomotion techniques in virtual reality (VR) can use redirection to enable walking in a virtual environment larger than the physical one. This results in a mismatch between the perceived virtual and physical movement, which is known to cause VR sickness. However, it is unclear if different types of walking techniques (e.g., resetting, reorientation, or self-overlapping spaces) affect VR sickness differently. To address this, we conducted a systematic review and meta-analysis of 96 papers published in 2016-2022 that measure VR sickness in walking-based locomotion. We find different VR sickness effects between types of redirection and between normal walking and redirection. However, we also identified several problems with the use and reporting of VR sickness measures. We discuss the challenges in understanding VR sickness differences between walking techniques and present guidelines for measuring VR sickness in locomotion studies.},
+   author = {Thomas van Gemert and Niels Christian Nilsson and Teresa Hirzle and Joanna Bergström},
+   doi = {10.1145/3613904.3641974},
+   isbn = {9798400703300},
+   booktitle = {Conference on Human Factors in Computing Systems - Proceedings},
+   keywords = {locomotion,reality,sickness,ssq,virtual,vr,vrise,walking},
+   month = {5},
+   publisher = {Association for Computing Machinery},
+   title = {Sicknificant Steps: A Systematic Review and Meta-analysis of VR Sickness in Walking-based Locomotion for Virtual Reality},
+   year = {2024},
+}
+
+@article{Lohman2022,
+   abstract = {Cybersickness is a type of motion sickness that may occur during a virtual reality (VR) experience. Many studies have proposed solutions to mitigate cybersickness, while navigating a virtual environment with controllers or walking over a floor. However, reducing the levels of cybersickness while physically walking on an omnidirectional treadmill has been largely overlooked. In this article, we performed a within-subject study, where 34 novice participants underwent four visual conditions while walking in a virtual maze over an omnidirectional treadmill. In the control condition, the movement speed was reduced of the half compared to a standard navigation speed, a movement speed smoothing was added, and the user's virtual body was represented. The other three conditions changed one of the visual parameters of the control condition: in the standard speed condition, the speed reduction was not performed; for the no smoothing condition, the smoothing was not performed; and for the no avatar condition, the user's avatar was removed. Results showed that the standard speed condition was reported to induce a significant level of cybersickness compared to the control and no avatar conditions. Nevertheless, standard speed was also the condition most preferred to navigate a virtual environment. This suggests the need to find a tradeoff between the easiness to move quickly in a virtual environment and the cybersickness that can be induced. We provide a discussion of the obtained results and their implications for the design of VR experiences while users walk upon an omnidirectional treadmill.},
+   author = {Jesse Lohman and Luca Turchet},
+   doi = {10.1109/THMS.2022.3175407},
+   issn = {21682305},
+   issue = {4},
+   journal = {IEEE Transactions on Human-Machine Systems},
+   keywords = {Cybersickness,experimental evaluation,omnidirectional treadmill,virtual reality (VR)},
+   month = {8},
+   pages = {613-623},
+   publisher = {Institute of Electrical and Electronics Engineers Inc.},
+   title = {Evaluating Cybersickness of Walking on an Omnidirectional Treadmill in Virtual Reality},
+   volume = {52},
+   year = {2022},
+}
+
+@inproceedings{Prithul2022,
+   abstract = {Teleportation is a popular locomotion technique that allows users to navigate beyond the confines of available tracking space with the smallest chance of inducing VR sickness. Users typically specify a teleportation destination by using a hand-held motion-sensing controller. However, for various reasons, it can be desirable or required to have a hands-free alternative to controller-based teleportation. We evaluate three different hands-free ways of teleporting with users selecting a destination using head gaze and activating teleport using: (1) eye-wink, (2) a mouth gesture, and (3) dwell. A user study with 20 participants compared all three techniques to controller-based teleportation using a waypoint based navigation task. Quantitative and subjective results showed eye-wink is the most viable alternative to using a controller and offered a lower selection error.},
+   author = {Aniruddha Prithul and Jiwan Bhandari and Walker Spurgeon and Eelke Folmer},
+   doi = {10.1145/3565970.3567683},
+   isbn = {9781450399487},
+   booktitle = {Proceedings - SUI 2022: ACM Conference on Spatial User Interaction},
+   keywords = {eye tracking,locomotion,teleportation,virtual reality},
+   month = {12},
+   publisher = {Association for Computing Machinery, Inc},
+   title = {Evaluation of Hands-free Teleportation in VR},
+   year = {2022},
+}
+
+@article{Cherni2020,
+   abstract = {This study represents a systematic literature review in which we explored the locomotion techniques in virtual reality between 2012 and 2019. We analysed and compared 22 locomotion methods that we have identified in 26 papers included in our review. The objective is to better understand relevant locomotion techniques and their impact on the user experience. The review of the literature has shown a wide range of different locomotion techniques which each technique is characterized by different advantages and drawbacks, but classic locomotion techniques such as joystick outperformed all the proposed technique in the reviewed studies. We also proposed a taxonomy and two types of evaluation for locomotion techniques in virtual environment. These elements provide guidelines that may help researchers to choose the most adapted locomotion technique according to the aim of their study.},
+   author = {Heni Cherni and Natacha Métayer and Nicolas Souliman},
+   doi = {10.20870/ijvr.2020.20.1.3183},
+   issn = {1081-1451},
+   issue = {1},
+   journal = {International Journal of Virtual Reality},
+   month = {3},
+   pages = {1-20},
+   publisher = {Universite de Bordeaux},
+   title = {Literature review of locomotion techniques in virtual reality},
+   volume = {20},
+   year = {2020},
+}
+
+@inproceedings{Lochner2021,
+   abstract = {Locomotion techniques in Virtual Reality (VR) are the means by which users traverse a Virtual Environment (VE) and are considered an integral and indispensable part of user interaction. This paper investigates the potential that natural walking in impossible spaces provides as a viable locomotion technique in VR when compared to conventional alternatives, such as teleportation, arm-swinging and touchpad/joystick. In this context, impossible spaces are locally Euclidean orbit-manifolds - subspaces separated by portals that are individually consistent but are able to impossibly overlap in space without interacting. A quantitative user experiment was conducted with n = 25 participants, who were asked to complete a set of tasks inside four houses, in each case using a different locomotion technique to navigate. After completing all tasks for a given house, participants were then asked to complete a set of three questionnaires regarding the technique used, namely the Simulator Sickness Questionnaire (SSQ), Game Experience Questionnaire (GEQ) and System Usability Scale (SUS). Time for task completion was also recorded. It was found that natural walking in impossible spaces significantly improves (α = 0.05) immersion (as compared to teleportation and touchpad/joystick, r > 0.7) and system usability (over touchpad/joystick and arm-swinging, r ≥ 0.38), but seems to lead to slower task completion.},
+   author = {Daniel Christopher Lochner and James Edward Gain},
+   doi = {10.1145/3487983.3488305},
+   isbn = {9781450391313},
+   booktitle = {Proceedings - MIG 2021: 14th ACM SIGGRAPH Conference on Motion, Interaction, and Games},
+   keywords = {Virtual Reality,locomotion,redirected walking,simulator sickness},
+   month = {11},
+   publisher = {Association for Computing Machinery, Inc},
+   title = {VR Natural Walking in Impossible Spaces},
+   year = {2021},
+}
+
+@article{Lee2018,
+   abstract = {People are interested in traveling in an infinite virtual environment, but no standard navigation method exists yet in Virtual Reality (VR). The Walking-In-Place (WIP) technique is a navigation method that simulates movement to enable immersive travel with less simulator sickness in VR. However, attaching the sensor to the body is troublesome. A previously introduced method that performed WIP using an Inertial Measurement Unit (IMU) helped address this problem. That method does not require placement of additional sensors on the body. That study proved, through evaluation, the acceptable performance of WIP. However, this method has limitations, including a high step-recognition rate when the user does various body motions within the tracking area. Previous works also did not evaluate WIP step recognition accuracy. In this paper, we propose a novel WIP method using position and orientation tracking, which are provided in the most PC-based VR HMDs. Our method also does not require additional sensors on the body and is more stable than the IMU-based method for non-WIP motions. We evaluated our method with nine subjects and found that the WIP step accuracy was 99.32% regardless of head tilt, and the error rate was 0% for squat motion, which is a motion prone to error. We distinguish jog-in-place as “intentional motion” and others as “unintentional motion”. This shows that our method correctly recognizes only jog-in-place. We also apply the saw-tooth function virtual velocity to our method in a mathematical way. Natural navigation is possible when the virtual velocity approach is applied to the WIP method. Our method is useful for various applications which requires jogging.},
+   author = {Juyoung Lee and Sang Chul Ahn and Jae In Hwang},
+   doi = {10.3390/s18092832},
+   issn = {14248220},
+   issue = {9},
+   journal = {Sensors (Switzerland)},
+   keywords = {Gait,Head-mounted display,Motion analysis,Position and orientation tracking,Virtual reality,Virtual velocity,Walking-in-place},
+   month = {9},
+   pmid = {30150586},
+   publisher = {MDPI AG},
+   title = {A walking-in-place method for virtual reality using position and orientation tracking},
+   volume = {18},
+   year = {2018},
+}
+
+@INPROCEEDINGS{6180877,
+  author={Suma, Evan A. and Bruder, Gerd and Steinicke, Frank and Krum, David M. and Bolas, Mark},
+  booktitle={2012 IEEE Virtual Reality Workshops (VRW)}, 
+  title={A taxonomy for deploying redirection techniques in immersive virtual environments}, 
+  year={2012},
+  volume={},
+  number={},
+  pages={43-46},
+  keywords={Virtual environments;Legged locomotion;Taxonomy;Thyristors;Optical character recognition software;Blindness;Virtual environments;redirection;taxonomy},
+  doi={10.1109/VR.2012.6180877}}
+
+  @inproceedings{Grechkin2016,
+   abstract = {Redirected walking enables the exploration of large virtual environments while requiring only a finite amount of physical space. Unfortunately, in living room sized tracked areas the effectiveness of common redirection algorithms such as Steer-to-Center is very limited. A potential solution is to increase redirection effectiveness by applying two types of perceptual manipulations (curvature and translation gains) simultaneously. This paper investigates how such combination may affect detection thresholds for curvature gain. To this end we analyze the estimation methodology and discuss selection process for a suitable estimation method. We then compare curvature detection thresholds obtained under different levels of translation gain using two different estimation methods: method of constant stimuli and Green's maximum likelihood procedure. The data from both experiments shows no evidence that curvature gain detection thresholds were affected by the presence of translation gain (with test levels spanning previously estimated interval of undetectable translation gain levels). This suggests that in practice currently used levels of translation and curvature gains can be safely applied simultaneously. Furthermore, we present some evidence that curvature detection thresholds may be lower that previously reported. Our estimates indicate that users can be redirected on a circular arc with radius of either 11.6m or 6.4m depending on the estimation method vs. the previously reported value of 22m. These results highlight that the detection threshold estimates vary significantly with the estimation method and suggest the need for further studies to define efficient and reliable estimation methodology.},
+   author = {Timofey Grechkin and Jerald Thomas and Mahdi Azmandian and Mark Bolas and Evan Suma},
+   doi = {10.1145/2931002.2931018},
+   isbn = {9781450343831},
+   booktitle = {Proceedings of the ACM Symposium on Applied Perception, SAP 2016},
+   keywords = {Locomotion,Perception,Virtual reality},
+   month = {7},
+   pages = {113-120},
+   publisher = {Association for Computing Machinery, Inc},
+   title = {Revisiting detection thresholds for redirected walking: Combining translation and curvature gains},
+   year = {2016},
+}
+
+@inproceedings{Williams2007,
+author = {Williams, Betsy and Narasimham, Gayathri and Rump, Bjoern and McNamara, Timothy P. and Carr, Thomas H. and Rieser, John and Bodenheimer, Bobby},
+title = {Exploring large virtual environments with an HMD when physical space is limited},
+year = {2007},
+isbn = {9781595936707},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1272582.1272590},
+doi = {10.1145/1272582.1272590},
+abstract = {Virtual Environments presented through head-mounted displays (HMDs) are often explored on foot. Exploration on foot is useful since the afferent and efferent cues of physical locomotion aid spatial awareness. However, the size of the virtual environment that can be explored on foot is limited to the dimensions of the tracking space of the HMD unless other strategies are used. This paper presents a system for exploring a large virtual environment on foot when the size of the physical surroundings is small by leveraging people's natural ability to spatially update. This paper presents three methods of "resetting" users when they reach the physical limits of the HMD tracking system. Resetting involves manipulating the users' location in physical space to move them out of the path of the physical obstruction while maintaining their spatial awareness of the virtual space.},
+booktitle = {Proceedings of the 4th Symposium on Applied Perception in Graphics and Visualization},
+pages = {41–48},
+numpages = {8},
+keywords = {space perception, virtual reality (VR)},
+location = {Tubingen, Germany},
+series = {APGV '07}
+}
+
+@INPROCEEDINGS{5759455,
+  author={Suma, Evan A. and Clark, Seth and Krum, David and Finkelstein, Samantha and Bolas, Mark and Warte, Zachary},
+  booktitle={2011 IEEE Virtual Reality Conference}, 
+  title={Leveraging change blindness for redirection in virtual environments}, 
+  year={2011},
+  volume={},
+  number={},
+  pages={159-166},
+  keywords={Virtual environment;Legged locomotion;Three dimensional displays;Blindness;Games;Visualization;Monitoring;virtual environments;redirection;change blindness},
+  doi={10.1109/VR.2011.5759455}}
+
+@INPROCEEDINGS{Bruder2011,
+  author={Bruder, Gerd and Steinicke, Frank and Wieland, Phil},
+  booktitle={2011 IEEE Virtual Reality Conference}, 
+  title={Self-motion illusions in immersive virtual reality environments}, 
+  year={2011},
+  volume={},
+  number={},
+  pages={39-46},
+  keywords={Visualization;Optical sensors;Cameras;Integrated optics;Blindness;Optical distortion;Detectors;Self-motion perception;visual illusions;optic flow},
+  doi={10.1109/VR.2011.5759434}}
+
+@inproceedings{Rebelo2024,
+   abstract = {In Virtual Reality (VR), navigating within small physical spaces often relies on handheld controller methods such as teleportation and joystick movements. While effective, these methods diverge from natural movement. This paper introduces the development of a VR tool designed to enhance immersion by customizing virtual environments for small physical spaces. By employing non-Euclidean and impossible spaces strategies, our solution enables overlapping virtual environments to fit the user's physical constraints, allowing exploration of the space through walking. This tool can benefit different areas of application, such as virtual visits to museums, training simulations and emergency scenarios. As a use case in this paper, we address virtual apartment tours. This study demonstrates the potential for more user-centric and accessible VR solutions, contributing to delivering more meaningful experiences in daily and professional settings. To assess the viability and potential applications of our approach, we conducted semi-structured interviews with 10 Human-Computer Interaction (HCI) researchers. These interviews yielded insights into practical applications, identified usability challenges, and suggested strategies to enhance user experience.},
+   author = {Ana Rita Rebelo and Pedro A. Ferreira and Rui Nóbrega},
+   doi = {10.1145/3613905.3650942},
+   isbn = {9798400703317},
+   booktitle = {Conference on Human Factors in Computing Systems - Proceedings},
+   keywords = {Impossible spaces,Navigation,Non-Euclidean spaces,Procedural generation,Virtual reality},
+   month = {5},
+   publisher = {Association for Computing Machinery},
+   title = {Adaptive Virtual Environments in Small Physical Spaces: Navigation Design for Customized User Experiences in Virtual Reality},
+   year = {2024},
+}
+
+@article{Lee2020,
+   abstract = {Virtual Reality (VR) has been regarded as a highly effective technology that enables people to gain enjoyable and immersive information about museum collections. Drawing from the four realms of the experience economy, we assume absorptive experiences influence immersive experiences, overall museum VR tour experience, and intention to visit a museum. The results show that all the hypotheses are supported. Furthermore, we compared and tested the proposed model and its rival model (postulating the direct influence of the four realms of the experience economy on museum VR experience) and found that the proposed model is better than the rival model.},
+   author = {Hyunae Lee and Timothy Hyungsoo Jung and M. Claudia tom Dieck and Namho Chung},
+   doi = {10.1016/j.im.2019.103229},
+   issn = {03787206},
+   issue = {5},
+   journal = {Information and Management},
+   keywords = {Absorption,Experience economy,Immersion,Museum,Tourism,Virtual reality},
+   month = {7},
+   publisher = {Elsevier B.V.},
+   title = {Experiencing immersive virtual reality in museums},
+   volume = {57},
+   year = {2020},
+}
+
+@inproceedings{Schwind2019,
+   abstract = {Virtual Reality (VR) is gaining increasing importance in science, education, and entertainment. A fundamental characteristic of VR is creating presence, the experience of’being’ or’acting’, when physically situated in another place. Measuring presence is vital for VR research and development. It is typically repeatedly assessed through questionnaires completed after leaving a VR scene. Requiring participants to leave and re-enter the VR costs time and can cause disorientation. In this paper, we investigate the effect of completing presence questionnaires directly in VR. Thirty-six participants experienced two immersion levels and filled three standardized presence questionnaires in the real world or VR. We found no effect on the questionnaires’ mean scores; however, we found that the variance of those measures significantly depends on the realism of the virtual scene and if the subjects had left the VR. The results indicate that, besides reducing a study’s duration and reducing disorientation, completing questionnaires in VR does not change the measured presence but can increase the consistency of the variance.},
+   author = {Valentin Schwind and Pascal Knierim and Nico Haas and Niels Henze},
+   doi = {10.1145/3290605.3300590},
+   isbn = {9781450359702},
+   booktitle = {Conference on Human Factors in Computing Systems - Proceedings},
+   keywords = {Evaluation,Presence,Questionnaire,Virtual reality},
+   month = {5},
+   publisher = {Association for Computing Machinery},
+   title = {Using presence questionnaires in virtual reality},
+   year = {2019},
+}
+
+@article{Santos2009,
+   abstract = {Virtual Reality (VR) has been constantly evolving since its early days, and is now a fundamental technology in different application areas. User evaluation is a crucial step in the design and development of VR systems that do respond to users' needs, as well as for identifying applications that indeed gain from the use of such technology. Yet, there is not much work reported concerning usability evaluation and validation of VR systems, when compared with the traditional desktop setup. The paper presents a user study performed, as a first step, for the evaluation of a low-cost VR system using a Head-Mounted Display (HMD). That system was compared to a traditional desktop setup through an experiment that assessed user performance, when carrying out navigation tasks in a game scenario for a short period. The results show that, although users were generally satisfied with the VR system, and found the HMD interaction intuitive and natural, most performed better with the desktop setup. © 2008 Springer Science+Business Media, LLC.},
+   author = {Beatriz Sousa Santos and Paulo Dias and Angela Pimentel and Jan Willem Baggerman and Carlos Ferreira and Samuel Silva and Joaquim Madeira},
+   doi = {10.1007/s11042-008-0223-2},
+   issn = {13807501},
+   issue = {1},
+   journal = {Multimedia Tools and Applications},
+   keywords = {Head mounted display (HMD),Navigation,User study,Virtual environments (VE),Virtual reality (VR)},
+   month = {1},
+   pages = {161-181},
+   title = {Head-mounted display versus desktop for 3D navigation in virtual reality: A user study},
+   volume = {41},
+   year = {2009},
+}
+
+@article{Feng2022,
+   abstract = {Virtual Reality (VR) provides the possibility to study pedestrian wayfinding behaviour in multi-level buildings. Although VR has been applied increasingly to study pedestrian behaviour, it has remained unclear how different VR technology would affect behavioural outcomes in a multi-level building. The study compares the adoption of different VR technologies for pedestrian wayfinding studies, via investigating the difference in pedestrian wayfinding behaviour and user experience. Wayfinding experiments with two groups of participants were conducted using either HMD VR or Desktop VR. Pedestrian movement trajectory data were collected via the VR system and user experience data were recorded via a questionnaire. These data allow for direct comparison and detailed analysis of pedestrian behaviour and user experience between the adoption of two VR technologies. The results showed that technological differences have a significant impact on wayfinding task performance and head rotation change. However, the route choice, exit choice and user experience were overall similar between the two groups. These results provide empirical evidence supporting researchers to choose between immersive and non-immersive VR when study pedestrian wayfinding behaviour.},
+   author = {Yan Feng and Dorine C. Duives and Serge P. Hoogendoorn},
+   doi = {10.1016/j.aei.2021.101475},
+   issn = {14740346},
+   journal = {Advanced Engineering Informatics},
+   keywords = {Desktop VR,Evacuation,Exit choice,HMD VR,Human–computer interaction,Route choice,Wayfinding behaviour},
+   month = {1},
+   publisher = {Elsevier Ltd},
+   title = {Wayfinding behaviour in a multi-level building: A comparative study of HMD VR and Desktop VR},
+   volume = {51},
+   year = {2022},
+}
+
+@article{Jul1997,
+author = {Jul, Susanne and Furnas, George W.},
+title = {Navigation in electronic worlds: a CHI 97 workshop},
+year = {1997},
+issue_date = {Oct. 1997},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {29},
+number = {4},
+issn = {0736-6906},
+url = {https://doi.org/10.1145/270950.270979},
+doi = {10.1145/270950.270979},
+journal = {SIGCHI Bull.},
+month = oct,
+pages = {44–49},
+numpages = {6}
+}
+
+@article{Steinicke2010,
+  title={Estimation of Detection Thresholds for Redirected Walking Techniques},
+  author={Frank Steinicke and G. Bruder and Jason Jerald and Harald Frenz and Markus Lappe},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  year={2010},
+  volume={16},
+  pages={17-27},
+  url={https://api.semanticscholar.org/CorpusID:1867356}
+}
+
+@article{Razzaque2001,
+author = {Jonathan, Eurographics and Roberts, C. and Presentation, Short and Razzaque, Sharif and Kohn, Zachariah and Whitton, Mary},
+year = {2001},
+month = {08},
+pages = {},
+title = {Redirected Walking},
+journal = {Proceedings of Eurographics}
+}
+
+@inproceedings{Liu2018b,
+author = {Liu, James and Parekh, Hirav and Al-Zayer, Majed and Folmer, Eelke},
+title = {Increasing Walking in VR using Redirected Teleportation},
+year = {2018},
+isbn = {9781450359481},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3242587.3242601},
+doi = {10.1145/3242587.3242601},
+abstract = {Teleportation is a popular locomotion technique that lets users safely navigate beyond the confines of available positional tracking space without inducing VR sickness. Because available walking space is limited and teleportation is faster than walking, a risk with using teleportation is that users might end up abandoning walking input and only relying on teleportation, which is considered detrimental to presence. We present redirected teleportation; an improved version of teleportation that uses iterative non-obtrusive reorientation and repositioning using a portal to redirect the user back to the center of the tracking space, where available walking space is larger. A user study compares the effectiveness, accuracy, and usability of redirected teleportation with regular teleportation using a navigation task in three different environments. Results show that redirected teleportation allows for a better utilization of available tracking space than regular teleportation, as it requires significantly fewer teleportations, while users walk more and use a larger portion of the available tracking space.},
+booktitle = {Proceedings of the 31st Annual ACM Symposium on User Interface Software and Technology},
+pages = {521–529},
+numpages = {9},
+keywords = {locomotion, positional tracking, teleportation, virtual reality},
+location = {Berlin, Germany},
+series = {UIST '18}
+}
+
+@inproceedings{Brooke1996SUSA,
+  title={SUS: A 'Quick and Dirty' Usability Scale},
+  author={J. B. Brooke},
+  year={1996},
+  url={https://api.semanticscholar.org/CorpusID:107686571}
+}
+
+@article{Kennedy1993,
+author = {Robert S. Kennedy, Norman E. Lane, Kevin S. Berbaum and Michael G. Lilienthal},
+title = {Simulator Sickness Questionnaire: An Enhanced Method for Quantifying Simulator Sickness},
+journal = {The International Journal of Aviation Psychology},
+volume = {3},
+number = {3},
+pages = {203--220},
+year = {1993},
+publisher = {Taylor \& Francis},
+doi = {10.1207/s15327108ijap0303\_3},
+URL = {https://doi.org/10.1207/s15327108ijap0303_3},
+eprint = {https://doi.org/10.1207/s15327108ijap0303_3}
+}
+
+@ARTICLE{Schubert2001,
+  author={Schubert, Thomas and Friedmann, Frank and Regenbrecht, Holger},
+  journal={Presence}, 
+  title={The Experience of Presence: Factor Analytic Insights}, 
+  year={2001},
+  volume={10},
+  number={3},
+  pages={266-281},
+  keywords={},
+  doi={10.1162/105474601300343603}}
+
+@article{Jennet2008,
+title = {Measuring and defining the experience of immersion in games},
+journal = {International Journal of Human-Computer Studies},
+volume = {66},
+number = {9},
+pages = {641-661},
+year = {2008},
+issn = {1071-5819},
+doi = {https://doi.org/10.1016/j.ijhcs.2008.04.004},
+url = {https://www.sciencedirect.com/science/article/pii/S1071581908000499},
+author = {Charlene Jennett and Anna L. Cox and Paul Cairns and Samira Dhoparee and Andrew Epps and Tim Tijs and Alison Walton},
+keywords = {Immersion, Games, Eye tracking, Pace, Affect},
+abstract = {Despite the word's common usage by gamers and reviewers alike, it is still not clear what immersion means. This paper explores immersion further by investigating whether immersion can be defined quantitatively, describing three experiments in total. The first experiment investigated participants’ abilities to switch from an immersive to a non-immersive task. The second experiment investigated whether there were changes in participants’ eye movements during an immersive task. The third experiment investigated the effect of an externally imposed pace of interaction on immersion and affective measures (state anxiety, positive affect, negative affect). Overall the findings suggest that immersion can be measured subjectively (through questionnaires) as well as objectively (task completion time, eye movements). Furthermore, immersion is not only viewed as a positive experience: negative emotions and uneasiness (i.e. anxiety) also run high.}
+}
+
+@InProceedings{Laugwitz2008,
+author="Laugwitz, Bettina
+and Held, Theo
+and Schrepp, Martin",
+editor="Holzinger, Andreas",
+title="Construction and Evaluation of a User Experience Questionnaire",
+booktitle="HCI and Usability for Education and Work",
+year="2008",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="63--76",
+abstract="An end-user questionnaire to measure user experience quickly in a simple and immediate way while covering a preferably comprehensive impression of the product user experience was the goal of the reported construction process. An empirical approach for the item selection was used to ensure practical relevance of items. Usability experts collected terms and statements on user experience and usability, including `hard' as well as `soft' aspects. These statements were consolidated and transformed into a first questionnaire version containing 80 bipolar items. It was used to measure the user experience of software products in several empirical studies. Data were subjected to a factor analysis which resulted in the construction of a 26 item questionnaire including the six factors Attractiveness, Perspicuity, Efficiency, Dependability, Stimulation, and Novelty. Studies conducted for the original German questionnaire and an English version indicate a satisfactory level of reliability and construct validity.",
+isbn="978-3-540-89350-9"
+}
+
+@inproceedings{Putze2020,
+author = {Putze, Susanne and Alexandrovsky, Dmitry and Putze, Felix and H\"{o}ffner, Sebastian and Smeddinck, Jan David and Malaka, Rainer},
+title = {Breaking The Experience: Effects of Questionnaires in VR User Studies},
+year = {2020},
+isbn = {9781450367080},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3313831.3376144},
+doi = {10.1145/3313831.3376144},
+abstract = {Questionnaires are among the most common research tools in virtual reality (VR) evaluations and user studies. However, transitioning from virtual worlds to the physical world to respond to VR experience questionnaires can potentially lead to systematic biases. Administering questionnaires in VR (inVRQs) is becoming more common in contemporary research. This is based on the intuitive notion that inVRQs may ease participation, reduce the Break in Presence (BIP) and avoid biases. In this paper, we perform a systematic investigation into the effects of interrupting the VR experience through questionnaires using physiological data as a continuous and objective measure of presence. In a user study (n=50), we evaluated question-asking procedures using a VR shooter with two different levels of immersion. The users rated their player experience with a questionnaire either inside or outside of VR. Our results indicate a reduced BIP for the employed inVRQ without affecting the self-reported player experience.},
+booktitle = {Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems},
+pages = {1–15},
+numpages = {15},
+keywords = {biosignals, break in presence, in-vr questionnaires, invrqs, research methods, surveys, user studies, virtual reality, vr},
+location = {Honolulu, HI, USA},
+series = {CHI '20}
+}
+
+@INPROCEEDINGS{Freitag2014,
+  author={Freitag, Sebastian and Rausch, Dominik and Kuhlen, Torsten},
+  booktitle={2014 IEEE Symposium on 3D User Interfaces (3DUI)}, 
+  title={Reorientation in virtual environments using interactive portals}, 
+  year={2014},
+  volume={},
+  number={},
+  pages={119-122},
+  keywords={Portals;Legged locomotion;Navigation;Visualization;Virtual environments;Teleportation},
+  doi={10.1109/3DUI.2014.6798852}}
+
+@inproceedings{Jaksties2022,
+author = {Jaksties, Alexander and Ebert, Achim and M\"{u}ller, Kerstin},
+title = {Magical Tower VR - Examining Orientation in Non-Euclidean Spaces},
+year = {2022},
+isbn = {9781450398084},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3552327.3552344},
+doi = {10.1145/3552327.3552344},
+abstract = {Immersive virtual reality applications and games do not necessarily have to be bound to reality. Non-euclidean VR environments permit the developer to stack more virtual space into a small room-scale VR area than otherwise physically possible. In order to test whether such environments are suitable for VR, a game was developed to investigate the acceptance of such a non-logical environment and the wellbeing of the players. Also the orientation of the players in non-Euclidean virtual environments was examined. In the game, the player in the role of the magician’s apprentice has the task of finding four hidden items and returning them to the starting room. To find the items, the players have to solve some puzzles using their orientation skills. The game level consists of many unique rooms connected by portals creating the impression of a non-Euclidean environment. First tendencies show that orientation in non-Euclidean VR environments is possible and that the players enjoyed the expanded possibilities of actions.},
+booktitle = {Proceedings of the 33rd European Conference on Cognitive Ergonomics},
+articleno = {6},
+numpages = {6},
+keywords = {virtual reality, video game, spatial orientation, non-Euclidean},
+location = {Kaiserslautern, Germany},
+series = {ECCE '22}
+}
+
+@INPROCEEDINGS{Gülcü,
+  author={Gülcü, Ali Emre and Atalay, F. Betül},
+  booktitle={2022 7th International Conference on Computer Science and Engineering (UBMK)}, 
+  title={Infinite Spaces Using Recursive Portals}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={332-337},
+  keywords={Legged locomotion;Visualization;Virtual environments;Immersive experience;Aerospace electronics;Teleportation;Rendering (computer graphics);virtual reality;portals;infinite spaces;environment mapping;cell-portal graphs;multi-thread;Vulkan;OpenGL},
+  doi={10.1109/UBMK55850.2022.9919479}
+}
+
+@article{Liu2024,
+  title = {Automatic portals layout for VR navigation},
+  volume = {28},
+  ISSN = {1434-9957},
+  url = {http://dx.doi.org/10.1007/s10055-023-00897-7},
+  DOI = {10.1007/s10055-023-00897-7},
+  number = {1},
+  journal = {Virtual Reality},
+  publisher = {Springer Science and Business Media LLC},
+  author = {Liu,  Xiaolong and Wang,  Lili and Liu,  Yi and Wu,  Jian},
+  year = {2024},
+  month = jan 
+}
+
+@inproceedings{Ablett2024,
+  title = {Adaptive Portals: Enhancing Virtual Reality Interaction Spaces With Real-Time Self-Adjusting Portals},
+  url = {http://dx.doi.org/10.1109/ISMAR62088.2024.00117},
+  DOI = {10.1109/ismar62088.2024.00117},
+  booktitle = {2024 IEEE International Symposium on Mixed and Augmented Reality (ISMAR)},
+  publisher = {IEEE},
+  author = {Ablett,  Daniel and Cunningham,  Andrew and Lee,  Gun A. and Thomas,  Bruce H.},
+  year = {2024},
+  month = oct,
+  pages = {1010–1018}
+}
+
+@inproceedings{Li2021,
+  series = {CHI ’21},
+  title = {vMirror: Enhancing the Interaction with Occluded or Distant Objects in VR with Virtual Mirrors},
+  url = {http://dx.doi.org/10.1145/3411764.3445537},
+  DOI = {10.1145/3411764.3445537},
+  booktitle = {Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems},
+  publisher = {ACM},
+  author = {Li,  Nianlong and Zhang,  Zhengquan and Liu,  Can and Yang,  Zengyao and Fu,  Yinan and Tian,  Feng and Han,  Teng and Fan,  Mingming},
+  year = {2021},
+  month = may,
+  pages = {1–11},
+  collection = {CHI ’21}
+}
+@inproceedings{Han2022,
+author = {Han, Dongyun and Kim, Donghoon and Cho, Isaac},
+title = {PORTAL: Portal Widget for Remote Target Acquisition and Control in Immersive Virtual Environments},
+year = {2022},
+isbn = {9781450398893},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3562939.3565639},
+doi = {10.1145/3562939.3565639},
+abstract = {This paper introduces PORTAL (POrtal widget for Remote Target Acquisition and controL) that allows the user to interact with out-of-reach objects in a virtual environment. We describe the PORTAL interaction technique for placing a portal widget and interacting with target objects through the portal. We conduct two formal user studies to evaluate PORTAL for selection and manipulation functionalities. The results show PORTAL supports participants to interact with remote objects successfully and precisely. Following that, we discuss its potential and limitations, and future works.},
+booktitle = {Proceedings of the 28th ACM Symposium on Virtual Reality Software and Technology},
+articleno = {16},
+numpages = {11},
+keywords = {Remote Object Interaction, Empirical studies in HCI},
+location = {Tsukuba, Japan},
+series = {VRST '22}
+}
+
+@article{Summermann2021,
+  title = {Knotted Portals in Virtual Reality},
+  volume = {43},
+  ISSN = {1866-7414},
+  url = {http://dx.doi.org/10.1007/s00283-020-10028-8},
+  DOI = {10.1007/s00283-020-10028-8},
+  number = {1},
+  journal = {The Mathematical Intelligencer},
+  publisher = {Springer Science and Business Media LLC},
+  author = {S\"{u}mmermann,  Moritz L.},
+  year = {2021},
+  month = feb,
+  pages = {55–63}
+}
+
+@INPROCEEDINGS{Nam2019,
+  author={Nam, Jung Who and McCullough, Krista and Tveite, Joshua and Espinosa, Maria Molina and Perry, Charles H. and Wilson, Barry T. and Keefe, Daniel F.},
+  booktitle={2019 IEEE Conference on Virtual Reality and 3D User Interfaces (VR)}, 
+  title={Worlds-in-Wedges: Combining Worlds-in-Miniature and Portals to Support Comparative Immersive Visualization of Forestry Data}, 
+  year={2019},
+  volume={},
+  number={},
+  pages={747-755},
+  keywords={Data visualization;Forestry;Visualization;Three-dimensional displays;Portals;Computer science;Task analysis;worlds-in-miniature;3D user interface;presence;comparative visualization;Human-centered computing—Virtual reality;Human-centered computing—Interaction techniques;Human-centered computing—Scientific visualization;Human-centered computing—Geographic visualization},
+  doi={10.1109/VR.2019.8797871}}
+
+@INPROCEEDINGS{Murray2019,
+  author={Murray, Troy and Vigentini, Lorenzo},
+  booktitle={2019 IEEE International Conference on Engineering, Technology and Education (TALE)}, 
+  title={A Study Protocol to Research and Improve Presence and Vection in VR with a non-Euclidean Approach}, 
+  year={2019},
+  volume={},
+  number={},
+  pages={1-5},
+  keywords={Portals;Rendering (computer graphics);Cameras;Geometry;Virtual environments;Automobiles;Visualization;Virtual Reality;Immersion;Presence;Biometrics},
+  doi={10.1109/TALE48000.2019.9226024}}
 
 
 

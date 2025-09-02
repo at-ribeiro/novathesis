@@ -11,35 +11,149 @@
 \label{cha:introduction}
 
 \prependtographicspath{{Chapters/Figures/Covers/}}
+\newcommand{\Overleaf}{\href{https://www.overleaf.com?r=f5160636&rm=d&rs=b}{Overleaf}}
 
 % epigraph configuration
 \epigraphfontsize{\small\itshape}
 \setlength\epigraphwidth{12.5cm}
 \setlength\epigraphrule{0pt}
 
-[TODO: Completely outdated]
 
-The implementation and exploration of safe, expansive and immersive \glspl{VE} has evolved with the development of \gls{VR} and its wide range of navigation techniques. 
-These techniques influence several dimensions of \gls{UX}, such as efficiency, usability, immersion, comfort, and accessibility, and are, therefore, used in different contexts and situations.
+\glsfirst{VR} is an immersive technology, with the capacity to transport users into interactive computer-generated 3D \glsfirst{VE}. Unrestricted 
+by the laws that bind the real world, \glspl{VE} can bend or dismiss these rules to create virtual spaces that are impossible to experience otherwise. 
+As such, \glspl{VE} can be larger than the physical environment \gls{VR} users have available while navigating these virtual worlds. 
 
-In small physical spaces, the most commonly used navigation techniques rely on joystick-based movement and teleportation, due to the physical contraints of the environment. 
-By cutting the use of Natural Walking, these techniques prove to be less immersive and unrealistic, as they trade the realism of walking elements for ease-of-use.
+To resolve this real-world limitation, different locomotion techniques have been developed. The most common techniques rely on the use of artificial means for 
+locomotion, such as controllers, yet these have shown to be a less immersive solution than naturally walking in a physical environment. Therefore,
+\gls{VR} applications that prioritize immersion often rely on the use of motion-based techniques such as \glsfirst{RDW}, to allow users to physically 
+walk in their restricted space safely, without reaching the ends of their tracking space. 
 
-To address these limitations, new navigation paradigms have been developed. Some of these resource to the use of Impossible Spaces and 
-Non-Euclidean Geometry to provide users the ability to naturally walk through extensive \glspl{VE}, even whithin restricted physical spaces. 
-By manipulating spatial perception and geometry, these techniques create the illusion of larger virtual spaces, enabling more intuitive and immersive navigation experiences.
 
 
 \section{Motivation}
+\label{sec:Motivation}
 
-\section{Related Questions}
+The implementation and exploration of immersive \glspl{VE} has evolved with the development of \gls{VR} and its wide 
+range of locomotion techniques. 
+These techniques influence dimensions of \gls{UX}, such as efficiency, usability, immersion, comfort, and accessibility, and are, 
+therefore, used in different contexts and situations~\cite{Boletsis2019}.
 
-Q1-Is it worthwhile to explore navigation through non-Stride techniques whilst in a constricted physical space?
+One of the main challenges of \gls{VR} locomotion is the physical limitations users face when navigating a \gls{VE}.
+The most common techniques rely on the use of controllers for locomotion, such as teleportation and joystick-based movement~\cite{Coomer2018}, 
+due to the fact that controllers do not warrant users' movement and there is a familiarity with them from the video-game scene.
+Although artificial techniques have shown to be an efficient and appropriate method of locomotion in \gls{VR}, the lack of a 
+walking motion makes these techniques less suitable for use-cases in which immersion is prioritized, as a natural walking motion 
+provides higher feelings of presence by mirroring how humans walk in the real world~\cite{Nilsson2018}.
 
-Q2-Does using hyperbolic strides instead of linear ones lead to increased disorientation and cybersickness?
+Locomotion techniques that rely on users to walk in their physical environment have shown their benefits in immersion and presence. Motion-based techniques 
+include the use of gestures that emulate walking, such as Walking-in-Place or Arm-Swinging, or the use of artificial 
+devices that counter-act users' movements while walking, keeping them in place, such as Treadmills. These techniques have 
+shown to be a preferable solution for higher feelings of immersion than controllers~\cite{Nilsson2018}.
 
-Q3-Do hyperbolic spaces effectively convey more control to the user compared to spaces with linear strides?
+\gls{RDW} refers to a group of techniques for locomotion in \gls{VR} that allow users to naturally walk through their \gls{VE}, by keeping  
+users inside their available space through a variety of different redirection methods~\cite{8255772}. Although most commonly associated with methods such as 
+rotational gains, that play with the imperceptibility of human senses to slowly direct users to their available space,
+\gls{RDW} techniques can employ redirection with more overt strategies for 
+safety-risking cases or others in which imperceptibility is kept by discreetly changing the \gls{VE} in real-time, 
+while the user is navigating it. Despite being a promising solution that enables walking in restricted spaces, 
+it usually needs to be employed in use-cases in which users' tracking spaces are approximately 5 x 5 meters, 
+where gains remain imperceptible to users~\cite{Razzaque2001, Steinicke2010}. However, the average available physical area for 
+\gls{VR} users is approximately 2.4 x 2.2 meters \cite{Azmandian2015, Liu2018b}. 
 
-% Other \newcommand and configuration settings retained as necessary.
+Given the possibilities of shaping rules of reality in \gls{VR}, a form of implementing \gls{RDW} is through the use o Non-Euclidean Spaces. 
+By employing non-Euclidean properties it is possible to map larger \glspl{VE} into a limited tracking space, by using overlapping-architectures
+that break the laws of Euclidean Geometry~\cite{Suma2012,Vasylevska2017} or by mapping Euclidean coordinates into a hyperbolic plane~\cite{Pisani2019, Rebelo2022}. 
 
-\newcommand{\Overleaf}{\href{https://www.overleaf.com?r=f5160636&rm=d&rs=b}{Overleaf}}
+Portals are commonly used to connect multiple sections of a self-overlapping architectural layout, typically functioning as doorways that allow users 
+to seamlessly travel between locations within a \gls{VE} through bidirectionally paired connections~\cite{Freitag2014,Lochner2021,Liu2018b}.
+The seamless transition from one section to another is achieved through a stereoscopically rendered plane, enabling users to preview the connected 
+space as if they were already positioned at the destination, with the appropriate transformations of location and rotation 
+relative to the portal~\cite{Lochner2021,Jaksties2022}.
+
+However, portals as a means of locomotion have shown its limitations in previous studies~\cite{Rebelo2024,Rebelo2025}. 
+To prevent users from leaving the limits of their physical tracking space, portals must be placed within a certain distance from the boundaries 
+of the corresponding \gls{VE}. This has an impact on the portal's preview, as the closer the portal is to said limits, 
+the less space will be observable through the preview, since the rendering of the portal view is dependent on the position of the portal. 
+Additionally, positioning portals within a certain distance from these limits hinders the amount of available space in an interior \gls{VE}, 
+as well as its naturalness, due to the unreal-like appearance of a floating door frame away from a wall. 
+
+With this context in mind, the goal of this dissertation is to contribute to the research of \gls{RDW} in small physical spaces, through the design,
+implementation and study of portal alternatives, aiming to counter-act the previously mentioned limitations.
+This work pretends to enhance navigation experiences in \gls{VR}, making virtual experiences more accessible, particularly in home settings, 
+where users typically have no more than 2.4~x~2.2 meters of space to walk.
+
+
+\section{Objectives and Research Questions}
+\label{sec:objectives-and-researh-questions}
+
+The main objective of this dissertation is to contribute to the research of \gls{RDW} in limited physical spaces through the design, implementation and 
+study of portal variants for \gls{RDW} in small tracking spaces. To complete this main objective, smaller particular goals have been 
+identified for conducting this research:
+\todo{Talvez um obj sobre criar a VE? Parece-me pouco.}
+
+\begin{itemize}
+    \item \textbf{Design and Implement the four alternative portal techniques}:
+    Conceive and accomplish each of the techniques, addressing each of the most common portal limitations found in previous studies.
+
+    \item \textbf{Conduct user studies to evaluate the techniques}: 
+    Conduct empirical studies with participants in order to assess the usability, effectiveness, and overall user experience of the proposed portal techniques.
+    
+\end{itemize}
+
+In order to better structure this research, the following three research questions are proposed:
+
+\begin{itemize}
+    \item \textbf{Q1 - Do portals with a dynamic preview help convey a continuous sense of space for users?} - 
+    
+    \item \textbf{Q2 - What elements of \gls{UX} do users prioritize when interacting with these navigation techniques?} - 
+    
+    \item \textbf{Q3 - What are the strong points for each of these techniques, in regard to \gls{VE} navigation?} - 
+    
+\end{itemize}
+
+\section{Solution Overview}
+\label{sec:solution-overview}
+
+Our solution relied on the implementation of three distinct portal variants that address the limitations of \gls{VR} navigation using portals. 
+These variants were compared with an implementation of traditional portals through a user study, taking a museum tour as a use-case, 
+where participants explored a museum \gls{VE} using each of the developed portal variants, bound by a physical space of 2.5m~x~2.5m.
+
+A more detailed description of the design choices and implementation of each of the portal variants is present throughout the document, however, a general 
+definition of each of the techniques are as follows:
+
+\begin{enumerate}
+    \item \textbf{Traditional Portals (Baseline)} - A simple framed portal with a stereoscopically rendered preview, always placed within a minimum 
+    walkable distance from the limits of the \gls{VE}. To use this portal a user must solely walk through the frame.
+    
+    \item \textbf{Movable Portals} - A framed portal initially placed at the wall that users can move by grabbing the portal through a handle-like
+    affordance present in the frame. When grabbed users may choose the placement of the portal inside a valid area by letting go of the portal. 
+    When the portal is against the wall the preview is reversed so that the preview may be continuous to the next room. Placing the portal makes 
+    it rotate, reversing the preview. To use this portal the user must grab it, place it and then walk through it.
+    
+    \item \textbf{Interactive Doors} - A door-shaped portal, complete with a door-frame and handle, placed against the wall. The door changes its 
+    appearance according to user's proximity: opaque when near, transparent when distant. Given this, the portal is visible from a distance, displaying a
+    continuous preview that becomes less visible when users approach it. The door can be opened when fully opaque by grabbing the handle in the door-frame, 
+    with the portal following the door-frame with the motion. After opened the user may teleport to their destination by walking through the opened door.
+     
+    \item \textbf{Revolving Doors} - A compartment in the \gls{VE} with a revolving door, that similarly to Interactive Doors, changes its opacity 
+    according to user distance. From afar the door is transparent, making the portal's continuous preview visible, but when approached it becomes 
+    opaque and interactable. To use the portal the user must push the door and perform a 180-degree turn.
+\end{enumerate}
+
+A user study was conducted using these portal variants, comparing various usability factors between the baseline of traditional portals and our variants, 
+as well as between each other. This study aimed to gather data on each of the portal's impact on user preference, usability, spatial understanding,
+presence and comfort. 
+
+\section{Document Structure}
+\label{sec:doc-struct}
+
+\todo{change according to the final document}
+
+Following this section, the main goal of the \nameref{cha:related_work} chapter is to explore the literature on this topic. The chapter starts by presenting
+\glspl{HMD} and devices used in \gls{VR}, as well as how Navigation occurs on \glspl{VE}, followed by an exploration of several different 
+common types of \gls{VR} Locomotion techniques, with one of them being an extensive exploration of \gls{RDW} techniques. Lastly, this chapter 
+finishes by addressing two types of Non-Euclidean Spaces in \gls{VR}: \nameref{sec:impossible-spaces} and \nameref{sec:hyperbolic-spaces}. 
+
+The \nameref{cha:plan-and-analysis} chapter describes the proposed solutions in detail, and addresses the user studies to be conducted. 
+This chapter also includes a section on the preliminary work accomplished to the present date and finishes by addressing the planned work to 
+be done during the dissertation.

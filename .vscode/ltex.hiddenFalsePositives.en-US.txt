@@ -1,0 +1,1 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QTurn-and-Place will depend on scripting sub-systems for subdividing space, interacting with the paintings and a Portal-esque system for passing through one section to the other seamlessly.\\E$"}
