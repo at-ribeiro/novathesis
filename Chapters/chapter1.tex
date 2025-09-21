@@ -89,10 +89,13 @@ where users typically have no more than 2.4~x~2.2 meters of space to walk.
 The main objective of this dissertation is to contribute to the research of \gls{RDW} in limited physical spaces through the design, implementation and 
 study of portal variants for \gls{RDW} in small tracking spaces. To complete this main objective, smaller particular goals have been 
 identified for conducting this research:
-\todo{Talvez um obj sobre criar a VE? Parece-me pouco.}
 
 \begin{itemize}
-    \item \textbf{Design and Implement the four alternative portal techniques}:
+
+    \item \textbf{Explore different \gls{VR} locomotion techniques and their effects on \gls{UX}}:
+    Investigate existing locomotion methods in virtual reality, analyzing their impact on usability, immersion, and overall user experience.
+
+    \item \textbf{Design and Implement alternative portal techniques}:
     Conceive and accomplish each of the techniques, addressing each of the most common portal limitations found in previous studies.
 
     \item \textbf{Conduct user studies to evaluate the techniques}: 
@@ -103,12 +106,18 @@ identified for conducting this research:
 In order to better structure this research, the following three research questions are proposed:
 
 \begin{itemize}
-    \item \textbf{Q1 - Do portals with a dynamic preview help convey a continuous sense of space for users?} - 
-    
-    \item \textbf{Q2 - What elements of \gls{UX} do users prioritize when interacting with these navigation techniques?} - 
-    
+    \item \textbf{Q1 - What are the effects of a dynamic preview in regard to users' sense of space?} - 
+    One of the identified limitations of using portals as a \gls{VR} locomotion technique in small physical spaces is a lack of a proper 
+    preview. This research question explores the impact on users' perception of space when using alternative \gls{VR} portal techniques 
+    that counteract this limitation by dynamically changing their previews.
+
+     \item \textbf{Q2 - What elements of \gls{UX} do users prioritize when interacting with these navigation techniques?} - 
+    This question investigates which aspects of the user experience participants value most during navigation, such as spatial 
+    orientation, ease of use, naturalness, or comfort, providing insights into user priorities across different navigation techniques.
+
     \item \textbf{Q3 - What are the strong points for each of these techniques, in regard to \gls{VE} navigation?} - 
-    
+    This question seeks to identify the comparative advantages of each portal technique, highlighting the contexts in which 
+    a given approach offers superior usability, efficiency, or user satisfaction within virtual environments.
 \end{itemize}
 
 \section{Solution Overview}
@@ -143,6 +152,34 @@ definition of each of the techniques are as follows:
 A user study was conducted using these portal variants, comparing various usability factors between the baseline of traditional portals and our variants, 
 as well as between each other. This study aimed to gather data on each of the portal's impact on user preference, usability, spatial understanding,
 presence and comfort. 
+
+\begin{figure}[t]
+    \centering
+     \includegraphics[width=.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
+     \caption[The four portal techniques studied in this thesis]
+     {The four portal techniques studied in this thesis: Traditional Portals, Movable Portals, Interactive Doors and Revolving Doors.}
+     \label{fig:portal}
+\end{figure}
+
+\section{Contributions}
+\label{sec:contributions}
+
+This work contributed to further research the use of \glsfirst{RDW} techniques in small physical spaces, through the design, 
+implementation and study of new variant portal techniques that address identified limitations of common portal techniques used in 
+\gls{VR} applications and research. The main contributions of this thesis are:
+
+\begin{itemize}
+    \item The design and implementation of three \gls{VR} locomotion techniques using portals;
+    
+    \item The study of the portal variants in comparison with portals commonly seen in \gls{VR} applications and research;
+    
+    \item Insights on the impact these techniques have on \gls{UX};
+    
+    \item Insights on design guidelines for \gls{VR} locomotion;
+\end{itemize}
+
+The study done for this thesis has additionally resulted in the submission of a full paper to ICAT-EVGE, detailing the developed portals 
+and presenting and discussing the results of the study.
 
 \section{Document Structure}
 \label{sec:doc-struct}

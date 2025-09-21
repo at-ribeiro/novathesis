@@ -3,3 +3,5 @@ overtness
 Telewalk
 Wayfinding
 interactable
+Cybersickness
+Interactable

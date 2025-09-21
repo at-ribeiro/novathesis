@@ -111,10 +111,12 @@ was the chosen tool for creating the application, as it is widely adopted in bot
 a wide range of assets and plugins. To further abstract and simplify the integration with \gls{VR} devices, we resort to the \textbf{OpenXR SDK}, 
 providing and additional layer of abstraction that enables compatibility with a wide range of \gls{VR} devices.
 
-With the \textbf{Unity} game engine and the \textbf{OpenXR SDK} the process of creating an interactive 3D \gls{VE} was simplified and streamlined, 
+Using the \textbf{Unity} game engine with the imported \textbf{OpenXR Plugin} the process of creating an interactive 3D \gls{VE} was simplified and streamlined, 
 since these create the possibility of composing the environment with \textbf{C\# scriptable objects}. This allowed the implementation of the portal 
 techniques and the UI elements needed for the study's tasks, as well as a streamlined integration of these implemented objects into the \gls{VR} 
-application.
+application. The \textbf{XR~Interaction~Toolkit~(XRI)} and \textbf{XR~Hands} Unity packages were imported as Unity packages, further streamlining 
+the implementation of the interactable elements of the application, by providing a high-level framework for interactions and 
+hand-tracking support respectively.
 
 Finally, to receive the inputs that affect the interactive \gls{VR} application and display the effects of said interactions, a \gls{HMD} was 
 needed. We opted for the use of the \textbf{Oculus Quest~3} \gls{HMD}, as it supports the most desired functionalities for the proposed 
@@ -125,8 +127,8 @@ By combining these tools and structuring this architecture it is possible to mee
 \gls{VE} using different portal techniques, explorable through natural walking and interactable through hand-tracking technologies.
 
 \begin{figure}[t]
+    \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/schemes/architecture-overview.drawio.pdf}
     \centering
-     \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/schemes/architecture-overview.drawio.pdf}
      \caption[Overview of the architecture of the solution.]
      {Architecture overview.}
      \label{fig:architecture}
@@ -138,7 +140,7 @@ By combining these tools and structuring this architecture it is possible to mee
 
 \todo{Complete according to space}
 
-\section{Portals}
+\section{Portal Designs}
 \label{sec:portal-design}
 
 This study aims to explore and study variants of \gls{VR} locomotion techniques based on natural walking with portals. As such, we propose three 
@@ -316,4 +318,4 @@ that matches the self-overlapped architecture as the door turns during the trans
 \section{Summary}
 \label{sec:chap3-summary}
 
-\todo{Completar de acordo como o fim ficar. Aproveitar para dara uma revisão do texto completo para perceber se está coerente.}
+\todo{Completar de acordo como o ficar no fim. Aproveitar para dara uma revisão do texto completo para perceber se está coerente.}
