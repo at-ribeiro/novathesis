@@ -44,7 +44,7 @@ information regarding the tasks they were asked to perform.  With the instructio
 \gls{HMD} and was free explore to explore the \gls{VE} and complete the aforementioned tasks.
 
 The \gls{VE} depicted a museum, structured in four thematic sections, each composed of four rooms populated with exhibition items. Every 
-exhibit included an associated quiz or curious fact, designed to encourage engagement and support spatial memory. Each section differed 
+exhibit included an associated quiz and curious fact, designed to encourage engagement and support spatial memory. Each section differed 
 from the others by theme, visual appearance, and the portal technique used to connect the rooms. Additionally, the starting room of each 
 section featured a uniquely colored floor to help participants reorient themselves when asked to return to the starting point 
 (Figure~\ref{fig:layout}).
@@ -89,20 +89,20 @@ For clarity, the collected data are grouped into the following categories:
 
 \textbf{User Preference and Qualitative Feedback}: Finally, we captured overall user preference by asking participants to order the four portal techniques from 1 (most preferred) to 4 (least preferred). To understand the context behind these rankings and other ratings, the post-session questionnaire included open-ended questions prompting participants to describe the perceived strengths and weaknesses of each portal.
 
-\section{Tasks}
-\label{sec:tasks}
+%\section{Tasks}
+%\label{sec:tasks}
 
-\subsection{Rooms}
-\label{sec:rooms}
+%\subsection{Rooms}
+%\label{sec:rooms}
 
-\subsection{Exposition Items}
-\label{sec:expo-items}
+%\subsection{Exposition Items}
+%\label{sec:expo-items}
 
-\subsection{Pointing Task}
-\label{sec:pointing-task}
+%\subsection{Pointing Task}
+%\label{sec:pointing-task}
 
-\subsection{Usability Questionnaire}
-\label{sec:questionnaire}
+%\subsection{Usability Questionnaire}
+%\label{sec:questionnaire}
 
 
 \section{Results}
@@ -125,21 +125,26 @@ When asked to rate their perceived sense of orientation/direction on a scale of 
 
 \todo{Isto se calhar ficava melhor numa tabela}
 
-\subsection{Presence}
-\label{sec:presence}
+\subsection{Spatial Understanding}
 
-As previously mentioned, presence was measured using the Igroup Presence Questionnaire (IPQ). 
-Overall, participants reported moderate to high scores across subscales (Spatial Presence: M~=~5.5, SD~=~0.45; 
-Involvement: M~=~4.42, SD~=~0.4; Experienced Realism: M~=~4.58, SD~=~0.78), indicating a moderate to high sense of 
-presence during the \gls{VR} experience. 
+At the end of each section, users were tasked to point in their perceived direction of a target object in a previously visited room, 
+in order to assess users' spatial perception. The primary metric was the absolute pointing error between the answer provided by the 
+participant and the preview-based position of the target object, measured in degrees.
 
-\subsection{Cybersickness}
-\label{sec:cybersickness}
-Cybersickness was assessed using the Virtual Reality Sickness Questionnaire (VRSQ). 
-Participants reported low levels of symptoms both before (M~=~2.23, SD~=~3.13) and after the session (M~=~2.68, SD~=~3.91),
-suggesting that the experience had minimal impact on cybersickness.
+A Shapiro-Wilk test showed the data were not normally distributed (p $<$ .05), thus justifying the use of the non-parametric 
+Friedman test. Our analysis revealed a highly significant difference in pointing error across the four portal conditions, 
+$\chi$²(3, N=31) = 28.39, p $<$ .001. The distributions of these errors are visualized in \autoref{fig:angle_plot}. 
+The Revolving Door portal was associated with the lowest median pointing error (Mdn = 60.66°). The Traditional portal 
+followed with a moderate error (Mdn = 85.62°), and the Interactive Door showed a higher error (Mdn = 120.96°). 
+The Movable Portal produced the highest pointing error by a large margin (Mdn = 165.87°).
 
-\todo{algo mais a se dizer? talvez juntar com o presence?}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/graphs/angle_difference_plot_with_stats.pdf}
+    \caption[Polar plots of the distribution of angular error in the pointing task by portal condition.]
+    {Polar plots showing the distribution of angular error in the pointing task by portal condition.}
+    \label{fig:angle_plot}
+\end{figure}
 
 \subsection{Usability and Naturalness}
 \label{sec:usability-naturalness}
@@ -180,28 +185,6 @@ Movable Portal (M=3.84, SD=1.44; p $<$ .001). Furthermore, the Interactive Door 
 to use than both the Revolving Door (p = .0054) and the Movable Portal (p = .0011). No significant difference was found between 
 the Movable and Revolving Door portals, placing them together in the lowest tier for ease of use.
 
-\subsection{Spatial Understanding}
-
-At the end of each section, users were tasked to point in their perceived direction of a target object in a previously visited room, 
-in order to assess users' spatial perception. The primary metric was the absolute pointing error between the answer provided by the 
-participant and the preview-based position of the target object, measured in degrees.
-
-A Shapiro-Wilk test showed the data were not normally distributed (p $<$ .05), thus justifying the use of the non-parametric 
-Friedman test. Our analysis revealed a highly significant difference in pointing error across the four portal conditions, 
-$\chi$²(3, N=31) = 28.39, p $<$ .001. The distributions of these errors are visualized in \autoref{fig:angle_plot}. 
-The Revolving Door portal was associated with the lowest median pointing error (Mdn = 60.66°). The Traditional portal 
-followed with a moderate error (Mdn = 85.62°), and the Interactive Door showed a higher error (Mdn = 120.96°). 
-The Movable Portal produced the highest pointing error by a large margin (Mdn = 165.87°).
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/graphs/angle_difference_plot_with_stats.pdf}
-    \caption[Polar plots of the distribution of angular error in the pointing task by portal condition.]
-    {Polar plots showing the distribution of angular error in the pointing task by portal condition.}
-    \label{fig:angle_plot}
-\end{figure}
-
-\subsection{Attempts and Hesitations}
 
 To complement the subjective ratings, we analysed objective usability issues recorded by the experimenter. 
 The number of spoken hesitations (e.g., verbal expressions of confusion) and action-based tries 
@@ -245,6 +228,22 @@ the second most top-ranked technique.
     \label{fig:user-preference}
 \end{figure}
 
+\subsection{Presence}
+\label{sec:presence}
+
+As previously mentioned, presence was measured using the Igroup Presence Questionnaire (IPQ). 
+Overall, participants reported moderate to high scores across subscales (Spatial Presence: M~=~5.5, SD~=~0.45; 
+Involvement: M~=~4.42, SD~=~0.4; Experienced Realism: M~=~4.58, SD~=~0.78), indicating a moderate to high sense of 
+presence during the \gls{VR} experience. 
+
+\subsection{Cybersickness}
+\label{sec:cybersickness}
+Cybersickness was assessed using the Virtual Reality Sickness Questionnaire (VRSQ). 
+Participants reported low levels of symptoms both before (M~=~2.23, SD~=~3.13) and after the session (M~=~2.68, SD~=~3.91),
+suggesting that the experience had minimal impact on cybersickness.
+
+\todo{algo mais a se dizer? talvez juntar com o presence?}
+
 \subsection{Qualitative Feedback}
 
 Participants explained their preferences for the different portal types through 
@@ -283,7 +282,7 @@ defined in Section~\ref{sec:objectives-and-researh-questions}.
 
 In this section, the research questions are addressed through the presentation and discussion of the insights gained from the user study.
 
-\textbf{Q1 - Do portals with a dynamic preview help convey a continuous sense of space for users?}
+\textbf{Q1 - What are the effects of a dynamic preview in regard to users' sense of space?}
 
 The pointing task, performed at the end of every section of the virtual museum, was designed to address this issue, by providing a better 
 insight into how the participants perceived space. The results reveal nuanced differences in how each portal design affects the perception 

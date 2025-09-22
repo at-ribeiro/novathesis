@@ -24,8 +24,8 @@ The \gls{VR} application is designed with the player at its center, as the exper
 \begin{figure}[b]
     \centering
      \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
-     \caption[Hierarchy of Player prefab]
-     {The composition of the Player prefab and its components}
+     \caption[Hierarchy of Player entity]
+     {The composition of the Player entity}
      \label{fig:player}
 \end{figure}
 
@@ -71,7 +71,7 @@ The implementation for this work adopts a texture-based approach, in which the s
 the surface of the source portal. To achieve the stereoscopic effect, separate portal cameras are maintained for the left and right eyes, 
 each generating a distinct view of the destination space (Figure~\ref{fig:cam-placement}). These views are then mapped to different rendering 
 layers, ensuring that each eye perceives only its corresponding texture. Thus, all portal variants consist of two screen surfaces on which the 
-textures are applied, as well as two cameras responsible for rendering the eye-specific previews.
+textures are applied, as well as two cameras responsible for rendering the eye-specific previews. \todo{add overlap position explanation}
 
 A \textit{PortalTraveller} script handles the behavior of objects capable of traversing through portals. 
 When an object carrying this script enters the portal's bounds, the script is triggered and the object's
@@ -170,7 +170,7 @@ It also defines a valid area where the portal can be placed when grabbed. In add
 \textit{MovablePortal} script manages all behaviors related to the interaction with this portal, ensuring that its movement and placement 
 follow the defined constraints.
 
-The \textit{MovablePortal} scrip component, takes the following three states necessary for this portal: \textbf{1.~Start} - when the portal is 
+The \textit{MovablePortal} script component defines three distinct states for this portal: \textbf{1.~Start} - when the portal is 
 against the wall before being interacted - \textbf{2.~Held} - when it is being held by the user - and \textbf{3.~Placed} - when it has been 
 placed in the valid area.
 \begin{figure}[t]
@@ -243,18 +243,188 @@ in Figure~\ref{fig:int-door-comp}.
 Designed after real-world doors, the Interactive Door is composed of a doorway completed with a panel door featuring a golden handle. 
 The two screens on which the preview is rendered are behind the door, nested in the hierarchy of the door object, so that the screens position follow 
 the motion the door does when opening or closing. The portal additionally includes the two cameras necessary to render the preview of the linked portal.
-To handle the logic of this portal variant, the inclusion of an \textit{InteractiveDoor} script was added to the parent object.
+To manage the behavior of this portal variant, an \textit{InteractiveDoor} script was added to its parent object.
+
+\begin{figure}[t]
+  \centering
+  \mbox{} \hfill
+  \includegraphics[width=.45\linewidth]{NOVAthesisFiles/Images/screenshots/CaptureDoorA.PNG}
+  \hfill
+  \includegraphics[width=.45\linewidth]{NOVAthesisFiles/Images/screenshots/CaptureDoorClosed.PNG}
+  \hfill \mbox{}
+  \includegraphics[width=.45\linewidth]{NOVAthesisFiles/Images/screenshots/CaptureDoorC.PNG}
+  \caption{The interaction sequence for the Interactive Door: (a) From a distance, the door is transparent, providing a clear preview to aid spatial awareness. (b) As the user approaches, it becomes opaque, suggesting the need for direct interaction. (c) The user opens the door by grabbing the handle and swinging it while the portal accompanies it, creating the necessary clearance for the user to move safely into the next space.}
+  \label{fig:int-door-sc}
+\end{figure}
 
 The Interactive Door may be in one of three states: \textbf{1. Closed} - the state before interaction begins, in which the door's transparency 
-is dynamic; \textbf{2. Open} - the state after the user initiates the transition by opening the door; and \textbf{3. Following} - the state in 
+is dynamic - \textbf{2. Open} - the state after the user initiates the transition by opening the door - and \textbf{3. Following} - the state in 
 which the portal is when the door of its linked portal is opened.
 
+As described in Section~\ref{sec:int-door-design}, the Interactive Door is designed to allow users to perceive the connected room through 
+a continuous preview of the portal behind door, with the door's transparency dynamically changing based on the proximity of the user.
+Hence, when 'Closed', the portal on the Interactive Door has a reversed preview and the transparency of the door changes dynamically according 
+the position of the Head of the user.
+The \textit{InteractiveDoor} script receives a minimum distance, $d_{\min}$, and a maximum distance, $d_{\max}$, to calculate the $\alpha$ value 
+of the transparency of the door's material using the following function:
+
+\[
+\alpha(d) =
+\begin{cases}
+1 & d \le d_{\min} \\[6pt]
+\dfrac{d - d_{\min}}{d_{\max} - d_{\min}} & d_{\min} < d < d_{\max} \\[10pt]
+0 & d \ge d_{\max}
+\end{cases}
+\]
+
+where:
+\begin{itemize}
+  \item $\alpha(d)$ is the transparency (alpha value, ranging from $0$ to $1$),
+  \item $d$ is the distance between the user's head and the door,
+  \item $d_{\min}$ is the minimum distance (fully opaque for $d \le d_{\min}$),
+  \item $d_{\max}$ is the maximum distance (fully transparent for $d \ge d_{\max}$).
+\end{itemize}
+
+\begin{figure}[t]
+    \centering
+     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
+     \caption[Interactive Door components.]
+     {Interactive Door components.}
+     \label{fig:int-door-comp}
+\end{figure}
 
 
+When a user uses their virtual hands to grab the handle, the interacted door transitions to the 'Open' state. In the 'Open' state the door that has 
+been opened by the user moves according to the pulling force the user does while still doing the grab/pinch gesture with the virtual hand. With  
+a complementary hinge joint component within the hierarchy of the Interactive Door, the movement of the door can be calculated using the physics 
+engine. The torque, $\tau$, which measures how strongly a force tends to make an object rotate around a pivot, is calculated by the physics engine 
+through the following equation:
+
+\[
+\tau = F \cdot r \cdot \sin(\theta),
+\]
+
+where:
+\begin{itemize}
+  \item \(F\) is a force applied at the handle,
+  \item \(r\) distance from the hinge to where the force is applied,
+  \item $\theta$ angle between \(F\) and \(r\).
+\end{itemize}
+
+As the door approaches the maximum angle of $90^\circ$, the physics engine applies a constraint torque to prevent further rotation, keeping the 
+door in place if more force is applied. With the Interactive Door in an 'Open' state, the \textit{Portal} script allows the teleportation of 
+objects containing the \textit{PortalTraveller} script. To return the door to the 'Closed' state, the user must 
+move away beyond the distance $d_{\max}$. At this point, the door plays a closing animation until fully shut, after which the dynamic transparency 
+logic resumes.
+
+As described above, when an Interactive Door transitions to the 'Open' state, its linked door automatically enters the 'Following' state. 
+In this state, the linked door synchronizes its rotation with the 'Open' door, matching its angle throughout the opening motion. 
+This ensures that the portals remain perfectly aligned and overlapped while the door is being opened. When the user passes through the portal, 
+the doors exchange states.
 
 \subsection{Revolving Door}
 \label{sec:rev-door}
 
+The Revolving Door portal variant explores a more continuous and guided transition, using the metaphor of a revolving door to manage both the physical and 
+virtual reorientation of users. Some of the functionalities of this portal variant are shared with the Interactive Door, but it distinguishes itself 
+in the designed interaction sequence. Illustrations of this interaction are present in Figure~\ref{fig:rv-door-sc} and the composition of the entity 
+that makes this portal is presented in Figure~\ref{fig:rv-door-comp}.
+
+The hierarchy of this portal variant reflects its design inspiration from revolving doors. 
+The door itself is implemented as a simple 3D object with physical properties that allow it to be pushed, and a hinge joint constrains its rotation around a fixed axis. 
+This door is placed within a frame composed of basic 3D objects, forming a container where the transition occurs. 
+Inside this container, behind the door, lies the portal, which consists of the two screens that render the stereoscopic preview 
+and the two cameras that capture the view from the linked portal.
+
+A \textit{RevolvingDoor} script handles the logic of each of the Revolving Door's states: 
+\textbf{1.~Closed} - the state before interaction begins, in which the door is still, and its transparency is dynamic - 
+\textbf{2.~Open} - the state after the user initiates the transition by pushing the door - 
+\textbf{3.~Following} - the state in which a portal is when the door of its linked portal is pushed.
+
+Similarly to the Interactive Door, while in the 'Closed' state, the Revolving Door is static and has dynamic transparency according to the position 
+of the user's head. The portal behind the door is then visible at a distance, displaying a rotated continuous preview of the connected room.
+The dynamic transparency of the door is achieved by altering the $\alpha$ value on the color of the material of the door. The \textit{RevolvingDoor}
+script takes a minimum distance where the door is fully opaque, $d_{\min}$, and a maximum distance where the door is fully transparent, $d_{\max}$,
+using these values to calculate the transparency through the same formula as the Interactive Doors:
+
+\[
+\alpha(d) =
+\begin{cases}
+1 & d \le d_{\min} \\[6pt]
+\dfrac{d - d_{\min}}{d_{\max} - d_{\min}} & d_{\min} < d < d_{\max} \\[10pt]
+0 & d \ge d_{\max}
+\end{cases}
+\]
+
+where:
+\begin{itemize}
+  \item $\alpha(d)$ is the transparency (alpha value, ranging from $0$ to $1$),
+  \item $d$ is the distance between the user's head and the door,
+  \item $d_{\min}$ is the minimum distance (fully opaque for $d \le d_{\min}$),
+  \item $d_{\max}$ is the maximum distance (fully transparent for $d \ge d_{\max}$).
+\end{itemize}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=.45\linewidth]{NOVAthesisFiles/Images/screenshots/Revolving Door Invisible.PNG}
+  \hfill
+  \includegraphics[width=.45\linewidth]{NOVAthesisFiles/Images/screenshots/Capture Revolving.PNG}
+  \hfill
+  \includegraphics[width=.45\linewidth]{NOVAthesisFiles/Images/placeholder.pdf}
+  \caption{The interaction sequence for the Revolving Door: (a) From a distance, the transparent panels provide a preview of the next room. 
+  (b) The user initiates the transition by walking into a compartment, pushing the door.
+  (c) After pushing the door and completing a 180-degree turn, the user comes out on the other side. 
+  }
+  \label{fig:rv-door-sc}
+\end{figure}
+
+For this portal the transition to the 'Open' state occurs when the door becomes fully opaque, when the user reaches the minimum distance, $d_{\min}$.
+In this state the portal reverses the preview back and rotates to a perpendicular position, so the user transitions to the next room mid-push.
+Although the force applied to the door is different, since the user pushes the door instead of pulling it, the formula to calculate the 
+torque applied to the door is the same as the Interactive Door:
+
+\[
+\tau = F \cdot r \cdot \sin(\theta),
+\]
+
+where:
+\begin{itemize}
+  \item \(F\) is a force applied at the handle,
+  \item \(r\) distance from the hinge to where the force is applied,
+  \item $\theta$ angle between \(F\) and \(r\).
+\end{itemize}
+
+The Revolving Door's return to the 'Closed' state is gradual. As soon as the user distances itself from the door at the minimum distance, $d_{\min}$,
+the portal returns to the parallel position, with a continuous preview. The full 'Closed' state is only reached when the user distances themselves 
+at the maximum distance, $d_{\max}$, where the door becomes fully transparent. When the door becomes invisible its angular speed, $\omega$,
+is set to 0, guaranteeing that the rotation of the door is stopped, and it's position and rotation are set back as default. At this point the door 
+becomes fully 'Closed'.
+
+As mentioned, the Revolving Door enters the 'Following' state when the linked door is 'Open'. In this state the rotation of the door is synchronized
+with the rotation of the linked door. When the user passes through the portal, the doors exchange states.
+
+\begin{figure}[t]
+    \centering
+     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
+     \caption[Revolving Door components.]
+     {Revolving Door components.}
+     \label{fig:mov-portal-comp}
+\end{figure}
+
+\section{UI}
+\label{sec:ui}
+
+\subsection{Experimenter GUI}
+\label{sec:gui}
+
+
+
+\subsection{Panels}
+\label{sec:panels}
+
 \section{Summary}
 \label{sec:summary}
 \todo{Completar de acordo como ficar no final}
+ 
+
+
