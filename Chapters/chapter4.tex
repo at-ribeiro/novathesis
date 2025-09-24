@@ -408,19 +408,96 @@ with the rotation of the linked door. When the user passes through the portal, t
      \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
      \caption[Revolving Door components.]
      {Revolving Door components.}
-     \label{fig:mov-portal-comp}
+     \label{fig:rev-door-comp}
 \end{figure}
 
 \section{UI}
 \label{sec:ui}
 
-\subsection{Experimenter GUI}
-\label{sec:gui}
-
+A \glsfirst{UI} was implemented to support both participants and experimenters throughout the case study. 
+Participant tasks relied on in-world \gls{UI} elements, which encouraged exploration of the \gls{VE} and enabled 
+the evaluation of the locomotion techniques. A separate researcher interface, shown only on the desktop monitor, 
+provided controls to manage the study's flow and record participant input.
 
 
 \subsection{Panels}
 \label{sec:panels}
+
+As described in Section~\ref{sec:case-study}, the case study relies on exploratory tasks associated 
+with the artworks exhibited in the virtual museum, as well as evaluation tasks that should occur within the \gls{VE}. 
+To present these tasks to the users and collect their responses, interactive \gls{UI} Panels were implemented within the environment.
+All \gls{UI} Panels have a dark base panel where text is displayed. Panels with interactive functionality integrate the use of buttons that 
+are selectable using the virtual hands of the player.
+
+The most common example of interactable \gls{UI} throughout the \gls{VE} are the quizes associated with each exposition item of the museum \gls{VE}. 
+These panels display the question as text with three selectable buttons for the multiple possible answers, A, B and C~(Figure~\ref{fig:quiz-panel}).
+Once one of the options is selected, the option becomes either green or red, if it is a correct or incorrect option, respectively. After selecting 
+an option, a second curious fact panel is instantiated with only text describing the curious fact.
+
+\begin{figure}[t]
+    \centering
+     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
+     \caption[Quiz UI panels used for the museum exposition items.]
+     {Quiz UI panels used for the museum exposition items.}
+     \label{fig:quiz-panel}
+\end{figure}
+
+\begin{figure}[b]
+    \centering
+     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
+     \caption[UI panels used for in-world Likert scale evaluations.]
+     {UI panels used for in-world Likert scale evaluations.}
+     \label{fig:likert-scale-ui}
+\end{figure}
+At the end of each section of the study, users are tasked to evaluate the portal variant they used. For this, more interactable \gls{UI} panels 
+were developed, allowing users to perform this task immediately after experiencing the portal technique, without leaving the \gls{VE} (Figure~\ref{fig:likert-scale-ui}).
+This \gls{UI} panel displays an affirmation in text and bellow buttons from the number 1 to 7 fill the panel horizontally, so users may rate 
+how much they agree with the statement according to a 7-point Likert scale (1=strongly disagree and 7=strongly agree). A 'Next' button permits 
+users to go to the next affirmation, and a submit button saves the answers provided by users to a file.
+
+Before these panels, for the pointing task, a \gls{UI} panel displaying text and an image was also developed. The text describes the requirements 
+of the pointing task, with the image exemplifying the object to be pointed towards~(Figure~\ref{fig:pointing-task-ui}).
+
+
+\begin{figure}[t]
+    \centering
+     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
+     \caption[UI panels used for in-world Likert scale evaluations.]
+     {UI panels used for in-world Likert scale evaluations.}
+     \label{fig:pointing-task-ui}
+\end{figure}
+
+\subsection{Researcher UI}
+\label{sec:gui}
+
+To give experimenters control over the course of the study, a researcher \gls{UI} was developed. 
+It consists on two buttons and a status text display that are displayed in the top left corner of the screen (Figure~\ref{fig:researcher-ui}).
+This \gls{UI} is only displayed on the monitor of the \gls{PC} it is being run on, not being visible for the \gls{VR} user wearing the \gls{HMD}.
+
+\begin{figure}[b]
+    \centering
+     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
+     \caption[UI used by researchers during the experience.]
+     {UI used by researchers during the experience.}
+     \label{fig:likert-scale-ui}
+\end{figure}
+
+The \textit{End Section} button is used to end the section the user is in to proceed to the next section. Logic wise, when this button is pressed 
+it instantiates the previously mentioned panels at the starting room of the current section. 
+
+The \textit{Toggle Pointing Ray} button is used for the pointing task, as it instantiates a pointing ray in the user's right virtual 
+hand~(Figure~\ref{fig:pointing-ray}). Upon selection, the \textit{Status} feedbacks this change by displaying 'ON', and the \textit{Toggle Pointing 
+Ray} button is replaced with a \textit{Disable Pointing Ray} button. The logic of the button is changed, 
+as when it is pressed the system stores the position and direction of the toggled pointing ray in a file, before the ray is deleted.
+
+\begin{figure}[t]
+    \centering
+     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
+     \caption[The Pointing Ray used for the pointing task.]
+     {The Pointing Ray used for the pointing task.}
+     \label{fig:likert-scale-ui}
+\end{figure}
+
 
 \section{Summary}
 \label{sec:summary}

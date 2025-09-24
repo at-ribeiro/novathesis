@@ -5,3 +5,4 @@ Wayfinding
 interactable
 Cybersickness
 Interactable
+Likert
