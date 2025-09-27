@@ -23,7 +23,10 @@ for evaluation in a user study. To support this development and study, a functio
 necessary for the creation of said system, establishing the foundation for addressing the Objectives and Research Questions outlined in 
 Section~\ref{sec:objectives-and-researh-questions}.
 
-\todo{Dar um resumo do que será falado.}
+This chapter begins with Section~\ref{sec:requirements} by addressing the functional and non-functional requirements necessary to address the research questions.
+Section~\ref{sec:case-study} presents the designed case study, whilst Section~\ref{sec:architecture-and-technologies} addresses the architecture and technologies used 
+to build the system used in this research. Section~\ref{sec:preliminary} presents insights provided by preliminary work during the preparation phase of this dissertation.
+The chapter finalizes by presenting the designs of the portal techniques studied in this work on Section~\ref{sec:portal-design}.
 
 \section{Requirements}
 \label{sec:requirements}
@@ -101,46 +104,88 @@ ensuring that the constraints of a limited physical space are respected while al
 By employing a within-subject design, a uniform task structure, and consistent room layouts, the study ensures comparability across techniques 
 and supports the collection of reliable data on usability, presence, and user experience.
 
-\section{Architecture and Technologies}
-\label{sec:architecture-and-technologies}
+\section{Architecture}
+\label{sec:architecture}
 
-To develop the case study, it was necessary to define an architecture that could address the aforementioned requirements and research questions.
-The proposed system and the tools used to create it are presented in Figure~\ref{fig:architecture}, divided by their function: input, processing 
-and output.
+To develop the case study, it was necessary to define an architecture for a system that could address the aforementioned requirements.
+Hence, the system needed to process the inputs provided by users with a \gls{HMD} in the 2.5 x 2.5 meters physical tracking space and 
+return the output of their actions back into the \gls{HMD}.
+The overview of the proposed system architecture is presented in Figure~\ref{fig:architecture-overview}.
 
-A foundational \gls{VR} application was required to construct the \gls{VE}, which in turn necessitated the use of a game engine. \textbf{Unity} 
-was the chosen tool for creating the application, as it is widely adopted in both industry and research for \gls{VR} development and provides 
-a wide range of assets and plugins. To further abstract and simplify the integration with \gls{VR} devices, we resort to the \textbf{OpenXR SDK}, 
-providing and additional layer of abstraction that enables compatibility with a wide range of \gls{VR} devices.
+The creation of the \gls{VE} relies on a \gls{VR} application, which in turn necessitates the use of a game engine to support its development.
+A game engine is a software framework primarily designed for the development of video games, that provides the foundation for building 
+interactive 3D applications, featuring a real-time rendering system, physics simulation, support the use of scriptable components and 
+tools for managing assets and user interaction. By combining these features, the game engine allows the construction of interactable \glspl{VE}
+that react to user inputs. Given the settled requirements, this \gls{VR} application should output a museum \gls{VE} composed of several 
+rooms connected by the portal variants to be studied. 
 
-Using the \textbf{Unity} game engine with the imported \textbf{OpenXR Plugin} the process of creating an interactive 3D \gls{VE} was simplified and streamlined, 
-since these create the possibility of composing the environment with \textbf{C\# scriptable objects}. This allowed the implementation of the portal 
-techniques and the UI elements needed for the study's tasks, as well as a streamlined integration of these implemented objects into the \gls{VR} 
-application. The \textbf{XR~Interaction~Toolkit~(XRI)} and \textbf{XR~Hands} Unity packages were imported as Unity packages, further streamlining 
-the implementation of the interactable elements of the application, by providing a high-level framework for interactions and 
-hand-tracking support respectively.
-
-Finally, to receive the inputs that affect the interactive \gls{VR} application and display the effects of said interactions, a \gls{HMD} was 
-needed. We opted for the use of the \textbf{Oculus Quest~3} \gls{HMD}, as it supports the most desired functionalities for the proposed 
-case study: inside-out tracking for tracking the users' position in the \gls{VE}, hand-tracking via its front-facing cameras for more 
-immersive interaction, and a high-resolution display for visualizing the \gls{VE}.
-
-By combining these tools and structuring this architecture it is possible to meet the requirements of this case study: create a self-overlapping 
-\gls{VE} using different portal techniques, explorable through natural walking and interactable through hand-tracking technologies.
+The bridge between the user and the \gls{VR} application will be done through the \gls{HMD}, as it records users actions as input for the \gls{VR}
+application that then outputs the result of the users actions through the screens on the \gls{HMD}. To meet the requirements of this study, the \gls{HMD} 
+should be able to detect the users position within the tracking space and have hand-tracking capabilities.
 
 \begin{figure}[t]
-    \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/schemes/architecture-overview.drawio.pdf}
+    \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/schemes/simple-architechture.drawio.pdf}
     \centering
-     \caption[Overview of the architecture of the solution.]
-     {Architecture overview.}
-     \label{fig:architecture}
+     \caption[Overview of the high-level architecture of the solution.]
+     {Overview of the high-level architecture of the solution.}
+     \label{fig:architecture-overview}
 \end{figure}
 
 
 \section{Preliminary Experiments}
 \label{sec:preliminary}
 
-\todo{Complete according to space}
+During the preparation phase of this dissertation three demos were developed to further
+understand the limitations of \glsfirst{RDW} in small physical spaces and how to address these limitations.
+
+\begin{figure}[t]
+        \centering
+        \begin{subfigure}{.45\textwidth} % Smaller width for each subfigure
+            \includegraphics[width=\linewidth]{NOVAthesisFiles/Images/demos/space-subdivision.png}
+            \caption{A space subdivision demo was also developed, supporting the implementation of overlapped architecture \glspl{VE}}
+            \label{fig:subdivision}
+        \end{subfigure}
+        \begin{subfigure}{0.45\textwidth} % Smaller width for the bottom image
+            \includegraphics[width=\linewidth]{NOVAthesisFiles/Images/demos/corridor.png}
+            \caption{The Spiral Corridor allowed users to walk an infinite spiraling loop with portals to different rooms in the center}
+            \label{fig:spiral}
+        \end{subfigure}
+        \begin{subfigure}{0.5\textwidth} % Smaller width for each subfigure
+            \includegraphics[width=\linewidth]{NOVAthesisFiles/Images/demos/inverse-hyperbolic.png}
+            \caption{The Inverse Hyperbolic Room distorted space, allowing users to have different speeds while walking in a single room.}
+            \label{fig:inv-hyp}
+        \end{subfigure}
+        \caption[Preliminary Work screenshots]{Multiple demos developed as preliminary work applications in \gls{VR}.}
+        \label{fig:preliminary}
+    \end{figure}
+
+A prototype of an Inverse Hyperbolic Space was developed. This prototype
+consists on a plane that is 10 times bigger than the tracking spacing being used, mapping
+the real-world coordinates as inverse hyperbolic coordinates, calculated with the inverse
+hyperbolic tangent mathematical function (\textit{arctanh}). This mapping allows the use of
+dynamic translation gains that change depending on the location of users, in this case,
+with lower values in the center and higher values on the extremities.
+Although this prototype addressed the limitations of \gls{RDW} within an interior room, the focus of this dissertation 
+was shifted towards the navigation of multi-room \glspl{VE}, therefore the further development of this technique was discontinued.
+
+The Spiral Corridor is a corridor that loops infinitely, having multiple doors along a spiral path. 
+These doors are Portals to disconnected rooms, creating an overlapping
+architecture, a type of Impossible Space discussed in Section~\ref{sec:impossible-spaces}. 
+The main goal of this technique was to allow users to walk between rooms in a more deliberate manner, as they
+can go from room to room only by walking around the corridor that corresponded to the
+perimeter of the tracking space, with the portals in the center.
+This approach successfully addressed the preview capabilities of portals, but due to the amount of space necessary for the corridors, 
+the space for each of the rooms limited the experience.
+
+Lastly, a prototype of Space Subdivision was also developed, serving as a foundation
+for the redirection with portals. 
+This prototype implements the necessary transformations to the \gls{VE} when users are transitioning from one 
+section to the next, with each section corresponding to the size of the physical tracking space.
+When a user is at the edge of a section, and, as such, at the edge of their available physical space, the user can press a button so that 
+the world suffers transformations that place the user on the edge of the next section of space.
+These transformations consist of a translation of the virtual environment, aligning the corners of the tracking space with those 
+of the intended section, followed by a 180° rotation to ensure that users continue facing the same direction they were heading before turning.
+This served as a base system to understand how to maintain a continuous preview, whilst in a \gls{VE} with an overlapped architecture.
 
 \section{Portal Designs}
 \label{sec:portal-design}
@@ -160,13 +205,7 @@ Interactive Doors, and Revolving Doors.
 Our baseline condition represents the conventional approach to portals in \gls{VR}, commonly seen in both commercial applications
 and academic research. Appearance-wise a door frame-shaped portal was chosen, both for its similarity to those used in prior 
 research and for its association with the familiar real-world concept of doors.
-
-The preview capabilities of this type of portal are, thus, the same as the ones commonly found in \gls{VR} research and applications. As such, 
-it is possible to evaluate the limitation of this type of preview when used in \gls{VR} applications that resort to natural walking as a means 
-of locomotion when compared to the proposed portal variants. Figure~\ref{fig:trad-portal-preview} represents the core challenge of traditional portals 
-addressed by this work.
-
-\begin{figure}[t]
+\begin{figure}[b]
     \centering
      \includegraphics[width=.75\textwidth]{NOVAthesisFiles/Images/schemes/trad-portal-preview.drawio.pdf}
      \caption[Representation of the limitation of Traditional Portal previews.]
@@ -175,7 +214,7 @@ addressed by this work.
      \label{fig:trad-portal-preview}
 \end{figure}
 
-\begin{figure}[b]
+\begin{figure}[t]
     \centering
      \includegraphics[width=.75\textwidth]{NOVAthesisFiles/Images/schemes/trad-interaction.drawio.pdf}
      \caption[Interaction design of the Traditional Portal.]
@@ -184,9 +223,15 @@ addressed by this work.
      \label{fig:trad-portal-interaction}
 \end{figure}
 
+The preview capabilities of this type of portal are, thus, the same as the ones commonly found in \gls{VR} research and applications. As such, 
+it is possible to evaluate the limitation of this type of preview when used in \gls{VR} applications that resort to natural walking as a means 
+of locomotion when compared to the proposed portal variants. Figure~\ref{fig:trad-portal-preview} represents the core challenge of traditional portals 
+addressed by this work.
+
+
 The level of interaction with this portal is minimal, as to use it the user must simply pass through the frame. 
 As such, since the limits of the \gls{VE} correspond with the limits of the physical environment, these portals should be placed within a 
-distance of circa 80cm \todo{check value} from the borders of the \gls{VE}, so that users don't reach the physical limits of the tracking space.
+distance of circa 80cm from the borders of the \gls{VE}, so that users don't reach the physical limits of the tracking space.
 This portal placement further explores the limitation of these portals, as to use them users have to either: (1) go through the portal with a 
 minimal preview and move around it in the destination room, (2) or move around the portal in their current room, obtain a better preview of the 
 destination room and finally go through the portal (see Figure~\ref{fig:trad-portal-interaction}). Either of these options, however, causes the user to complete a 
@@ -201,6 +246,18 @@ goal of this design is to provide user's a higher sense of control over the amou
 preview of the rooms that these portals are connected to. This is achieved by having the portal initially placed against the wall, with a reversed 
 preview that renders the connected room as if it was positioned in a continuous space, instead of a self-overlapped space. Users can then move 
 the portal when they wish to go through them, reversing the preview to the same manner it is rendered on Traditional Portals.
+
+\begin{figure}[t]
+    \centering
+     \includegraphics[width=.9\textwidth]{NOVAthesisFiles/Images/schemes/mov-interaction.drawio.pdf}
+     \caption[Interaction design of the Movable Portal.]
+     {Interaction design of the Movable Portal: (a) At the start of the interaction the portal is placed against the wall with a 
+     reversed preview for a continuous appearance. (b) The user can then grab the portal with their virtual hands, which will prompt 
+     a valid area to render. The 
+     associated portal will follow the placement of the portal. (c) The user can then let the portal go within the bounds of the valid 
+     area, placing the portal and reverting the preview. (d) The user can then go through the portal.}
+     \label{fig:mov-portal-interaction}
+\end{figure}
 
 Thus, the designed interaction with this portal would go as follows:
 
@@ -224,17 +281,6 @@ The Movable Portal's appearance was designed similarly with the Traditional Port
 it differs itself from the Traditional Portals by having a handle-like affordance to signal users that the portal should be grabbed in order to 
 complete the interaction.
 
-\begin{figure}[t]
-    \centering
-     \includegraphics[width=.9\textwidth]{NOVAthesisFiles/Images/schemes/mov-interaction.drawio.pdf}
-     \caption[Interaction design of the Movable Portal.]
-     {Interaction design of the Movable Portal: (a) At the start of the interaction the portal is placed against the wall with a 
-     reversed preview for a continuous appearance. (b) The user can then grab the portal with their virtual hands, which will prompt 
-     a valid area to render. The 
-     associated portal will follow the placement of the portal. (c) The user can then let the portal go within the bounds of the valid 
-     area, placing the portal and reverting the preview. (d) The user can then go through the portal.}
-     \label{fig:mov-portal-interaction}
-\end{figure}
 
 \subsection{Interactive Door}
 \label{sec:int-door-design}
@@ -320,4 +366,9 @@ that matches the self-overlapped architecture as the door turns during the trans
 \section{Summary}
 \label{sec:chap3-summary}
 
-\todo{Completar de acordo como o ficar no fim. Aproveitar para dara uma revisão do texto completo para perceber se está coerente.}
+This chapter presented the design and architecture of the system to be used in order to 
+address the research question presented in Section~\ref{sec:objectives-and-researh-questions}.
+
+The system requirements were first defined, establishing the baseline conditions the implementation needed to satisfy. Based on these requirements, the museum visit case study was introduced, illustrating how it fulfills the proposed criteria and provides a suitable context for evaluating navigation techniques.
+The architecture and technologies underlying the system were then described, detailing the Unity application design as well as the external tools that supported its development.
+Finally, the four portal techniques investigated in this thesis were presented: Traditional Portals, Movable Portals, Interactive Doors, and Revolving Doors. Their intended interaction sequences were explained, along with the role of the Traditional Portals in serving as the baseline condition.

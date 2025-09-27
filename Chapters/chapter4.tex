@@ -14,23 +14,48 @@
 Having established and presented the requirements and design choices of the developed system, this chapter details the implementation of the concepts 
 defined in Chapter~\ref{cha:analysis}. 
 
-\todo{Adicionar parágrafo resumo}
+This chapter begins with Section~\ref{sec:player}, which presents the implementation of the player entity and its components, focusing on how the system 
+bridges the user's tracked input with the virtual experience. Section~\ref{sec:portals} details the implementation of the portal system, describing both the 
+baseline Traditional Portals and the three proposed variants: Movable Portals, Interactive Doors and Revolving Doors. Section~\ref{sec:ui} addresses the development of the \gls{UI} used during the study.
+
+\section{Architecture and Technologies}
+\label{sec:architecture-and-tech}
+
+A foundational \gls{VR} application was required to construct the \gls{VE}, which in turn necessitated the use of a game engine. \textbf{Unity} 
+was the chosen tool for creating the application, as it is widely adopted in both industry and research for \gls{VR} development and provides 
+a wide range of assets and plugins. To further abstract and simplify the integration with \gls{VR} devices, we resort to the \textbf{OpenXR SDK}, 
+providing and additional layer of abstraction that enables compatibility with a wide range of \gls{VR} devices.
+
+Using the \textbf{Unity} game engine with the imported \textbf{OpenXR Plugin} the process of creating an interactive 3D \gls{VE} was simplified and streamlined, 
+since these create the possibility of composing the environment with \textbf{C\# scriptable objects}. This allowed the implementation of the portal 
+techniques and the UI elements needed for the study's tasks, as well as a streamlined integration of these implemented objects into the \gls{VR} 
+application. The \textbf{XR~Interaction~Toolkit~(XRI)} and \textbf{XR~Hands} Unity packages were imported as Unity packages, further streamlining 
+the implementation of the interactable elements of the application, by providing a high-level framework for interactions and 
+hand-tracking support respectively.
+
+Finally, to receive the inputs that affect the interactive \gls{VR} application and display the effects of said interactions, a \gls{HMD} was 
+needed. We opted for the use of the \textbf{Oculus Quest~3} \gls{HMD}, as it supports the most desired functionalities for the proposed 
+case study: inside-out tracking for tracking the users' position in the \gls{VE}, hand-tracking via its front-facing cameras for more 
+immersive interaction, and a high-resolution display for visualizing the \gls{VE}.
+
+\begin{figure}[t]
+    \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/schemes/architecture-overview.drawio.pdf}
+    \centering
+     \caption[Architecture and Tools used for the solution.]
+     {Architecture and Tools used for the solution.}
+     \label{fig:architecture}
+\end{figure}
 
 \section{Player}
 \label{sec:player}
 
-The \gls{VR} application is designed with the player at its center, as the experience is mediated through their perspective and actions. For this, a dedicated player entity was implemented, serving as the bridge between the user wearing the \gls{HMD} and the actions taken within the \gls{VE}. The main components of this entity are illustrated in Figure~\ref{fig:player}.
-
-\begin{figure}[b]
-    \centering
-     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
-     \caption[Hierarchy of Player entity]
-     {The composition of the Player entity}
-     \label{fig:player}
-\end{figure}
+The \gls{VR} application is designed with the player at its center, as the experience is mediated through their perspective and actions. 
+For this, a dedicated player entity was implemented, serving as the bridge between the user wearing the \gls{HMD} and the actions taken 
+within the \gls{VE}. The main components of this entity are illustrated in Figure~\ref{fig:player}.
 
 As mentioned, the player takes center stage regarding the experience. The player entity contains a rig structure that manages the tracking of 
 the \gls{HMD} and its input devices, ensuring that these are synchronized with the application.
+
 
 The hierarchy of the rig includes a head element, which in turn serves as the parent to the left and right eye elements. 
 Each of these holds a virtual camera responsible for rendering the \gls{VE} to the corresponding display in the \gls{HMD}. 
@@ -38,22 +63,25 @@ Tracking data from the headset is translated into positional and rotational coor
 \glsfirst{6DOF} movement.
 
 To maximize immersion, the application was designed to use hand-tracking features as the primary method of interaction, 
-rather than handheld controllers. Skeletal hand models are rendered and animated based on tracking data provided by \glspl{HMD} with hand-tracking capabilities. Each hand includes an interaction component that enables the user to engage with virtual objects and interface elements, such as portals and menus, during the \gls{VR} experience.
-\todo{mudar fig}
+rather than handheld controllers. Skeletal hand models are rendered and animated based on tracking data provided by \glspl{HMD} 
+with hand-tracking capabilities (Figure~\ref{fig:virtual-hands}). 
+Each hand includes an interaction component that enables the user to engage with virtual objects and interface elements, 
+such as portals and menus, during the \gls{VR} experience.
 
 \begin{figure}[t]
     \centering
-     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
-     \caption[Depiction of the Virtual Hands]
-     {Depiction of the Virtual Hands used during the experience.}
+     \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/schemes/player-components.drawio.pdf}
+     \caption[Hierarchy of Player Game Object]
+     {The hierarchy of the Player Game Object and its components}
      \label{fig:player}
 \end{figure}
-
-
-%XR Origin
-%cameras + eye script
-%Portal Traveller
-%XR Hands
+\begin{figure}[b]
+  \centering
+     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/screenshots/hand-tracking.jpg}
+     \caption[Depiction of the Virtual Hands]
+     {Depiction of the Virtual Hands used during the experience.}
+     \label{fig:virtual-hands}
+\end{figure}
 
 \section{Portals}
 \label{sec:portals}
@@ -69,62 +97,19 @@ into an equivalent position and orientation relative to the destination portal.
 
 The implementation for this work adopts a texture-based approach, in which the space visible through the destination portal is rendered and projected onto 
 the surface of the source portal. To achieve the stereoscopic effect, separate portal cameras are maintained for the left and right eyes, 
-each generating a distinct view of the destination space (Figure~\ref{fig:cam-placement}). These views are then mapped to different rendering 
+each capturing a distinct view of the destination space (Figure~\ref{fig:cam-placement}). These views are then mapped to different rendering 
 layers, ensuring that each eye perceives only its corresponding texture. Thus, all portal variants consist of two screen surfaces on which the 
-textures are applied, as well as two cameras responsible for rendering the eye-specific previews. \todo{add overlap position explanation}
-
-A \textit{PortalTraveller} script handles the behavior of objects capable of traversing through portals. 
-When an object carrying this script enters the portal's bounds, the script is triggered and the object's
-position and rotation are recalculated relative to the destination portal, effectively teleporting it to the corresponding 
-location on the other side. The calculation done to obtain the new position of the traveller is as follows, where 
-$\mathbf{T}_{\text{traveller}}$ is the traveller's current transform (4×4 matrix), $\mathbf{M}_{\text{thisPortal}}$ is the current portal's world transform matrix 
-and $\mathbf{M}_{\text{linkedPortal}}$ is the linked portal's world transform matrix:
-
-\[
-\mathbf{T}_{\text{new}} = \mathbf{M}_{\text{linkedPortal}} \cdot 
-                           \mathbf{M}_{\text{thisPortal}}^{-1} \cdot 
-                           \mathbf{T}_{\text{traveller}}
-\]
-
-Since the player entity also includes the \textit{PortalTraveller} script, the coordinated use of the stereoscopic 
-preview and the teleportation logic allows the transition through portals to appear seamless and continuous.
+textures are applied, as well as two cameras responsible for rendering the eye-specific previews.
 
 \begin{figure}[t]
     \centering
-     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
+     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/schemes/cam-placement.drawio.pdf}
      \caption[The positioning of portal cameras according to player position.]
      {The positioning of portal cameras according to player position.}
      \label{fig:cam-placement}
 \end{figure}
 
-\subsection{Traditional Portals}
-\label{sec:trad-portals}
-
-Traditional Portals, designed to serve as a baseline condition to be compared with the portal variants, correspond closely with 
-the aforementioned core portal functions, as they provide no further functionalities. A representation of the portal is provided in 
-Figure~\ref{fig:trad-portal-sc} and the composition of the components of this 
-portal technique are present in Figure~\ref{fig:trad-portal-comp}.
-
-The portal screens correspondent to each eye, on which the stereoscopically rendered preview is rendered, are within a frame of 3D objects 
-that hold no component other than their mesh renderers, serving simply as visual aid, as designed. 
-Two cameras, one for each eye, are included as part of this object, in order to be used to render the stereoscopic preview onto the screens of
-the linked portal.
-Each of the screens is composed of only a plane mesh renderer, with materials whose shader maps the textures captured by the cameras of the 
-linked portal. 
-Both these screens are parented by a game object that provides a trigger collider used to detect when users and/or objects containing the 
-\textit{PortalTraveller}. 
-
-\begin{figure}[t]
-    \centering
-     \includegraphics[width=0.6\textwidth]{NOVAthesisFiles/Images/screenshots/traditional-portal.PNG}
-     \caption[The Traditional Portal.]
-     {The Traditional Portal.}
-     \label{fig:trad-portal-sc}
-\end{figure}
-
-A main \textit{Portal} script component handles the logic that controls the positioning of the cameras, as well as the detection and 
-teleportation of a \textit{PortalTraveller} through the aforementioned trigger colliders, the rendering of the portal preview onto 
-the screens and the linking between portals. The script provides a manual input of the portal that is to be linked with the portal that 
+The \textit{Portal} script provides a manual input of the portal that is to be linked with the portal that 
 holds the script. 
 With the portals linked, it is possible to calculate the positioning of the cameras using transform matrices. 
 The equation for the positioning of each of the two portal cameras is:
@@ -139,23 +124,88 @@ The equation for the positioning of each of the two portal cameras is:
 where: 
 
 \begin{itemize}
-    \item $\mathbf{T}_{\text{traveller}}$ = the transform in world space of the camera correspondent with the user's eye
-    \item $\mathbf{M}_{\text{linkedPortal}}^{-1}$ = inverse of the linked portal's world transform
-    \item $\mathbf{M}_{\text{thisPortal}}$ = current portal's world transform
-    \item $\mathbf{T}_{\text{portalCamera}}$ = the transform of the camera used to render the portal view
+    \item $\mathbf{T}_{\text{traveller}}$ is the transform in world space of the camera correspondent with the user's eye
+    \item $\mathbf{M}_{\text{linkedPortal}}^{-1}$ is inverse of the linked portal's world transform
+    \item $\mathbf{M}_{\text{thisPortal}}$ is current portal's world transform
+    \item $\mathbf{T}_{\text{portalCamera}}$ is the transform of the camera used to render the portal view
 \end{itemize}
 
+To render the view captured by the cameras of the destination portal onto the screen of the source portal, 
+a custom shader is utilized. The shader receives as input the render texture generated by the portal cameras.
+During rendering, the shader is executed once per vertex and once per pixel of the portal 
+surface. In the vertex stage, the positions of the portal surface's corners are transformed 
+from the three-dimensional game world into the two-dimensional coordinate system of the 
+screen. This transformation produces what are called screen-space coordinates, 
+which allow each pixel on the surface to be associated with the correct location in the 
+captured camera image. 
+In the fragment stage the shader samples the texture and writes each sampled pixel color onto the screen, creating the illusion 
+that the surface of the portal is transparent with the destination space beyond it.
+
+A \textit{PortalTraveller} script handles the behavior of objects capable of traversing through portals. 
+When an object carrying this script enters the portal's bounds, the script is triggered and the object's
+position and rotation are recalculated relative to the destination portal, effectively teleporting it to the corresponding 
+location on the other side. The calculation done to obtain the new position of the traveller is as follows:
+
+\[
+\mathbf{T}_{\text{new}} = \mathbf{M}_{\text{linkedPortal}} \cdot 
+                           \mathbf{M}_{\text{thisPortal}}^{-1} \cdot 
+                           \mathbf{T}_{\text{traveller}}
+\]
+
+where: 
+
+\begin{itemize}
+    \item $\mathbf{T}_{\text{traveller}}$ is the traveller's current transform (4×4 matrix)
+    \item $\mathbf{M}_{\text{thisPortal}}$ is the current portal's world transform matrix 
+    \item $\mathbf{M}_{\text{linkedPortal}}$ is the linked portal's world transform matrix
+\end{itemize}
+
+Since the player entity also includes the \textit{PortalTraveller} script, the coordinated use of the stereoscopic 
+preview and the teleportation logic allows the transition through portals to appear seamless and continuous.
+As also visible in Figure~\ref{fig:cam-placement}, the linked portals are positioned in the same local position in each room, in order to maintain 
+the user within the bounds of their tracking space. Due to this all the following portal variants are constantly overlapping the positions of their
+linked portals, redirecting users to the center of the tracking space when they find themselves at the edges and maintaining the preview consistent 
+for a seamless transportation.
+
+\subsection{Traditional Portals}
+\label{sec:trad-portals}
+
+Traditional Portals, designed to serve as a baseline condition to be compared with the portal variants, correspond closely with 
+the aforementioned core portal functions, as they provide no further functionalities. A representation of the portal is provided in 
+Figure~\ref{fig:trad-portal-sc} and the composition of the components of this 
+portal technique are present in Figure~\ref{fig:trad-portal-comp}.
+
+\begin{figure}[t]
+    \centering
+     \includegraphics[width=0.6\textwidth]{NOVAthesisFiles/Images/screenshots/traditional-portal.PNG}
+     \caption[The Traditional Portal.]
+     {The Traditional Portal.}
+     \label{fig:trad-portal-sc}
+\end{figure}
+
+\begin{figure}[b]
+    \centering
+     \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/schemes/trad-portal-components.drawio.pdf}
+     \caption[Traditional Portal hierarchy and components.]
+     {The hierarchy of the Traditional Portal and its components.}
+     \label{fig:trad-portal-comp}
+\end{figure}
+
+The portal screens correspondent to each eye, on which the stereoscopically rendered preview is rendered, are within a frame of 3D objects 
+that hold no component other than their mesh renderers, serving simply as visual aid, as designed. 
+Two cameras, one for each eye, are included as part of this object, in order to be used to render the stereoscopic preview onto the screens of
+the linked portal.
+Each of the screens is composed of only a plane mesh renderer, with materials whose shader maps the textures captured by the cameras of the 
+linked portal. 
+Both these screens are parented by a game object that provides a trigger collider used to detect when users and/or objects containing the 
+\textit{PortalTraveller}. 
+
+As mentioned in the previous Section~\ref{sec:portals}, a \textit{Portal} script component handles the linking between portals, 
+the logic that controls the positioning of the cameras, the rendering of the portal preview onto the screens, 
+as well as the detection and teleportation of a \textit{PortalTraveller} through the aforementioned trigger colliders, 
     
 Given the interaction design of this portal type, this portal does not change states at any point during the interaction, as users only 
 pass through it to go to their pertained destination.
-    
-\begin{figure}[t]
-    \centering
-     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
-     \caption[Traditional Portal components.]
-     {Traditional Portal components.}
-     \label{fig:trad-portal-comp}
-\end{figure}
     
 \subsection{Movable Portals}
 \label{sec:mov-portals}
@@ -187,10 +237,10 @@ placed in the valid area.
 
 \begin{figure}[t]
     \centering
-     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
-     \caption[Movable Portal components.]
-     {Movable Portal components.}
-     \label{fig:mov-portal-comp}
+    \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/schemes/mov-portal-components.drawio (1).pdf}
+    \caption[Movable Portal hierarchy and its components.]
+    {The hierarchy of the Movable Portal and its components.}
+    \label{fig:mov-portal-comp}
 \end{figure}
 
 When the portal is placed against a wall in the Start state, it renders a preview of the connected space, similar to Traditional Portals. 
@@ -253,7 +303,8 @@ To manage the behavior of this portal variant, an \textit{InteractiveDoor} scrip
   \includegraphics[width=.45\linewidth]{NOVAthesisFiles/Images/screenshots/CaptureDoorClosed.PNG}
   \hfill \mbox{}
   \includegraphics[width=.45\linewidth]{NOVAthesisFiles/Images/screenshots/CaptureDoorC.PNG}
-  \caption{The interaction sequence for the Interactive Door: (a) From a distance, the door is transparent, providing a clear preview to aid spatial awareness. (b) As the user approaches, it becomes opaque, suggesting the need for direct interaction. (c) The user opens the door by grabbing the handle and swinging it while the portal accompanies it, creating the necessary clearance for the user to move safely into the next space.}
+  \caption[Interactive Door interaction sequence]
+  {The interaction sequence for the Interactive Door: (a) From a distance, the door is transparent, providing a clear preview to aid spatial awareness. (b) As the user approaches, it becomes opaque, suggesting the need for direct interaction. (c) The user opens the door by grabbing the handle and swinging it while the portal accompanies it, creating the necessary clearance for the user to move safely into the next space.}
   \label{fig:int-door-sc}
 \end{figure}
 
@@ -287,9 +338,9 @@ where:
 
 \begin{figure}[t]
     \centering
-     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
-     \caption[Interactive Door components.]
-     {Interactive Door components.}
+     \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/schemes/int-door-components.drawio.pdf}
+     \caption[Interactive Door hierarchy and components.]
+     {The hierarchy of the Interactive Door and its components.}
      \label{fig:int-door-comp}
 \end{figure}
 
@@ -370,7 +421,7 @@ where:
   \hfill
   \includegraphics[width=.45\linewidth]{NOVAthesisFiles/Images/screenshots/Capture Revolving.PNG}
   \hfill
-  \includegraphics[width=.45\linewidth]{NOVAthesisFiles/Images/placeholder.pdf}
+  \includegraphics[width=.45\linewidth]{NOVAthesisFiles/Images/screenshots/Capture Revolving C.png}
   \caption{The interaction sequence for the Revolving Door: (a) From a distance, the transparent panels provide a preview of the next room. 
   (b) The user initiates the transition by walking into a compartment, pushing the door.
   (c) After pushing the door and completing a 180-degree turn, the user comes out on the other side. 
@@ -405,10 +456,10 @@ with the rotation of the linked door. When the user passes through the portal, t
 
 \begin{figure}[t]
     \centering
-     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
-     \caption[Revolving Door components.]
-     {Revolving Door components.}
-     \label{fig:rev-door-comp}
+     \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/schemes/rev-door-components.drawio.pdf}
+     \caption[Revolving Door hierarchy and components.]
+     {The hierarchy of the Revolving Door and its components.}
+     \label{fig:rv-door-comp}
 \end{figure}
 
 \section{UI}
@@ -434,17 +485,21 @@ These panels display the question as text with three selectable buttons for the 
 Once one of the options is selected, the option becomes either green or red, if it is a correct or incorrect option, respectively. After selecting 
 an option, a second curious fact panel is instantiated with only text describing the curious fact.
 
-\begin{figure}[t]
+\begin{figure}[b]
     \centering
-     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
+    \includegraphics[width=.49\linewidth]{NOVAthesisFiles/Images/screenshots/quiz-before-cut.jpg}
+    \hfill
+    \includegraphics[width=.49\linewidth]{NOVAthesisFiles/Images/screenshots/quiz-after-cut.jpg}
      \caption[Quiz UI panels used for the museum exposition items.]
-     {Quiz UI panels used for the museum exposition items.}
+     {Quiz UI panels used for the museum exposition items before being answered(left) and after(right).}
      \label{fig:quiz-panel}
 \end{figure}
 
-\begin{figure}[b]
+\begin{figure}[t]
     \centering
-     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
+     \includegraphics[width=.49\linewidth]{NOVAthesisFiles/Images/screenshots/likert-a.jpg}
+    \hfill
+    \includegraphics[width=.49\linewidth]{NOVAthesisFiles/Images/screenshots/likert-b.jpg}
      \caption[UI panels used for in-world Likert scale evaluations.]
      {UI panels used for in-world Likert scale evaluations.}
      \label{fig:likert-scale-ui}
@@ -459,11 +514,11 @@ Before these panels, for the pointing task, a \gls{UI} panel displaying text and
 of the pointing task, with the image exemplifying the object to be pointed towards~(Figure~\ref{fig:pointing-task-ui}).
 
 
-\begin{figure}[t]
+\begin{figure}[b]
     \centering
-     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
+     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/screenshots/pointing-ui.jpg}
      \caption[UI panels used for in-world Likert scale evaluations.]
-     {UI panels used for in-world Likert scale evaluations.}
+     {UI panel used for providing the pointing task instructions.}
      \label{fig:pointing-task-ui}
 \end{figure}
 
@@ -474,14 +529,21 @@ To give experimenters control over the course of the study, a researcher \gls{UI
 It consists on two buttons and a status text display that are displayed in the top left corner of the screen (Figure~\ref{fig:researcher-ui}).
 This \gls{UI} is only displayed on the monitor of the \gls{PC} it is being run on, not being visible for the \gls{VR} user wearing the \gls{HMD}.
 
+\begin{figure}[t]
+    \centering
+     \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/screenshots/researcher-ui.png}
+     \caption[UI used by researchers during the experience.]
+     {UI used by researchers during the experience.}
+     \label{fig:researcher-ui}
+\end{figure}
+
 \begin{figure}[b]
     \centering
      \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
-     \caption[UI used by researchers during the experience.]
-     {UI used by researchers during the experience.}
-     \label{fig:likert-scale-ui}
+     \caption[The Pointing Ray used for the pointing task.]
+     {The Pointing Ray used for the pointing task.}
+     \label{fig:pointing-ray}
 \end{figure}
-
 The \textit{End Section} button is used to end the section the user is in to proceed to the next section. Logic wise, when this button is pressed 
 it instantiates the previously mentioned panels at the starting room of the current section. 
 
@@ -490,18 +552,17 @@ hand~(Figure~\ref{fig:pointing-ray}). Upon selection, the \textit{Status} feedba
 Ray} button is replaced with a \textit{Disable Pointing Ray} button. The logic of the button is changed, 
 as when it is pressed the system stores the position and direction of the toggled pointing ray in a file, before the ray is deleted.
 
-\begin{figure}[t]
-    \centering
-     \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
-     \caption[The Pointing Ray used for the pointing task.]
-     {The Pointing Ray used for the pointing task.}
-     \label{fig:likert-scale-ui}
-\end{figure}
 
 
 \section{Summary}
 \label{sec:summary}
-\todo{Completar de acordo como ficar no final}
+
+This chapter presented the implementation of the system used to conduct the study. The player entity was developed to translate real-world tracked input
+into coherent interactions within the \gls{VE}, forming the foundation for all navigation tasks. The portal system was implemented to support both the 
+baseline Traditional Portals and the three proposed variants: Movable Portals, Interactive Doors and Revolving Doors. 
+The implementation of the user interface was also presented, providing participants with interactive panels for tasks and evaluations, 
+and researchers with tools to control the study. Together, these components formed the complete system required to conduct a user study to 
+investigate the research questions of this thesis.
  
 
 

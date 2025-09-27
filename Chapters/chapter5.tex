@@ -11,11 +11,14 @@
 \chapter{Evaluation}
 \label{cha:evaluation}
 
-In order to assess the developed system and answer the Research Questions proposed on Section~\ref{sec:objectives-and-researh-questions},
+In order to compare the developed portal techniques and answer the Research Questions proposed on Section~\ref{sec:objectives-and-researh-questions},
 a user study was conducted. This chapter presents the design and results of this user study, exploring the findings and conclusions on 
 the impact of the developed portal variants on usability, naturalness and spatial understanding.
 
-\todo{add summary paragraph}
+This chapter begins with Section~\ref{sec:protocol}, which describes the study protocol and experimental procedure adopted to evaluate 
+the proposed portal techniques. 
+Section~\ref{sec:results} presents the results obtained from the study, followed by Section~\ref{sec:discussion}, 
+which discusses these findings, addressing the research questions.
 
 \section{Protocol}
 \label{sec:protocol}
@@ -138,7 +141,7 @@ The Revolving Door portal was associated with the lowest median pointing error (
 followed with a moderate error (Mdn = 85.62°), and the Interactive Door showed a higher error (Mdn = 120.96°). 
 The Movable Portal produced the highest pointing error by a large margin (Mdn = 165.87°).
 
-\begin{figure}[t]
+\begin{figure}[b]
     \centering
     \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/graphs/angle_difference_plot_with_stats.pdf}
     \caption[Polar plots of the distribution of angular error in the pointing task by portal condition.]
@@ -163,7 +166,7 @@ p $<$ .001. Post-hoc analysis showed that the Traditional Portal (M=5.61, SD=1.1
 Movable Portal (M=3.81, SD=1.66; p $<$ .001) and the Revolving Door Portal (M=4.35, SD=1.45; p $<$ .001). Additionally, 
 the Interactive Door Portal (M=5.13, SD=1.38) was rated as significantly more natural than the Movable Portal (p = .0002).
 
-\begin{figure}[t]
+\begin{figure}[b]
 \centering
 \includegraphics[width=.6\linewidth]{NOVAthesisFiles/Images/graphs/naturalness_violin_plot.pdf}
 \caption{User ratings for Perceived Naturalness.}
@@ -190,6 +193,12 @@ To complement the subjective ratings, we analysed objective usability issues rec
 The number of spoken hesitations (e.g., verbal expressions of confusion) and action-based tries 
 ($e.g.$, incorrect or repeated attempts to use a portal) for each participant were quantified.
 
+\begin{figure}[b]
+\centering
+\includegraphics[width=.8\textwidth]{NOVAthesisFiles/Images/graphs/hesitations_stacked_horizontal_plot.pdf}
+\caption{Mean number of usability issues per participant by portal type. The stacked horizontal bars show spoken hesitations (light tone) and action-based tries (bright tone) for each portal type.}
+\label{fig:hesitations_plot}
+\end{figure}
 A Friedman test confirmed that the differences between portal types were highly significant for both spoken hesitations 
 ($\chi$²(3, N=31) = 23.09, p $<$ .001) and action-based tries ($\chi$²(3, N=31) = 71.12, p $<$ .001). As in \autoref{fig:hesitations_plot}, 
 the Revolving Door and Movable Portal generated a substantial number of usability issues. The Revolving Door, while producing a moderate 
@@ -198,12 +207,6 @@ proved challenging, resulting in the highest mean for spoken hesitations (M = 2.
 In contrast, the Interactive Door (Hesitations: M = 0.45, Tries: M = 1.39) and especially the Traditional Portal (Hesitations: M = 0.35, 
 Tries: M = 0.19) were associated with negligible usability problems.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=.8\textwidth]{NOVAthesisFiles/Images/graphs/hesitations_stacked_horizontal_plot.pdf}
-\caption{Mean number of usability issues per participant by portal type. The stacked horizontal bars show spoken hesitations (light tone) and action-based tries (bright tone) for each portal type.}
-\label{fig:hesitations_plot}
-\end{figure}
 
 
 \subsection{User Preference}
@@ -333,5 +336,21 @@ with their guided redirection enhancing the perception of flow across rooms once
 \section{Summary}
 \label{sec:summary}
 
-\todo{Completar de acordo como ficar no final}
+This chapter presented the evaluation of the developed portal-based locomotion techniques through a user study with 31 
+participants. 
+
+The study protocol, procedure, and data collection methods were described, combining subjective questionnaires, objective performance measures, 
+and qualitative feedback. Questionnaires included the Virtual Reality Sickness Questionnaire (VRSQ), 
+the Igroup Presence Questionnaire (IPQ), and the Immersive Experience Questionnaire (IEQ), as well as Likert-scale 
+items on ease of use and naturalness answered within the \gls{VE}. 
+Objective measures focused on pointing angles in the spatial understanding task 
+and observed usability hesitations, both spoken and action-based. Qualitative feedback was gathered through 
+post-session open-ended questions, participant rankings of portal techniques, and spontaneous comments or 
+behaviors observed during the experience.
+
+Results highlighted clear differences 
+between portal designs in terms of spatial understanding, usability, naturalness, and user preference, as well as 
+their influence on presence and cybersickness. This chapter was finalized with a discussion that connected these findings to the research 
+questions, outlining the strengths and limitations of each technique and their implications for \gls{VR} navigation 
+design.
 
