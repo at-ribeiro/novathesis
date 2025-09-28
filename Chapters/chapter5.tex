@@ -36,9 +36,9 @@ followed a Latin Square design to minimize bias.
 \subsection{Procedure}
 \label{sec:procedure}
 
-The experimental session commenced by asking the participant to read the informed consent presented in \todo{add appendix}. After reading, 
-agreeing and signing the consent form, users were asked to fill a pre-session Virtual Reality Sickness Questionnaire (VRSQ), available in 
-\todo{Add VRSQ annex}. Finally, before starting the session, participants also filled a characterization questionnaire that collected 
+The experimental session commenced by asking the participant to read the informed consent presented in Appendix~\ref{app:consent}. After reading, 
+agreeing and signing the consent form, users were asked to fill a pre-session Virtual Reality Sickness Questionnaire (VRSQ). 
+Finally, before starting the session, participants also filled a characterization questionnaire that collected 
 information about age, gender, education, experience in VR and video games, and sight problems.
 
 After filling these initial forms, the experiment started with a brief of the context and instructions needed for the study given by the 
@@ -86,11 +86,13 @@ For clarity, the collected data are grouped into the following categories:
 
 \textbf{Spatial Understanding}: This was quantified through a pointing task where participants indicated the direction of a target object in a previously visited room. The primary metric was the absolute pointing error, measured in degrees.
 
-\textbf{Presence and Immersion}: The overall sense of being "in" the virtual environment was measured using two standard validated questionnaires: the Igroup Presence Questionnaire (IPQ) and the Immersive Experience Questionnaire (IEQ).
+\textbf{Presence}: The overall sense of being "in" the virtual environment was measured using the Igroup Presence Questionnaire (IPQ).
 
 \textbf{Cybersickness}: To monitor for potential adverse effects, participants completed the Virtual Reality Sickness Questionnaire (VRSQ) both before (pre-exposure) and immediately after (post-exposure) the experiment.
 
 \textbf{User Preference and Qualitative Feedback}: Finally, we captured overall user preference by asking participants to order the four portal techniques from 1 (most preferred) to 4 (least preferred). To understand the context behind these rankings and other ratings, the post-session questionnaire included open-ended questions prompting participants to describe the perceived strengths and weaknesses of each portal.
+
+The items related to the Virtual Reality Sickness Questionnaire (VRSQ) and Igroup Presence Questionnaire (IPQ) are presented in Appendix~\ref{app:Questionnaires}.
 
 %\section{Tasks}
 %\label{sec:tasks}
@@ -124,9 +126,99 @@ Regarding prior experience with \gls{VR}, 3.2\% of participants reported using \
 
 In terms of playing video-games, 22.6\% of participants reported playing games frequently(daily), 16.1\% play them weekly, 35.5\% play them monthly, 19.4\% reported playing them a few times a year and 6.5\% don't play video-games.
 
-When asked to rate their perceived sense of orientation/direction on a scale of 1 to 5, 35.5\% of participants rated themselves as 4 and another 35.5\% as 3, so most answers clustered on these values. Following this, 12.9\% of participants rated themselves as 5, another 12.9\% as 2 and 3,2\% as 1.
+When asked to rate their perceived sense of orientation/direction on a scale of 1 to 5, 35.5\% of participants rated themselves as 4 and another 35.5\% as 3, so most answers clustered on these values. Following this, 12.9\% of participants rated themselves as 5, another 12.9\% as 2 and 3.2\% as 1.
 
-\todo{Isto se calhar ficava melhor numa tabela}
+\begin{table}[h]
+\centering
+\caption{Population demographics tables.}
+
+% Row 1: Gender | Ages
+\begin{subtable}[t]{0.45\textwidth}
+\centering
+\caption{Participants Gender.}
+\begin{tabular}{l|c}
+Gender & Participants(\#) \\
+\cline{1-2}
+Male   & 19 \\
+Female & 11 \\
+Non-Binary & 1 \\
+\end{tabular}
+\end{subtable}
+\hfill
+\begin{subtable}[t]{0.45\textwidth}
+\centering
+\caption{Participants Ages.}
+\begin{tabular}{l|c}
+Age & Participants(\#) \\
+\cline{1-2}
+22 & 13 \\
+23 & 9 \\
+24 & 3 \\
+25 & 2 \\
+26 & 1 \\
+27 & 1 \\
+28 & 2 \\
+\end{tabular}
+\end{subtable}
+
+\vspace{1em}
+
+% Row 2: Visual Impairments | Education Level
+\begin{subtable}[t]{0.45\textwidth}
+\centering
+\caption{Participants Visual Impairments (beyond the use of glasses).}
+\begin{tabular}{l|c}
+Visual Impairment & Participants(\#) \\
+\cline{1-2}
+Yes & 3 \\
+No  & 28 \\
+\end{tabular}
+\end{subtable}
+\hfill
+\begin{subtable}[t]{0.45\textwidth}
+\centering
+\caption{Participants Education Level.}
+\begin{tabular}{l|c}
+Education Level & Participants(\#) \\
+\cline{1-2}
+High School & 2 \\
+Bachelor's  & 20 \\
+Master's    & 9 \\
+\end{tabular}
+\end{subtable}
+
+\vspace{1em}
+
+% Row 3: VR Experience | Video Game Experience
+\begin{subtable}[t]{0.45\textwidth}
+\centering
+\caption{Participants VR Experience.}
+\begin{tabular}{l|c}
+VR Use & Participants(\#) \\
+\cline{1-2}
+Never used before & 8 \\
+Used once or twice before  & 12 \\
+Uses few times a year & 9 \\
+Uses monthly & 1 \\
+Uses weekly or more & 1 \\
+\end{tabular}
+\end{subtable}
+\hfill
+\begin{subtable}[t]{0.45\textwidth}
+\centering
+\caption{Participants Video Game Experience.}
+\begin{tabular}{l|c}
+Video Game Use & Participants(\#) \\
+\cline{1-2}
+Never & 2 \\
+A few times a year  & 6 \\
+Monthly & 11 \\
+Weekly & 5 \\
+Daily & 7 \\
+\end{tabular}
+\end{subtable}
+
+\end{table}
 
 \subsection{Spatial Understanding}
 
@@ -141,7 +233,7 @@ The Revolving Door portal was associated with the lowest median pointing error (
 followed with a moderate error (Mdn = 85.62°), and the Interactive Door showed a higher error (Mdn = 120.96°). 
 The Movable Portal produced the highest pointing error by a large margin (Mdn = 165.87°).
 
-\begin{figure}[b]
+\begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/graphs/angle_difference_plot_with_stats.pdf}
     \caption[Polar plots of the distribution of angular error in the pointing task by portal condition.]
@@ -156,7 +248,6 @@ To assess subjective user experience, at the end of each section, participants r
 scale (1=Strongly Disagree, 7=Strongly Agree): (1) “I found the transition between rooms natural” and 
 (2) "I found the transition between rooms intuitive / easy to use". 
 
-
 This data was analysed using a non-parametric Friedman test. Significant results were followed by post-hoc Wilcoxon signed-rank tests with a Bonferroni 
 correction applied, resulting in a significance level of p $<$ .0083.
 
@@ -166,14 +257,14 @@ p $<$ .001. Post-hoc analysis showed that the Traditional Portal (M=5.61, SD=1.1
 Movable Portal (M=3.81, SD=1.66; p $<$ .001) and the Revolving Door Portal (M=4.35, SD=1.45; p $<$ .001). Additionally, 
 the Interactive Door Portal (M=5.13, SD=1.38) was rated as significantly more natural than the Movable Portal (p = .0002).
 
-\begin{figure}[b]
+\begin{figure}[t]
 \centering
 \includegraphics[width=.6\linewidth]{NOVAthesisFiles/Images/graphs/naturalness_violin_plot.pdf}
 \caption{User ratings for Perceived Naturalness.}
 \label{fig:naturalness_results}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[b]
 \centering
 \includegraphics[width=.6\linewidth]{NOVAthesisFiles/Images/graphs/ease_of_use_violin_plot.pdf}
 \caption{User ratings for Perceived Ease-of-Use.}
@@ -188,12 +279,11 @@ Movable Portal (M=3.84, SD=1.44; p $<$ .001). Furthermore, the Interactive Door 
 to use than both the Revolving Door (p = .0054) and the Movable Portal (p = .0011). No significant difference was found between 
 the Movable and Revolving Door portals, placing them together in the lowest tier for ease of use.
 
-
 To complement the subjective ratings, we analysed objective usability issues recorded by the experimenter. 
 The number of spoken hesitations (e.g., verbal expressions of confusion) and action-based tries 
 ($e.g.$, incorrect or repeated attempts to use a portal) for each participant were quantified.
 
-\begin{figure}[b]
+\begin{figure}[t]
 \centering
 \includegraphics[width=.8\textwidth]{NOVAthesisFiles/Images/graphs/hesitations_stacked_horizontal_plot.pdf}
 \caption{Mean number of usability issues per participant by portal type. The stacked horizontal bars show spoken hesitations (light tone) and action-based tries (bright tone) for each portal type.}
@@ -206,8 +296,6 @@ number of spoken hesitations (M = 2.03), was associated with a higher mean of ac
 proved challenging, resulting in the highest mean for spoken hesitations (M = 2.39) and a high number of action-based tries (M = 8.61). 
 In contrast, the Interactive Door (Hesitations: M = 0.45, Tries: M = 1.39) and especially the Traditional Portal (Hesitations: M = 0.35, 
 Tries: M = 0.19) were associated with negligible usability problems.
-
-
 
 \subsection{User Preference}
 
@@ -223,7 +311,7 @@ at the 4th rank, Revolving Doors were significantly more likely to be rated leas
 preference missed statistical significance when compared to the Interactive Doors(p = 0.0169 vs adjusted $\alpha$ = 0.0167), 
 the second most top-ranked technique.
 
-\begin{figure}[h]
+\begin{figure}[t]
     \centering
     \includegraphics[width=.65\textwidth]{NOVAthesisFiles/Images/graphs/scenario_preference_plot.pdf}
     \caption[Participants preference rankings over portal techniques.]
@@ -239,13 +327,69 @@ Overall, participants reported moderate to high scores across subscales (Spatial
 Involvement: M~=~4.42, SD~=~0.4; Experienced Realism: M~=~4.58, SD~=~0.78), indicating a moderate to high sense of 
 presence during the \gls{VR} experience. 
 
+\begin{table}[h]
+\centering
+\caption{IPQ Subscale Results}
+\begin{tabular}{l|c}
+Subscale & Mean ± SD \\
+\hline
+Spatial Presence & 5.50 ± 0.45 \\
+Involvement & 4.42 ± 0.40 \\
+Experienced Realism & 4.58 ± 0.73 \\
+\end{tabular}
+\end{table}
+
+
 \subsection{Cybersickness}
 \label{sec:cybersickness}
 Cybersickness was assessed using the Virtual Reality Sickness Questionnaire (VRSQ). 
 Participants reported low levels of symptoms both before (M~=~2.23, SD~=~3.13) and after the session (M~=~2.68, SD~=~3.91),
 suggesting that the experience had minimal impact on cybersickness.
 
-\todo{algo mais a se dizer? talvez juntar com o presence?}
+\begin{table}[h]
+\centering
+\caption{VRSQ Results per Symptom.}
+
+% Pre-session table
+\begin{subtable}[t]{0.45\textwidth}
+\centering
+\caption{Pre-session}
+\begin{tabular}{l|c|c}
+Symptom & Mean ± SD & Min–Max \\
+\hline
+Discomfort & 0.35 ± 0.55 & 0-2 \\
+Fatigue & 0.61 ± 0.67 & 0-2 \\
+Eyestrain & 0.39 ± 0.50 & 0-1 \\
+Difficulty Focusing & 0.32 ± 0.54 & 0-2 \\
+Headache & 0.13 ± 0.34 & 0-1 \\
+Fullness of Head & 0.23 ± 0.43 & 0-1 \\
+Blurred Vision & 0.10 ± 0.30 & 0-1 \\
+Dizzy & 0.10 ± 0.30 & 0-1 \\
+Vertigo & 0.00 ± 0.00 & 0-0 \\
+\end{tabular}
+\end{subtable}
+\hfill
+% Post-session table
+\begin{subtable}[t]{0.45\textwidth}
+\centering
+\caption{Post-session}
+\begin{tabular}{l|c|c}
+Symptom & Mean ± SD & Min–Max \\
+\hline
+Discomfort & 0.42 ± 0.67 & 0-2 \\
+Fatigue & 0.39 ± 0.50 & 0-1 \\
+Eyestrain & 0.58 ± 0.67 & 0-2 \\
+Difficulty Focusing & 0.35 ± 0.49 & 0-1 \\
+Headache & 0.16 ± 0.37 & 0-1 \\
+Fullness of Head & 0.26 ± 0.51 & 0-2 \\
+Blurred Vision & 0.29 ± 0.59 & 0-2 \\
+Dizzy & 0.19 ± 0.48 & 0-2 \\
+Vertigo & 0.03 ± 0.18 & 0-1 \\
+\end{tabular}
+\end{subtable}
+
+\end{table}
+
 
 \subsection{Qualitative Feedback}
 

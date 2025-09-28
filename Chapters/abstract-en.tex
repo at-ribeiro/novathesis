@@ -8,25 +8,30 @@
 
 \typeout{NT FILE abstract-en.tex}%
 
-The purpose of this thesis is to improve user navigation in \glsfirst{VR} when constrained by small physical spaces, by addressing the limitations 
-of traditional \glsfirst{RDW} techniques based in portals. 
+This dissertation aims to improve user navigation in \glsfirst{VR} when constrained by small physical spaces, by addressing the limitations 
+of traditional \glsfirst{RDW} techniques based on portals. 
 Three new alternative portal variants for \gls{VR} locomotion were developed: Movable Portals, Interactive Doors and Revolving Doors - 
 contributing to the research of immersive \gls{VR} navigation in restricted physical spaces using Non-Euclidean virtual environments.
 
-\gls{VR} applications that grant users the ability to navigate in a very large \gls{VE}. However, the \glsfirst{UX} is often limited by the physical space
-\gls{VR} users usually have available (2.4m~x~2.2m) to move.
-Thus, solutions for this problem have been proposed through the form of different locomotion techniques. Controllers provide 
+\gls{VR} applications grant users the ability to navigate large virtual environments. However, the \glsfirst{UX} is often constrained by 
+the limited physical space typically available to \gls{VR} users (2.4m~x~2.2m) to move.
+To address this limitation, various \gls{VR} locomotion techniques have been proposed. Controllers provide 
 a simple solution to this problem, by allowing users to navigate virtual worlds while standing still.
 However, controller-based approaches differ significantly from natural walking in the real world and have been shown to limit the sense of immersion.
-By employing natural physical motion, \glsfirst{RDW} techniques have shown to be a more immersive solution, 
-yet these often demand a larger tracking space to be fully effective.
 
-Four different \gls{VR} locomotion techniques using portals were designed, implemented and studied, with them being:
+\gls{RDW} techniques reliant on self-overlapping Non-Euclidean spaces created by portals allow users to traverse large virtual environments 
+through natural walking, whilst in a limited physical space. 
+However, the use of portals in \gls{VR} navigation still presents design challenges.
+Placing portals near the boundaries of a virtual environment conserves physical space but limits the observable preview of the portal's 
+destination. In contrast, positioning portals further from boundaries can result in unnatural, floating portals. These trade-offs create a 
+design tension between maximizing navigable space and preserving the coherence and naturalness of the environment.
+
+To address these challenges,
+four different \gls{VR} locomotion techniques using portals were designed, implemented and studied, with them being:
 (1) Traditional Portals - a baseline condition representing the common portals found in \gls{VR} applications and research; 
 (2) Movable Portals - portals initially set on a wall with a continuous preview that users can reposition; 
 (3) Interactive Doors - door-shaped portals embedded in a wall that opens interactively as a real door;
 (4) Revolving Doors - portals offering a continuous transition between rooms through a circular motion.
-The variant portals were designed to address the limitations of common traditional portals
 
 The techniques were evaluated through a user study (N=31), to evaluate these four portal types, focusing on usability, spatial
 understanding, immersion, and perceived naturalness. Results suggest that the alternative designs addressed the portal limitations 

@@ -8,49 +8,43 @@
 
 \typeout{NT FILE appendix1.tex}%
 
-\chapter{\emph{NOVAthesis} covers showcase}
-\label{app:covers_showcase}
+\chapter{User Study Questionnaires}
+\label{app:Questionnaires}
 
-This Appendix shows examples of covers for some of the supported Schools.  When the Schools have very similar covers (e.g., all the schools from Universidade do Minho), just one cover is shown.  If the covers for MSc dissertations and PhD  thesis are considerable different (e.g., for FCT-NOVA and UMinho), then both are shown.
+\section{Virtual Reality Sickness Questionnaire (VRSQ)}
 
-\newcommand{\showcasecoversize}{0.3\textwidth}
-\newcommand*{\myhfill}{}
-\newcommand{\myincludeimage}[1]{%
-    \myhfill%
-    \defifundef{\mycvbox}{\newsavebox}%
-    \savebox{\mycvbox}{\includegraphics[width=\showcasecoversize]{#1}}%
-    \defifundef{\mycvboxht}{\newlength}%
-    \setlength{\mycvboxht}{\dimexpr \showcasecoversize*\paperheight/\paperwidth}%
-    \rule{0pt}{1.1\mycvboxht}%
-    \setlength{\fboxsep}{0pt}%
-    \fbox{\includegraphics[width=\showcasecoversize]{#1}}%
-    \renewcommand*{\myhfill}{\hfill}%
-}
+Answers: None-0, Slight-1, Moderate-2, Severe-3
 
-% \noindent\forcsvlist{\myincludeimage}{%
-%   cover-nova-fct-msc,
-%   cover-nova-fct-phd,
-%   cover-nova-ims-phd,
-%   %
-%   cover-uminho-ee-phd,
-%   cover-uminho-ee-msc,
-%   cover-other-esep-phd,
-%   %
-%   cover-nova-fcsh-phd,
-%   cover-nova-ensp-phd,
-%   cover-iscteiul-eta-phd,
-%   %
-%   cover-ulisboa-fc-phd,
-%   cover-ulisboa-ist-phd,
-%   cover-ulht-deisi-msc,
-%   %
-%   cover-ipl-isel-msc,
-%   cover-ips-ests-msc,
-%   cover-other-mscgt-msc%
-% }
+\begin{itemize}
+    \item General Discomfort
+    \item Fatigue
+    \item Eyestrain
+    \item Difficulty Focusing
+    \item Headache
+    \item Fullness of Head
+    \item Blurred Vision
+    \item Dizzy
+    \item Vertigo
+\end{itemize}
 
-\lipsum[1-20]
+\section{Igroup Presence Qeustionaire (IPQ)}
 
-\section{A section here}
+Answers: 7-point Likert Scale (1-Disagree completely, 7-Agree completely);
+Subscales: General(G), Spacial Presence(SP), Involvement(INV), Experienced Realism(REAL).
 
-\lipsum[1-20]
+\begin{itemize}
+    \item G1. In the computer generated world I had a sense of "being there"
+    \item SP1. Somehow I felt that the virtual world surrounded me.
+    \item SP2. I felt like I was just perceiving pictures.
+    \item SP3. I did not feel present in the virtual space.
+    \item SP4. I had a sense of acting in the virtual space, rather than operating something from outside.
+    \item SP5. I felt present in the virtual space.
+    \item INV1. How aware were you of the real world surrounding while navigating in the virtual world? (i.e. sounds, room temperature, other people, etc.)?
+    \item INV2. I was not aware of my real environment.
+    \item INV3. I still paid attention to the real environment.
+    \item INV4. I was completely captivated by the virtual world.
+    \item REAL1. How real did the virtual world seem to you?
+    \item REAL2. How much did your experience in the virtual environment seem consistent with your real world experience?
+    \item REAL3. How real did the virtual world seem to you?
+    \item REAL4. The virtual world seemed more realistic than the real world.
+\end{itemize}

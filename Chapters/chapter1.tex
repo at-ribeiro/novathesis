@@ -70,7 +70,7 @@ The seamless transition from one section to another is achieved through a stereo
 space as if they were already positioned at the destination, with the appropriate transformations of location and rotation 
 relative to the portal~\cite{Lochner2021,Jaksties2022}.
 
-However, portals as a means of locomotion have shown its limitations in previous studies~\cite{Rebelo2024,Rebelo2025}. 
+However, portals as a means of locomotion have shown its limitations in previous studies~\cite{Ferreira2025,Rebelo2025}. 
 To prevent users from leaving the limits of their physical tracking space, portals must be placed within a certain distance from the boundaries 
 of the corresponding \gls{VE}. This has an impact on the portal's preview, as the closer the portal is to said limits, 
 the less space will be observable through the preview, since the rendering of the portal view is dependent on the position of the portal. 
@@ -123,9 +123,10 @@ In order to better structure this research, the following three research questio
 \section{Solution Overview}
 \label{sec:solution-overview}
 
-Our solution relied on the implementation of three distinct portal variants that address the limitations of \gls{VR} navigation using portals. 
+Our solution relied on the implementation of three distinct portal variants that address the limitations of \gls{VR} navigation using portals\footnote{Video Demonstration of the solution - \url{https://youtu.be/xcGcSZ7LP_c}, Last Access - Sep 2025 }.
 These variants were compared with an implementation of traditional portals through a user study, taking a museum tour as a use-case, 
-where participants explored a museum \gls{VE} using each of the developed portal variants, bound by a physical space of 2.5m~x~2.5m.
+where participants explored a museum \gls{VE} using each of the developed portal variants, bound by a physical space of 
+$2.5\,\mathrm{m} \times 2.5\,\mathrm{m}$.
 
 A more detailed description of the design choices and implementation of each of the portal variants is present throughout the document, however, a general 
 definition of each of the techniques are as follows:
@@ -155,8 +156,8 @@ presence and comfort.
 
 \begin{figure}[t]
     \centering
-     \includegraphics[width=.75\textwidth]{NOVAthesisFiles/Images/placeholder.pdf}
-     \caption[The four portal techniques studied in this thesis]
+     \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/screenshots/teaser image v2.png}
+     \caption[The four portal techniques studied in this thesis.]
      {The four portal techniques studied in this thesis: Traditional Portals, Movable Portals, Interactive Doors and Revolving Doors.}
      \label{fig:portal}
 \end{figure}

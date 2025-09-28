@@ -604,28 +604,7 @@ The illusion of the self-overlapping architecture is mostly unnoticeable, especi
 ~\cite{Suma2012}. Distractors, visual and auditory feedback, and contextual environmental events are potential auxiliary methods to 
 raise the \gls{VE}'s level of immersion~\cite{Ciumedean2020,Fisher2017}, since these methods help lower the overtness of the redirection that is 
 taking place.
-
-\gls{VR} applications typically use two main methods to connect the various sections of a Self-Overlapping Architecture: 
-
-\begin{itemize}
-
-    \item \textbf{Transitioning Areas} - Transitional spaces that link different sections by recurring to the previously discussed 
-    "change blindness" redirection technique. These areas are usually curved corridors that restrict users' \gls{FOV}, 
-    allowing for the mentioned changes to happen without the users' knowledge~\cite{5759455, Vasylevska2017} (Figure~\ref{fig:transioning-areas}).
-    
-    \item \textbf{Portals} - As discussed in the \nameref{sec:redirected-walking} section, \todo{portals estão agora está expandidos numa secção}
-    the instantaneous teleportation caused by Overt Discrete Repositioning \gls{RDW} techniques could be highly disorienting if the user is 
-    not prepared or does not have the context for such repositioning. Portals help mitigate the overtness of this technique, serving as preview 
-    to the location the user is going to teleport to after passing through it~\cite{Freitag2014}. The transition between the locations can 
-    be seamless, such as the wormholes from the previously mentioned study by William Warren~\cite{Warren2019}, 
-    making the teleportation even less noticeable, and therefore, more immersive. 
-    The "Non-Euclidean Worlds Engine" project 
-    \footnote{Video on the "Non-Euclidean Worlds Engine" by \textit{Code Parade} - \href{https://youtu.be/kEB11PQ9Eo8}{https://youtu.be/kEB11PQ9Eo8} - Last Access: Jan 2025 }
-    provides several examples in which these portals might be used (Figure~\ref{fig:self-Overlapping}).
-
-\end{itemize}
-
-\begin{figure}[b]
+\begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/papers/transioning-areas.png}
     \caption[Possible implementation of change-blindness redirection]
@@ -634,7 +613,7 @@ taking place.
     \label{fig:transioning-areas}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[b]
    \centering
     \includegraphics[width=0.5\textwidth]{NOVAthesisFiles/Images/papers/self-overlapping.png}
     \caption[Illustration of a Self-Overlapping Architecture]{A visual representation of a self-overlapping architecture from the "Non-Euclidean Worlds Engine" project.
@@ -643,12 +622,19 @@ taking place.
    \label{fig:self-Overlapping}
 \end{figure}
 
+\gls{VR} applications typically use two main methods to connect the various sections of a Self-Overlapping Architecture. 
+One method is through \textbf{Transitioning Areas}, which are transitional spaces that link different sections by recurring to the previously discussed 
+"change blindness" redirection technique. These areas are usually curved corridors that restrict users' \gls{FOV}, 
+allowing for the mentioned changes to happen without the users' knowledge~\cite{5759455, Vasylevska2017} (Figure~\ref{fig:transioning-areas}). 
+Another method involves the use of \textbf{Portals}, which allow users to move seamlessly between different sections of the environment by presenting 
+a preview of the connected space. This approach mitigates the disorientation that could arise from instantaneous repositioning, and will be discussed 
+in more detail in Section~\ref{sec:portals}.
+
 The use of Impossible Spaces presents as a solution to map a large \gls{VE} into a limited physical tracking space, and its applications 
 with \gls{RDW} techniques seem to be extensive, all depending on the context and needs the \gls{VR} application is being developed.
 Flexible Spaces, developed by Vasylevska et al.~\cite{6550194}, serves as an example of how extensive these possibilities can be,
 as it is a combination of the mentioned techniques, that in conjunction with \textit{Procedural Content Generations}, 
 creates an all-in-one dynamically adjustable redirection technique. 
-
 
 \subsection{Portals}
 \label{sec:portals-research}
@@ -719,13 +705,7 @@ as the user's screen. Each portal has an associated camera that is placed relati
 the portal, as if the user position was mirrored. Thus, both the position and rotation (and scale if the paired portals have different scales) of 
 the camera must be modified accordingly. 
 
-The rendering of a scene through the stencil buffer approach is done recursively. The buffer stores the recursion level of each pixel, corresponding 
-to which level of "depth" it is (0 - user's view; 1 - portal in the user's view; 2 - portal inside a portal in the user's view; etc.). When rendering the 
-frame, the algorithm goes through each recursion level, only rendering the pixels equivalent with said level with the corresponding camera. As such, 
-the method starts by rendering the pixels outside a portal through the user's camera, then it renders the portal's view through the portal's camera, 
-and so on for all recursion levels. Figure~\ref{fig:stencil-buffer} exemplifies a simplified version of a stencil buffer.
-
-\begin{figure}[b]
+\begin{figure}[t]
     \centering
      \includegraphics[width=0.6\textwidth]{NOVAthesisFiles/Images/papers/stencil buffer.png}
      \caption[Simplified representation of a stencil buffer for rendering portals.]
@@ -734,6 +714,11 @@ and so on for all recursion levels. Figure~\ref{fig:stencil-buffer} exemplifies 
      \label{fig:stencil-buffer}
 \end{figure}
 
+The rendering of a scene through the stencil buffer approach is done recursively. The buffer stores the recursion level of each pixel, corresponding 
+to which level of "depth" it is (0 - user's view; 1 - portal in the user's view; 2 - portal inside a portal in the user's view; etc.). When rendering the 
+frame, the algorithm goes through each recursion level, only rendering the pixels equivalent with said level with the corresponding camera. As such, 
+the method starts by rendering the pixels outside a portal through the user's camera, then it renders the portal's view through the portal's camera, 
+and so on for all recursion levels. Figure~\ref{fig:stencil-buffer} exemplifies a simplified version of a stencil buffer.
 
 Another common approach for rendering portal views is through the use of pre-rendered textures. It involves placing the camera as described above, however, rather 
 than rendering the view as the previous method does, it saves it into a texture and places the pre-rendered texture on the portal. Although a 
@@ -743,7 +728,6 @@ A common problem for both these rendering methods may occur as the result of hav
 named the “banana juice problem”~\footnote{CS50's Introduction to Game Development 2018; Lecture 11- \href{https://youtu.be/ivyseNMVt-4}{https://youtu.be/ivyseNMVt-4}, Last Access - Aug 2025 }. 
 This results in unorthodox view through the portal, solved by not including the objects when rendering, 
 also known as \textit{clipping}.
-
 \begin{figure}[t]
     \centering
      \includegraphics[width=0.75\textwidth]{NOVAthesisFiles/Images/papers/banana-juice.png}
@@ -752,6 +736,13 @@ also known as \textit{clipping}.
      To solve this issue, the camera must clip(not render) any of the objects or structures between the camera and the portal.~\cite{Murray2019}}
      \label{fig:banana-juice}
 \end{figure}
+
+While prior work has demonstrated the potential of portals and self-overlapping architectures for extending navigable space, 
+there remain exciting opportunities for further exploration. One area of interest is the placement of portals within a \gls{VE}. 
+Portal placement can influence the preview of connected spaces~\cite{Ferreira2025, Rebelo2025}, as portals positioned near physical or virtual 
+boundaries limit the visible area through the portal. Careful positioning is therefore important not only to maximize observable space but 
+also to maintain the naturalness of the environment, as portals placed too far from walls can appear as floating door frames. 
+Exploring strategies for optimal portal placement could enhance both the usability and spatial coherence of \glspl{VE}.
 
 \subsection{Hyperbolic Spaces}
 \label{sec:hyperbolic-spaces}
@@ -849,6 +840,10 @@ motion through natural walking, achieving higher feelings of presence in the \gl
 
 The limitations of \gls{RDW} were also addressed, as naturally walking in a constricted physical space is still a challenge in the 
 implementation of these techniques. Our work addresses this challenge by employing redirection through the use of non-Euclidean \glspl{VE}, 
-thus non-Euclidean geometry and its applications in \gls{VR} have been explored in this chapter as well. The particular examples of 
-non-Euclidean spaces explored were Impossible and Hyperbolic Spaces, as these allow natural walking in large \glspl{VE} whilst in limited 
-tracking spaces.
+thus non-Euclidean geometry and its applications in \gls{VR} have been explored in this chapter as well.
+
+The use of portals as a form of \gls{VR} locomotion was additionally explored. Portals offer an intuitive way of connecting separate areas of a virtual environment, 
+allowing users to traverse large or discontinuous spaces whilst in a limited physical space.
+The effectiveness of portals are, however, influenced by design choices. In particular, the placement of portals within a \gls{VE} plays a key 
+role: positioning them near boundaries can restrict what users see through them, while placing them too far from walls can reduce spatial 
+coherence by creating the impression of floating door frames.

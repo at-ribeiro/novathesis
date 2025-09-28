@@ -8,25 +8,36 @@
 
 \typeout{NT FILE abstract-pt.tex}%
 
-O propósito desta dissertação é aprimorar a forma como os utilizadores de Realidade Virtual(RV) podem navegar num ambiente virtual de grandes dimensões, estando confinados a um espaço físico reduzido.
-O objetivo consiste em estudar e implementar técnicas de locomoção com base em redirecionamento, tanto explícito como subtil, contribuindo assim para a investigação
-de métodos de navegação imersiva em RV em espaços físicos limitados, recorrendo a Espaços Não Euclidianos e a técnicas de \textit{Redirected Walking}.
+Esta dissertação tem como objetivo melhorar a navegação do utilizador em \gls{VR} quando limitado por pequenos espaços físicos, 
+abordando as limitações das técnicas tradicionais de \glsfirst{RDW} baseadas em portais.  
+Foram desenvolvidas três novas variantes de portais para locomoção em \gls{VR}: Portais Móveis, 
+Portas Interactivas e Portas Giratórias — contribuindo para a investigação de navegação imersiva em \gls{VR} em espaços físicos 
+restritos utilizando ambientes virtuais Não-Euclidianos.  
 
-Aplicações de RV que permitem aos utilizadores explorar um ambiente virtual de grande escala encontram-se, frequentemente, 
-limitadas pelas dimensões do espaço físico onde são utilizadas.
-Por esta razão, têm sido propostas soluções para este problema através de diferentes técnicas de locomoção. Comandos oferecem
-uma solução simples, permitindo que os utilizadores naveguem em ambientes virtuais enquanto permanecem imóveis,
-contudo, as abordagens baseadas em comandos demonstraram ser menos imersivas quando comparadas com a locomoção por caminhada.
-Ao empregar movimentos físicos naturais, as técnicas de \textit{Redirected Walking} têm-se revelado uma solução mais imersiva,
-embora, frequentemente, exijam um espaço de rastreamento mais amplo para atingir o seu pleno potencial imersivo.
+Aplicações de \gls{VR} permitem aos utilizadores navegar por ambientes virtuais extensos. 
+No entanto, a experiêncida do utilizador é frequentemente limitada pelo espaço físico geralmente disponível para os utilizadores de \gls{VR} 
+(2.4m~x~2.2m). Para superar esta limitação, foram propostas várias técnicas de locomoção em \gls{VR}. Métodos baseados em 
+comandos fornecem uma solução simples, permitindo que os utilizadores naveguem nos mundos virtuais permanecendo imóveis. 
+Contudo, estas abordagens diferem significativamente da caminhada natural no mundo real e têm demonstrado reduzir a sensação de imersão.  
 
-Propõe-se a implementação de duas técnicas alternativas de redirecionamento: Turn-and-Place (Virar e Posicionar) e 
-Hyperbolic Rooms (Salas Hiperbólicas), que permitem a navegação em espaços físicos restritos, priorizando imersão,
-através da subdivisão de espaços para reorientação e da utilização de geometrias hiperbólicas, respetivamente.
-Estas técnicas poderão ser aplicadas em cenários de RV que privilegiem a imersão, tais como os da área do entretenimento e da educação, pelo que
-as suas implementações nesta dissertação seguirão uma temática alinhada com uma experiência de um museu virtual.
+As técnicas de \gls{RDW} que dependem de espaços Não Euclidianos sobrepostos criados por portais
+permitem aos utilizadores percorrer grandes ambientes virtuais através de caminhada natural enquanto num espaço físico limitado. 
+Contudo, o uso de portais na navegação 
+em \gls{VR} ainda apresenta desafios de design. Colocar portais próximos das fronteiras de um ambiente virtual economiza espaço físico, 
+mas limita a pré-visualização do destino do portal. Por outro lado, posicionar os portais mais afastados das fronteiras pode resultar em 
+portais flutuantes e pouco naturais. Estes compromissos criam uma tensão de design entre maximizar o espaço navegável e preservar a 
+coerência e a naturalidade do ambiente.  
 
-As técnicas serão avaliadas através de estudos com utilizadores, com o intuito de validar a sua eficácia e usabilidade, 
-assim como de um estudo comparativo entre ambas, de modo a identificar os pontos fortes e as limitações de cada uma.
+Para enfrentar estes desafios, foram concebidas, implementadas e estudadas quatro técnicas diferentes de locomoção em \gls{VR} usando portais, 
+sendo elas:  
+(1) Portais Tradicionais - uma condição base representando os portais comuns encontrados em aplicações e estudos de \gls{VR};  
+(2) Portais Móveis - portais inicialmente colocados numa parede com pré-visualização contínua que os utilizadores podem reposicionar;  
+(3) Portas Interactivas - portais em forma de porta embutidos numa parede que se abrem de forma interativa, como uma porta real;  
+(4) Portas Giratórias - portais que oferecem uma transição contínua entre salas através de um movimento circular.  
+
+As técnicas foram avaliadas através de um estudo de utilizador (N=31), focando em usabilidade, 
+compreensão espacial, imersão e naturalidade. Os resultados sugerem que os designs alternativos abordaram 
+com sucesso as limitações dos portais e ajudaram a transmitir uma sensação contínua de espaço, com cada tipo de portal apresentando os seus 
+pontos fortes.  
 
 \textbf{Palavras-chave:} Realidade Virtual, Redirected Walking, Espaços Não Euclidianos, Navegação, Interação Pessoa-Máquina
