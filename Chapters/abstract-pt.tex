@@ -6,38 +6,42 @@
 %% Abstract in Portuguese
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0pt}
+
+
 \typeout{NT FILE abstract-pt.tex}%
 
-Esta dissertação tem como objetivo melhorar a navegação do utilizador em \gls{VR} quando limitado por pequenos espaços físicos, 
-abordando as limitações das técnicas tradicionais de \glsfirst{RDW} baseadas em portais.  
-Foram desenvolvidas três novas variantes de portais para locomoção em \gls{VR}: Portais Móveis, 
-Portas Interactivas e Portas Giratórias — contribuindo para a investigação de navegação imersiva em \gls{VR} em espaços físicos 
-restritos utilizando ambientes virtuais Não-Euclidianos.  
+Esta dissertação visa melhorar a navegação em \gls{VR} em pequenos espaços físicos, empregando portais como meio de \glsfirst{RDW}.
+Para abordar as limitações atuais dos portais tradicionais utilizados em \gls{VR}, foram concebidas e avaliadas três variantes de 
+portais: Portais Móveis, Portas Interativas e Portas Giratórias.
 
-Aplicações de \gls{VR} permitem aos utilizadores navegar por ambientes virtuais extensos. 
-No entanto, a experiêncida do utilizador é frequentemente limitada pelo espaço físico geralmente disponível para os utilizadores de \gls{VR} 
-(2.4m~x~2.2m). Para superar esta limitação, foram propostas várias técnicas de locomoção em \gls{VR}. Métodos baseados em 
-comandos fornecem uma solução simples, permitindo que os utilizadores naveguem nos mundos virtuais permanecendo imóveis. 
-Contudo, estas abordagens diferem significativamente da caminhada natural no mundo real e têm demonstrado reduzir a sensação de imersão.  
+As aplicações em \gls{VR} permitem a exploração de grandes espaços virtuais, mas a experiência do utilizador é limitada pelos espaços 
+físicos pequenos tipicamente disponíveis para utilizadores (2,4 m ~ x ~ 2,2 m).
+Para abordar esta limitação, foram propostas diversas técnicas de locomoção em \gls{VR}. As técnicas baseadas em comandos 
+(por exemplo, teletransporte) fornecem uma solução simples para este problema, permitindo aos utilizadores navegar em mundos 
+virtuais parados, mas reduzindo a imersão em comparação com a caminhada natural.
+As técnicas de \gls{RDW} que utilizam portais preservam a locomoção natural em espaços confinados,
+mas a sua colocação apresenta desafios: perto de limites, reduzem a pre-visualização dos destinos, enquanto mais 
+distantes correm o risco de parecer artificiais.
+Esta compensação cria uma problema de design entre maximizar o espaço navegável e preservar a naturalidade do ambiente.
 
-As técnicas de \gls{RDW} que dependem de espaços Não Euclidianos sobrepostos criados por portais
-permitem aos utilizadores percorrer grandes ambientes virtuais através de caminhada natural enquanto num espaço físico limitado. 
-Contudo, o uso de portais na navegação 
-em \gls{VR} ainda apresenta desafios de design. Colocar portais próximos das fronteiras de um ambiente virtual economiza espaço físico, 
-mas limita a pré-visualização do destino do portal. Por outro lado, posicionar os portais mais afastados das fronteiras pode resultar em 
-portais flutuantes e pouco naturais. Estes compromissos criam uma tensão de design entre maximizar o espaço navegável e preservar a 
-coerência e a naturalidade do ambiente.  
+Para enfrentar estes desafios,
+foram concebidas, implementadas e estudadas quatro variantes diferentes de portais em \gls{VR}, sendo elas:
+(1) Portais Tradicionais, uma condição base que representa os portais comuns encontrados em aplicações e investigação de \gls{VR};
+(2) Portais Móveis, portais inicialmente posicionados numa parede com uma pre-visualização contínua que os utilizadores podem reposicionar;
+(3) Portas Interativas, portais em forma de porta embutidos numa parede que se abrem interativamente como uma porta real;
+(4) Portas Giratórias, portais que oferecem uma transição contínua entre ambientes através de um movimento circular.
 
-Para enfrentar estes desafios, foram concebidas, implementadas e estudadas quatro técnicas diferentes de locomoção em \gls{VR} usando portais, 
-sendo elas:  
-(1) Portais Tradicionais - uma condição base representando os portais comuns encontrados em aplicações e estudos de \gls{VR};  
-(2) Portais Móveis - portais inicialmente colocados numa parede com pré-visualização contínua que os utilizadores podem reposicionar;  
-(3) Portas Interactivas - portais em forma de porta embutidos numa parede que se abrem de forma interativa, como uma porta real;  
-(4) Portas Giratórias - portais que oferecem uma transição contínua entre salas através de um movimento circular.  
+Um estudo com utilizadores (N=31) avaliou estes quatro designs de portais, com foco na usabilidade, compreensão espacial, 
+imersão e naturalidade. Os resultados sugerem que os designs alternativos abordaram as limitações do portal com 
+sucesso e ajudaram a transmitir uma sensação contínua de espaço, com cada design de portal a revelar os seus pontos fortes.
 
-As técnicas foram avaliadas através de um estudo de utilizador (N=31), focando em usabilidade, 
-compreensão espacial, imersão e naturalidade. Os resultados sugerem que os designs alternativos abordaram 
-com sucesso as limitações dos portais e ajudaram a transmitir uma sensação contínua de espaço, com cada tipo de portal apresentando os seus 
-pontos fortes.  
-
-\textbf{Palavras-chave:} Realidade Virtual, Redirected Walking, Espaços Não Euclidianos, Navegação, Interação Pessoa-Máquina
+\keywords{
+Realidade Virtual \and
+Redirected Walking \and
+Espaços Não Euclidianos \and
+Navegação \and
+Portais \and
+Interação Pessoa-Máquina
+}

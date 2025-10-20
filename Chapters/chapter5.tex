@@ -10,27 +10,32 @@
 
 \chapter{Evaluation}
 \label{cha:evaluation}
-
-In order to compare the developed portal techniques and answer the Research Questions proposed on Section~\ref{sec:objectives-and-researh-questions},
-a user study was conducted. This chapter presents the design and results of this user study, exploring the findings and conclusions on 
+This chapter presents the design and results of this user study, exploring the findings and conclusions on 
 the impact of the developed portal variants on usability, naturalness and spatial understanding.
 
-This chapter begins with Section~\ref{sec:protocol}, which describes the study protocol and experimental procedure adopted to evaluate 
-the proposed portal techniques. 
+This chapter begins with Section~\ref{sec:protocol}, which describes the protocol and experimental procedure of the user study 
+adopted to evaluate the proposed portal designs. 
 Section~\ref{sec:results} presents the results obtained from the study, followed by Section~\ref{sec:discussion}, 
 which discusses these findings, addressing the research questions.
 
-\section{Protocol}
+\section{User Study}
+
+In order to evaluate the developed portal designs and answer the Research Questions proposed on Section~\ref{sec:objectives-and-researh-questions},
+a user study was conducted. 
+As mentioned in Section~\ref{sec:case-study}, a virtual museum tour is used as the case study, with multiple sections each with a 
+self-overlapped architecture with their rooms connected by one of the implemented portal designs.
+
+\subsection{Experiment Setup}
 \label{sec:protocol}
 
 To ensure the validity of the results, the user study was always conducted in the same room, with an available tracking space of 
-approximately 2.5m x 2.5m, providing conditions comparable to those available to most common \gls{VR} users~\cite{}. In addition, 
+approximately 2.5m x 2.5m, providing conditions comparable to those available to most common \gls{VR} users~\cite{Azmandian2015, Liu2018b}. In addition, 
 the same hardware was used across all participants to ensure consistency, being composed of: an \textit{Oculus Quest 3} \glsfirst{HMD} and 
 a computer equipped with an NVIDIA GeForce RTX 3070 graphics card, 16 GB of RAM and an Intel Core i5-9600K CPU.
 
 Each participant experienced the four portal 
-techniques—Traditional Portals, Movable Portals, Interactive Doors, and Revolving Doors—while performing the same tasks within 
-the same \glsfirst{VE}. The only variation between participants was the order in which the portal techniques were presented, which 
+designs~—~Traditional Portals, Movable Portals, Interactive Doors, and Revolving Doors—while performing the same tasks within 
+the same \glsfirst{VE}. The only variation between participants was the order in which the portal variants were presented, which 
 followed a Latin Square design to minimize bias.
 
 \subsection{Procedure}
@@ -48,11 +53,11 @@ information regarding the tasks they were asked to perform.  With the instructio
 
 The \gls{VE} depicted a museum, structured in four thematic sections, each composed of four rooms populated with exhibition items. Every 
 exhibit included an associated quiz and curious fact, designed to encourage engagement and support spatial memory. Each section differed 
-from the others by theme, visual appearance, and the portal technique used to connect the rooms. Additionally, the starting room of each 
+from the others by theme, visual appearance, and the type of portal used to connect the rooms. Additionally, the starting room of each 
 section featured a uniquely colored floor to help participants reorient themselves when asked to return to the starting point 
 (Figure~\ref{fig:layout}).
 
-\begin{figure}[t]
+\begin{figure}[b]
 \centering
 \includegraphics[width=\linewidth]{NOVAthesisFiles/Images/schemes/layout-study.drawio.pdf}
 \caption{Layout of the \gls{VE} of the user study.}
@@ -60,11 +65,11 @@ section featured a uniquely colored floor to help participants reorient themselv
 \end{figure}
 
 Within each section, participants completed three tasks in sequence:  
-\textbf{1.Exploration Task:} The user freely explored the rooms using the section's associated portal technique, aiming to see and respond 
+\textbf{1)~Exploration Task:} The user freely explored the rooms using the section's associated portal design, aiming to see and respond 
 to every exposition items' quiz. After exploring the whole section, the user was asked to return to the starting room.  
-\textbf{2.Spatial Memory Task:} The user was then prompted to point toward an object located in a previously visited room from the starting room. 
+\textbf{2)~Spatial Memory Task:} The user was then prompted to point toward an object located in a previously visited room from the starting room. 
 To reduce memory bias, participants were allowed to revisit the object before returning to the designated location.  
-\textbf{3.Subjective Evaluation:} Finally, the user answered two Likert-scale questions (7-point scale) assessing naturalness and ease 
+\textbf{3)~Subjective Evaluation:} Finally, the user answered two Likert-scale questions (7-point scale) assessing naturalness and ease 
 of use. These questions were presented and answered inside the \gls{VE} to avoid breaks in presence.  
 
 Throughout the session, the experimenter observed and recorded notable behaviors such as hesitations, verbal cues (e.g., “How do I...”), 
@@ -72,8 +77,8 @@ or repeated attempts to interact with portals, as objective indicators of usabil
 
 After completing all four sections, participants removed the \gls{HMD} and filled a post-session questionnaire. This included a post-session 
 Virtual Reality Sickness Questionnaire (VRSQ), am Igroup Presence Questionnaire (IPQ), an Immersive Experience Questionnaire (IEQ), 
-additional Likert-scale items assessing overall usability, a ranking of the four portal techniques by preference, open-ended questions on perceived 
-strengths and weaknesses, and demographic data. Each session lasted approximately 30-45 minutes, depending on the participant's exploration speed.
+additional Likert-scale items assessing overall usability, a ranking of the four portal variants by preference, open-ended questions on perceived 
+strengths and weaknesses, and demographic data. Each session lasted approximately 30–45 minutes, depending on the participant's exploration speed.
 
 
 \subsection{Data Collection}
@@ -82,7 +87,14 @@ strengths and weaknesses, and demographic data. Each session lasted approximatel
 As mentioned, several methods of quantitative and qualitative data were retrieved from this experiment throughout the procedure.  
 For clarity, the collected data are grouped into the following categories:
 
-\textbf{Usability and Naturalness}: To assess subjective user experience, participants rated their agreement with two statements on a 7-point Likert scale (1=Strongly Disagree, 7=Strongly Agree): (1) “I found the transition between rooms natural” and (2) “I found the transition between rooms intuitive / easy to use". To supplement subjective ratings, we captured an objective usability metric by logging usability hesitations. These were defined as any significant pause, verbal expression of confusion, or repeated, incorrect interaction attempts observed by the experimenter.
+\textbf{Usability and Naturalness}: To assess subjective user experience, participants rated their agreement with two statements on a 7-point Likert scale (1=Strongly Disagree, 7=Strongly Agree): 
+
+\begin{enumerate}
+    \item “I found the transition between rooms natural”;
+    \item “I found the transition between rooms intuitive / easy to use"
+\end{enumerate}
+
+To supplement subjective ratings, we captured an objective usability metric by logging usability hesitations. These were defined as any significant pause, verbal expression of confusion, or repeated, incorrect interaction attempts observed by the experimenter.
 
 \textbf{Spatial Understanding}: This was quantified through a pointing task where participants indicated the direction of a target object in a previously visited room. The primary metric was the absolute pointing error, measured in degrees.
 
@@ -123,10 +135,6 @@ results is presented, addressing the Research Questions proposed in Section~\ref
 We analyzed the data from 31 participants (19 male, 11 female, 1 non-binary), with an average age of 22.5 years (SD = 1.75, range 22-28). In terms of educational backgrounds, 64.5\% of participants held a Bachelor's degree, 29\% held a Master’s degree and 6.5\% reported having High School education or equivalent.
 
 Regarding prior experience with \gls{VR}, 3.2\% of participants reported using \gls{VR} frequently(weekly or more), 3.2\% use \gls{VR} monthly, 29\% used \gls{VR} a few times a year, 38.7\% reported using \gls{VR} once or twice and 25.8\% had never used \gls{VR} before.
-
-In terms of playing video-games, 22.6\% of participants reported playing games frequently(daily), 16.1\% play them weekly, 35.5\% play them monthly, 19.4\% reported playing them a few times a year and 6.5\% don't play video-games.
-
-When asked to rate their perceived sense of orientation/direction on a scale of 1 to 5, 35.5\% of participants rated themselves as 4 and another 35.5\% as 3, so most answers clustered on these values. Following this, 12.9\% of participants rated themselves as 5, another 12.9\% as 2 and 3.2\% as 1.
 
 \begin{table}[h]
 \centering
@@ -219,6 +227,9 @@ Daily & 7 \\
 \end{subtable}
 
 \end{table}
+In terms of playing video-games, 22.6\% of participants reported playing games frequently(daily), 16.1\% play them weekly, 35.5\% play them monthly, 19.4\% reported playing them a few times a year and 6.5\% don't play video-games.
+
+When asked to rate their perceived sense of orientation/direction on a scale of 1 to 5, 35.5\% of participants rated themselves as 4 and another 35.5\% as 3, so most answers clustered on these values. Following this, 12.9\% of participants rated themselves as 5, another 12.9\% as 2 and 3.2\% as 1.
 
 \subsection{Spatial Understanding}
 
@@ -233,7 +244,7 @@ The Revolving Door portal was associated with the lowest median pointing error (
 followed with a moderate error (Mdn = 85.62°), and the Interactive Door showed a higher error (Mdn = 120.96°). 
 The Movable Portal produced the highest pointing error by a large margin (Mdn = 165.87°).
 
-\begin{figure}[t]
+\begin{figure}[b]
     \centering
     \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/graphs/angle_difference_plot_with_stats.pdf}
     \caption[Polar plots of the distribution of angular error in the pointing task by portal condition.]
@@ -259,33 +270,32 @@ the Interactive Door Portal (M=5.13, SD=1.38) was rated as significantly more na
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=.6\linewidth]{NOVAthesisFiles/Images/graphs/naturalness_violin_plot.pdf}
+\includegraphics[width=.75\linewidth]{NOVAthesisFiles/Images/graphs/naturalness_violin_plot.pdf}
 \caption{User ratings for Perceived Naturalness.}
 \label{fig:naturalness_results}
 \end{figure}
 
-\begin{figure}[b]
-\centering
-\includegraphics[width=.6\linewidth]{NOVAthesisFiles/Images/graphs/ease_of_use_violin_plot.pdf}
-\caption{User ratings for Perceived Ease-of-Use.}
-\label{fig:ease_of_use_results}
-\end{figure}
 
 \textbf{Ease of Use / Intuitiveness:} We found a highly significant effect of the portal type on perceived ease of use, 
 $\chi$²(3, N=31) = 40.60, p $<$ .001, with results shown in \autoref{fig:ease_of_use_results}. Post-hoc tests revealed a 
 clear hierarchy of usability. The Traditional Portal (M=6.13, SD=1.02) was rated as significantly easier to use than all 
-other techniques: Interactive Door (M=5.19, SD=1.74; p = .0013), Revolving Door (M=4.03, SD=1.56; p $<$ .001), and 
+other variants: Interactive Door (M=5.19, SD=1.74; p = .0013), Revolving Door (M=4.03, SD=1.56; p $<$ .001), and 
 Movable Portal (M=3.84, SD=1.44; p $<$ .001). Furthermore, the Interactive Door Portal was also rated as significantly easier 
 to use than both the Revolving Door (p = .0054) and the Movable Portal (p = .0011). No significant difference was found between 
 the Movable and Revolving Door portals, placing them together in the lowest tier for ease of use.
-
+\begin{figure}[t]
+\centering
+\includegraphics[width=.75\linewidth]{NOVAthesisFiles/Images/graphs/ease_of_use_violin_plot.pdf}
+\caption{User ratings for Perceived Ease-of-Use.}
+\label{fig:ease_of_use_results}
+\end{figure}
 To complement the subjective ratings, we analysed objective usability issues recorded by the experimenter. 
 The number of spoken hesitations (e.g., verbal expressions of confusion) and action-based tries 
 ($e.g.$, incorrect or repeated attempts to use a portal) for each participant were quantified.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=.8\textwidth]{NOVAthesisFiles/Images/graphs/hesitations_stacked_horizontal_plot.pdf}
+\includegraphics[width=\textwidth]{NOVAthesisFiles/Images/graphs/hesitations_stacked_horizontal_plot.pdf}
 \caption{Mean number of usability issues per participant by portal type. The stacked horizontal bars show spoken hesitations (light tone) and action-based tries (bright tone) for each portal type.}
 \label{fig:hesitations_plot}
 \end{figure}
@@ -299,22 +309,22 @@ Tries: M = 0.19) were associated with negligible usability problems.
 
 \subsection{User Preference}
 
-To assess overall preferences, participants ranked the four portal techniques on a scale from 1 (most preferred) to 4 (least preferred) 
+To assess overall preferences, participants ranked the four portal designs on a scale from 1 (most preferred) to 4 (least preferred) 
 on the post-session questionnaire. An initial Friedman test, $\chi$²(3, N=30)= 70.67, p$<$0.001, shows a statistically significant 
-difference in user preference between the four locomotion techniques, indicating that participants did not rank all techniques equally. 
+difference in user preference between the four portal variants, indicating that participants did not rank all portals equally. 
 \autoref{fig:user-preference} shows the results of the preference rankings. Traditional Portals scored the highest, followed by the 
 Interactive Doors, then Revolving Doors, with Movable Portals being ranked the lowest. 
 
-Adjacent comparisons were conducted within each rank based on technique frequency, with only one reaching statistical significance: 
+Adjacent comparisons were conducted within each rank based on frequency, with only one reaching statistical significance: 
 at the 4th rank, Revolving Doors were significantly more likely to be rated least preferred compared to Interactive Doors 
 (p = 0.0153 after Bonferroni correction). Although participants showed a clear preference towards Traditional Portals, this 
 preference missed statistical significance when compared to the Interactive Doors(p = 0.0169 vs adjusted $\alpha$ = 0.0167), 
-the second most top-ranked technique.
+the second most top-ranked portal design.
 
-\begin{figure}[t]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.65\textwidth]{NOVAthesisFiles/Images/graphs/scenario_preference_plot.pdf}
-    \caption[Participants preference rankings over portal techniques.]
+    \includegraphics[width=\textwidth]{NOVAthesisFiles/Images/graphs/scenario_preference_plot.pdf}
+    \caption[Participants preference rankings over portal variants.]
     {Participant preference rankings for the four interaction scenarios.}
     \label{fig:user-preference}
 \end{figure}
@@ -399,12 +409,12 @@ open-ended questions in the post-session questionnaire. We also collected volunt
 During the Traditional Portal section, participants expressed some dissatisfaction with having to walk around the portals to preview 
 the next room before entering. Concerns were also raised about getting lost or forgetting which rooms they had already visited. 
 Despite these issues, most participants justified their preference for Traditional Portals by describing them as "the easiest to use" 
-and "most natural". Several participants noted that this technique provided the closest experience to a real museum, as "in a real museum, 
+and "most natural". Several participants noted that this portal design provided the closest experience to a real museum, as "in a real museum, 
 you only have to pass through a doorway to move to the next room".
 
 Regarding the Movable Portal, some participants reported feelings of confusion (e.g., "What am I supposed to do?", "Did I do that?") 
 or discomfort (e.g., "This feels weird.", "Don't spin!"(speaking to the portal)), while others expressed amusement and enjoyment 
-(e.g., "This is fun!", "I can move it? How cool!"). Participants that preferred this technique overall
+(e.g., "This is fun!", "I can move it? How cool!"). Participants that preferred this portal over all
 appreciated the sense of control from being able to move the portal. The steep learning curve and higher effort required were frequently 
 cited drawbacks.
 
@@ -415,22 +425,22 @@ confusion regarding the portal's movement, noting that it follows the door as it
 
 Initial interactions with the Revolving Door were challenging, with participants asking questions such as "Am I supposed to pull 
 it or push it?" and "I was seeing where I was going... but now I don't?" or expressing general confusion (e.g., "This is weird."). 
-However, by the end of the session, participants reported greater comfort with the technique (e.g., "After understanding it, it was easy.").
+However, by the end of the session, participants reported greater comfort with the design (e.g., "After understanding it, it was easy.").
 While the steep learning curve was frequently mentioned as a drawback in the questionnaire, several participants who preferred the Revolving
 Door highlighted its fun and immersive qualities.
 
 \section{Discussion}
 \label{sec:discussion}
 
-The main goal of the presented work was to evaluate four \gls{VR} locomotion techniques based on natural walking with portals, 
+The main goal of the presented work was to evaluate four portal variants as a way to redirect walking within small physical spaces, 
 focusing on their impact on usability, spatial understanding, and user preference. The findings from the study with 31 participants 
 provided insights into these aspects of \gls{UX}, allowing the purpose of this study to be addressed by tackling the research questions 
 defined in Section~\ref{sec:objectives-and-researh-questions}.
 
 In this section, the research questions are addressed through the presentation and discussion of the insights gained from the user study.
 
-\todo{Estas perguntas deviam ser mini-títulos como na tese da Rita}
-\textbf{Q1 - What are the effects of a dynamic preview in regard to users' sense of space?}
+\noindent
+\textbf{Q1 -- What are the effects of a dynamic preview in regard to users' sense of space?}
 
 The pointing task, performed at the end of every section of the virtual museum, was designed to address this issue, by providing a better 
 insight into how the participants perceived space. The results reveal nuanced differences in how each portal design affects the perception 
@@ -438,7 +448,7 @@ users have of the layout of the \gls{VE}, but highlights a big difference betwee
 
 The results of the pointing task in the Traditional Portal section present the lowest variation in angular error, with most responses 
 clustering around a median of 85.62\textdegree. This angle closely corresponds to the position of the object in the overlapping 
-architecture. In contrast, responses for the other techniques were more widely dispersed, as answers no longer clustered on the same 
+architecture. In contrast, responses for the other portal variants were more widely dispersed, as answers no longer clustered on the same 
 position. Several participants utilized the preview capabilities of the portal variants when prompted to point towards the object, pointing 
 at the object through the portal's preview. 
 
@@ -447,7 +457,8 @@ relied on the preview features to inform their spatial judgments, indicating tha
 the sense of spatial continuity.
 
 
-\textbf{Q2 - What elements of \gls{UX} do users prioritize when interacting with these navigation techniques?}
+\noindent
+\textbf{Q2 -- What elements of \gls{UX} do users prioritize when interacting with these navigation techniques?}
 
 The results of the study suggest that participants primarily prioritized ease of use and naturalness when interacting with the different 
 portal designs. The preference rankings reveal that a majority of participants preferred to use the Traditional Portals and the 
@@ -463,10 +474,10 @@ perception of continuous space they provided, were generally hindered by steeper
 Taken together, these findings indicate that users tend to value straightforward, familiar, and low-effort interactions above more complex 
 mechanics that may enhance spatial continuity but reduce immediate usability. 
 
+\noindent
+\textbf{Q3 -- What are the navigation benefits of each portal design in small spaces?} 
 
-\textbf{Q3 - What are the strong points for each of these techniques, in regard to \gls{VE} navigation?} 
-
-Through the commentary and experience observed in this study, it was possible to conclude that each portal technique 
+Through the commentary and experience observed in this study, it was possible to conclude that each portal design 
 presented distinct strengths for \gls{VE} navigation. 
 
 Traditional Portals stood out for their simplicity and reliability, being mostly praised for their ease of use and efficiency. 
@@ -475,12 +486,18 @@ how space was experienced, which some users found engaging and empowering despit
 Interactive Doors were valued for their intuitive and immersive interaction, as the door-opening mechanic resembled a 
 familiar real-world action and contributed to a natural sense of transition between rooms. 
 Revolving Doors, while initially less intuitive, were highlighted for providing the smoothest feeling of spatial continuity, 
-with their guided redirection enhancing the perception of flow across rooms once participants became accustomed to the technique.
+with their guided redirection enhancing the perception of flow across rooms once participants became accustomed to the portal.
+
+With these observations, the study achieved its goal of evaluating four portal variants as a means of enabling redirected walking 
+in small physical spaces. 
+By addressing the three research questions, it demonstrated that dynamic previews can enhance users' sense of spatial continuity, 
+that ease of use and naturalness are the most valued aspects of interaction, and that each portal design offers unique navigation 
+benefits suited to different contexts.
 
 \section{Summary}
 \label{sec:summary}
 
-This chapter presented the evaluation of the developed portal-based locomotion techniques through a user study with 31 
+This chapter presented the evaluation of the developed portals variants through a user study with 31 
 participants. 
 
 The study protocol, procedure, and data collection methods were described, combining subjective questionnaires, objective performance measures, 
@@ -489,12 +506,12 @@ the Igroup Presence Questionnaire (IPQ), and the Immersive Experience Questionna
 items on ease of use and naturalness answered within the \gls{VE}. 
 Objective measures focused on pointing angles in the spatial understanding task 
 and observed usability hesitations, both spoken and action-based. Qualitative feedback was gathered through 
-post-session open-ended questions, participant rankings of portal techniques, and spontaneous comments or 
+post-session open-ended questions, participant rankings of portal variants, and spontaneous comments or 
 behaviors observed during the experience.
 
 Results highlighted clear differences 
 between portal designs in terms of spatial understanding, usability, naturalness, and user preference, as well as 
 their influence on presence and cybersickness. This chapter was finalized with a discussion that connected these findings to the research 
-questions, outlining the strengths and limitations of each technique and their implications for \gls{VR} navigation 
+questions, outlining the strengths and limitations of each design and their implications for \gls{VR} navigation 
 design.
 
